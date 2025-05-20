@@ -18,7 +18,7 @@ page_css:
 
 {% include feature_row type="full" items=site.data.resume.experience %}
 
-### 🏢 **NAMLA** (Jun '23 - Dec '23) – MLOps and LLMs Intern 
+### **NAMLA** (Jun '23 - Dec '23) – MLOps and LLMs Intern 
 <img src="/assets/images/icon-namla.svg" alt="Namla logo">
 
 
@@ -76,7 +76,7 @@ Designed and implemented a full-stack solution to generate structured training a
 
 
 
-### ⚡ EDF R\&D Labs (Oct '24 – Present) - LLM Engineer 
+### EDF R&D Labs (Oct '24 – Present) - LLM Engineer 
 {: .text-left}
 <img src="/assets/images/icon-edf.svg" alt="EDF R&D logo">
 
