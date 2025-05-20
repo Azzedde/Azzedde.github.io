@@ -22,7 +22,7 @@ page_css:
 <img src="/assets/images/icon-namla.svg" alt="Namla logo">
 
 
-#### 🧠 Project 1: Shoplifting Detection System
+#### Project 1: Shoplifting Detection System
 
 Designed and developed an **end-to-end real-time shoplifting detection system** using a 3D CNN model, optimized with **OpenVINO** for edge deployment.
 
@@ -31,7 +31,7 @@ Designed and developed an **end-to-end real-time shoplifting detection system** 
 * Focused on design-system principles for scalable deployment in smart retail contexts.
   📄 [Technical Report](https://nebulous-join-9f9.notion.site/Technical-Report-on-Shoplifting-cd59aa32a4074377978bfd5e02c81746?pvs=4) | [Blog Post](https://nebulous-join-9f9.notion.site/Technical-Blog-Post-caf0ce3bb6704950bb05a4a89f064f72)
 
-#### 🤖 Project 2: LLM-Powered Assistant for DevOps
+#### Project 2: LLM-Powered Assistant for DevOps
 
 Contributed to the development of a **LangChain-based intelligent assistant** designed to help Namla’s technical team handle complex tasks via natural language.
 
@@ -45,12 +45,11 @@ Contributed to the development of a **LangChain-based intelligent assistant** de
 ### EURECOM (Jan '24 – Jun '24) – Research Intern (Final Year Engineering Project)
 {: .text-left}
 <img src="/assets/images/icon-eurecom.svg" alt="EURECOM logo">
-#### 🧪 Project: Fine-Tuning Domain-Specific LLMs for 5G Networks
 
 Led the full lifecycle of an applied research project that bridges **telecommunications and generative AI**, culminating in a **published paper** and an **open-source pipeline**.
 
 
-#### 🔧 **5G Instruct Forge: Data Engineering Pipeline for LLM Fine-Tuning**
+#### **5G Instruct Forge: Data Engineering Pipeline for LLM Fine-Tuning**
 
 Designed and implemented a full-stack solution to generate structured training and evaluation datasets from unstructured 3GPP technical documents.
 
@@ -60,13 +59,13 @@ Designed and implemented a full-stack solution to generate structured training a
   📂 [GitLab – 5G Instruct Forge](https://gitlab.eurecom.fr/netsoft/5g-instruct-forge) | 🤗 [Hugging Face](https://huggingface.co/Netsoft)
 
 
-#### 🧠 **Training and Evaluation of 5G-Aware LLMs**
+#### **Training and Evaluation of 5G-Aware LLMs**
 
 * Fine-tuned multiple **open-source LLMs** on domain-specific datasets using **instruction-tuning**, demonstrating superior performance on 5G-specific reasoning tasks compared to GPT-4.
 * Conducted a **comprehensive evaluation** benchmark with custom tasks extracted from 3GPP, creating a solid framework for future telecom-specific LLM research.
 
 
-#### 📚 **Research & Presentation**
+#### **Research & Presentation**
 
 * Conducted a **literature review** covering domain adaptation of LLMs, instruction tuning, and 5G/6G text sources.
 * Co-authored a peer-reviewed research paper, published in IEEE Transactions on Cognitive Communications and Networking, presenting the full methodology, pipeline, and experimental results.
@@ -80,17 +79,17 @@ Designed and implemented a full-stack solution to generate structured training a
 {: .text-left}
 <img src="/assets/images/icon-edf.svg" alt="EDF R&D logo">
 
-#### 🤖 LLM & RAG-based Conversational Agents
+#### LLM & RAG-based Conversational Agents
 
 * Developed **domain-specific chatbots** using **Retrieval-Augmented Generation (RAG)** and **Large Language Models (LLMs)** to assist internal teams with natural language queries over complex technical documents.
 * Integrated and tested both **proprietary** and **open-source LLMs**, ensuring they could process and reason over enterprise data.
 
-#### 🧪 Evaluation of Multimodal Generative AI Systems
+#### Evaluation of Multimodal Generative AI Systems
 
 * Benchmarked **state-of-the-art multimodal AI systems** for tasks such as document information extraction and summarization.
 * Defined use-case-specific evaluation criteria to assess performance and suitability for internal deployment.
 
-#### 🧠 Research, Prototyping & Fine-Tuning
+#### Research, Prototyping & Fine-Tuning
 
 * Conducted **literature reviews** and **technological watch** on generative AI trends throughout the year.
 * Fine-tuned LLMs for EDF-specific use cases when needed and contributed to internal tools for automating benchmarking and report generation.
