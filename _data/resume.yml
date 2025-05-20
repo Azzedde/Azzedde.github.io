@@ -1,0 +1,31 @@
+timeline:
+  - title: "École Nationale Supérieure d’Informatique, Algiers"
+    description: "Computer Engineering Degree"
+    date: "2019 – 2024"
+  - title: "Université Paris-Saclay, Orsay"
+    description: "M2 Data Science"
+    date: "2024 – 2025"
+
+experience:
+  - image: /assets/logos/eurecom.svg
+    title: "LLM Research Intern"
+    subtitle: "EURECOM"
+    date: "Sep '23 – Jun '24"
+    excerpt: "Built 97k prompt pairs from 3GPP specs."
+  - image: /assets/logos/codelabs.svg
+    title: "Data Science Instructor"
+    subtitle: "CodeLabs Academy"
+    date: "Jan '24 – Present"
+    excerpt: "Custom slide decks & notebooks."
+
+awards:
+  - "Mediterranean Math Olympiads ’17 & ’18"
+  - "Kaggle Expert"
+  - "DataCamp 140K"
+research:
+  - image_path: /assets/images/research1.jpg
+    title: "LLM Research"
+    excerpt: "Published work on prompt engineering for telecom specifications"
+  - image_path: /assets/images/research2.jpg
+    title: "Data Science Education"
+    excerpt: "Research on effective teaching methods for career switchers"

@@ -1,0 +1,62 @@
+<div class="timeline">
+  <div class="timeline__line"></div>
+  <div class="timeline__items">
+    {% for item in include.items %}
+    <div class="timeline__item">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+      <span class="timeline__date">{{ item.date }}</span>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline__line {
+  position: absolute;
+  width: 2px;
+  background: #007bff;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.timeline__items {
+  position: relative;
+}
+
+.timeline__item {
+  position: relative;
+  margin-bottom: 30px;
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.timeline__item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline__item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline__date {
+  display: block;
+  font-size: 0.9em;
+  color: #666;
+}
+</style>
