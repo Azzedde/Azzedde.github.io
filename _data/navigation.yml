@@ -6,7 +6,7 @@ main:
     url: /resume/
   - title: "My Code"
     url: /code-contribution/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
+  - title: "Hackathons"
+    url: /hackathons/
   # - title: "Sample Collections"
   #   url: /collection-archive/
