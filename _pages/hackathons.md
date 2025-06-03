@@ -79,6 +79,8 @@ permalink: /hackathons/
 
 </div>
 
+## Hardcore AI Hackathon in Berlin
+
 <div class="project-entry"> 
 <div class="project-images"> 
 <img src="/assets/images/hackathon4-1.jpg" alt="Celebrating our victory at the Hardcore AI Hackathon"> 
