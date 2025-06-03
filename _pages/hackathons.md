@@ -78,3 +78,19 @@ permalink: /hackathons/
   </div>
 
 </div>
+
+<div class="project-entry"> 
+<div class="project-images"> 
+<img src="/assets/images/hackathon4-1.jpg" alt="Celebrating our victory at the Hardcore AI Hackathon"> 
+</div> 
+<div class="project-details"> <p> At The Delta Campus in Berlin, my team (Ahmed SIDI AHMED, Nazim Keskes, Imad KENAI, Ilyes Djerfaf, and I) dove into SEMRON’s Software Challenge: optimizing neural networks under binary hashing constraints. Over 24 hours, we focused on compressing layers to balance memory efficiency with inference accuracy. </p> 
+
+<img src="/assets/images/hackathon4-2.jpg" alt="Team at work optimizing neural networks"> 
+<ul> <li><strong>Outcome:</strong> 🏆 1st place out of 100+ participants, achieving top scores for both compression ratio and retained accuracy.</li> <li><strong>Skills gained:</strong> Neural network quantization, binary hashing techniques, large-scale GPU orchestration using dstack and RunPod.</li> <li><strong>Key moments:</strong> <ul> <li>Guidance from SEMRON’s Alexander Lowa and Tilmann Bartsch on hardware-aware model design.</li> <li>Strategic resource management—midnight CUDA debugging sessions powered by RunPod credits.</li> <li>Real-time trade-off analysis between model size and inference latency.</li> </ul> </li> <li><strong>Shoutouts:</strong> <ul> <li>Gustaw Malinowski’s energy—his team won the hardware track.</li> <li>Luan Wei’s insights on research workflows.</li> <li>Bernadetta Nycz’s UI/UX tips for presenting results.</li> <li>Reza Hedeshi’s VC perspective on scalable AI infrastructure.</li> </ul> </li> </ul> <p><a href="#">Project details coming soon</a></p> </div> </div>
+
+
+
+
+
+
+
