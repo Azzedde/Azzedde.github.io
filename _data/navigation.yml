@@ -8,5 +8,7 @@ main:
     url: /code-contribution/
   - title: "Hackathons"
     url: /hackathons/
+  - title: "Blog Posts"
+    url: /blog-posts/
   # - title: "Sample Collections"
   #   url: /collection-archive/

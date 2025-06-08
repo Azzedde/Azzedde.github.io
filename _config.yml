@@ -20,8 +20,8 @@ rtl                      : # true, false (default) # turns direction of the page
 title                    : "I Code, Therefore I Am"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Azzedine"
-description              : "An amazing website."
+name                     : "AIT SAID Azzedine Idir"
+description              : "My personal website, where I share my projects, code contributions, and blog posts."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -113,7 +113,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Azzedine"
+  name             : "AIT SAID Azzedine Idir"
   avatar           : "/assets/images/avatar.jpg"
   bio              : "Just another believer that sky is not the limit."
   location         : "Ile-de-France, France"
