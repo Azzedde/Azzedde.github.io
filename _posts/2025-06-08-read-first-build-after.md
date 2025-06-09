@@ -3,6 +3,9 @@ layout: single
 title: "Read first, build after !"
 date: 2025-06-08 12:00:00 +0200
 categories: general
+excerpt: >
+  A critique of the “build to learn” mindset on LinkedIn and tips for
+  learning without paying for bootcamps.
 ---
 
 

@@ -7,3 +7,28 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+/* container for all pills, so we can give it a little margin */
+.post-cats {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-top: 0.6em;
+}
+
+/* the little badge style */
+.cat-pill {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  font-size: 0.85em;
+  font-weight: 500;
+  background-color: #e0f2f1;        /* minty light */
+  color: #00796b;                   /* teal dark */
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color .2s;
+}
+
+.cat-pill:hover {
+  background-color: #b2dfdb;        /* darker mint on hover */
+}
