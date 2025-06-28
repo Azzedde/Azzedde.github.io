@@ -12,7 +12,7 @@ The question first hit me on a summer morning when I was six (yes I remember thi
 Why me? Why this specific face staring back? What were the odds I wasn't born in another country, with entirely different DNA, looking nothing like this? What if I had different parents, went to a different school, and knew a completely different set of people? Why this particular life, right now?
 We didn't have a computer or internet back then, so my childish curiosity went unanswered. But honestly, I don't think a search engine would have helped. This question became a quiet torment for years. The more I wrestled with "Why me?", the more a deeper, more fundamental question surfaced, teaming up with the first to battle my mind. My parents, bless them, would tell me to stop thinking about questions that even philosophers couldn't answer. That second question was, of course: "Who am I?"
 
-<img src="assets/images/who_am_i.png" alt="Small kid telling himself who am I ?"> 
+<img src="/assets/images/who_am_i.png" alt="Small kid telling himself who am I ?"> 
 
 If I didn't know who I was in the first place, how could I possibly understand why I was? I couldn't answer either, so eventually, I let it go and focused more on watching cartoons and studying.
 But here I am, 18 years later. I still don't have the answer, but I'm no longer letting the question go. Instead, I'm writing down everything I've searched for, discovered, and read. I've come to believe that you can't truly be successful or do great things without a clear sense of who you are—your limits, your strengths, what you love, and what you can't stand. No one can know themselves 100%, of course. The journey of self-discovery is about chipping away at the iceberg, understanding what we can, and being okay with the vast, hidden parts that our subconscious holds onto.
@@ -35,7 +35,7 @@ On the complete opposite side of the ring is the psychological approach. This vi
 The classic champion of this idea is the philosopher **John Locke**. He famously proposed a thought experiment: if the consciousness of a prince were transferred into the body of a cobbler, the resulting person would still be the prince, because they would have the prince's memories and experiences. For Locke, your mind—that abstract collection of memories and awareness—is more fundamental to your identity than the body it happens to inhabit.
 This can remind us of one famous law principle, the reason you can be held accountable for an action committed years ago is that we assume a continuous chain of consciousness links you to the person who performed it. In the eyes of the law, you are one and the same.
 
-<img src="assets/images/who_am_i_1.png" alt="The two answers to the diachronic identity problem"> 
+<img src="/assets/images/who_am_i_1.png" alt="The two answers to the diachronic identity problem"> 
 
 
 ### What psychology says on this
