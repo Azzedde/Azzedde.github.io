@@ -4,7 +4,7 @@ title: "Who are you ?"
 date: 2025-06-28 23:17:46 +0200
 categories: philosophy
 excerpt: >
-
+  Tried to answer one of the most difficult questions in existence (in my opinion)
 ---
 
 The question first hit me on a summer morning when I was six (yes I remember this so well !). I remember waking up in our very first house—the one that still holds all the good memories—and wandering into the bathroom. I saw myself in the mirror and just... stopped. It wasn't about liking or disliking what I saw; it was a sudden, overwhelming sense of sheer randomness.
