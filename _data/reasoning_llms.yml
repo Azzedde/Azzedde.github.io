@@ -1,0 +1,498 @@
+# Reasoning LLM Explorer Data - Survey Papers Taxonomy
+# Based on 7-class structure: Overview, Prompting, Training, Logic, Domain-Specific, Agentic, Evaluation
+
+nodes:
+  # Root node
+  - id: "reasoning_root"
+    type: "root"
+    title: "Reasoning with Large Language Models"
+    description: "Comprehensive survey landscape of reasoning capabilities in LLMs"
+    x: 400
+    y: 50
+    
+  # Class 1: Foundational Overviews & Taxonomies
+  - id: "overview"
+    type: "category"
+    parent: "reasoning_root"
+    title: "Foundational Overviews & Taxonomies"
+    description: "Big-picture surveys that map the entire reasoning-LLM landscape"
+    x: 100
+    y: 200
+    
+  - id: "plaat-2024"
+    type: "paper"
+    parent: "overview"
+    title: "Reasoning with Large Language Models"
+    authors: ["Plaat et al."]
+    year: 2024
+    venue: "arXiv"
+    summary: "Comprehensive overview of reasoning capabilities in large language models, covering various approaches and methodologies."
+    category: "overview"
+    link: "https://arxiv.org/pdf/2407.11511"
+    tags: ["Survey", "Overview", "Reasoning", "LLM"]
+    x: 50
+    y: 300
+    
+  - id: "huang-2023"
+    type: "paper"
+    parent: "overview"
+    title: "Towards Reasoning in Large Language Models"
+    authors: ["Huang & Chang"]
+    year: 2023
+    venue: "arXiv"
+    summary: "Foundational survey exploring the path towards enhanced reasoning capabilities in large language models."
+    category: "overview"
+    link: "https://arxiv.org/abs/2212.10403"
+    tags: ["Survey", "Reasoning", "Foundation"]
+    x: 150
+    y: 300
+    
+  - id: "sun-2024"
+    type: "paper"
+    parent: "overview"
+    title: "A Survey of Reasoning with Foundation Models"
+    authors: ["Sun et al."]
+    year: 2024
+    venue: "arXiv"
+    summary: "Comprehensive survey of reasoning approaches across foundation models, providing taxonomic overview."
+    category: "overview"
+    link: "https://arxiv.org/abs/2312.11562"
+    tags: ["Foundation Models", "Survey", "Taxonomy"]
+    x: 250
+    y: 300
+    
+  - id: "li-2025"
+    type: "paper"
+    parent: "overview"
+    title: "From System 1 to System 2"
+    authors: ["Li et al."]
+    year: 2025
+    venue: "arXiv"
+    summary: "Theoretical framework connecting dual-process theory to LLM reasoning capabilities."
+    category: "overview"
+    link: "https://arxiv.org/abs/2502.17419"
+    tags: ["Dual Process", "System 1", "System 2", "Theory"]
+    x: 350
+    y: 300
+
+  # Class 2: Prompt & Inference-Time Strategies
+  - id: "prompting"
+    type: "category"
+    parent: "reasoning_root"
+    title: "Prompt & Inference-Time Strategies"
+    description: "Techniques for eliciting reasoning at test time through prompting"
+    x: 300
+    y: 200
+    
+  - id: "bandyopadhyay-2024"
+    type: "paper"
+    parent: "prompting"
+    title: "Thinking Machines: LLM-based Reasoning Strategies"
+    authors: ["Bandyopadhyay et al."]
+    year: 2024
+    venue: "arXiv"
+    summary: "Survey of reasoning strategies and prompting techniques for large language models."
+    category: "prompting"
+    link: "https://arxiv.org/pdf/2501.09686"
+    tags: ["Prompting", "Strategies", "Chain-of-Thought"]
+    x: 250
+    y: 400
+    
+  - id: "chen-2025-longcot"
+    type: "paper"
+    parent: "prompting"
+    title: "Towards Reasoning Era: Long Chain-of-Thought"
+    authors: ["Chen et al."]
+    year: 2025
+    venue: "arXiv"
+    summary: "Exploration of extended chain-of-thought reasoning for complex problem solving."
+    category: "prompting"
+    link: "https://arxiv.org/pdf/2502.15652"
+    tags: ["Chain-of-Thought", "Long Reasoning", "Complex Problems"]
+    x: 350
+    y: 400
+    
+  - id: "patil-2024"
+    type: "paper"
+    parent: "prompting"
+    title: "Advancing Reasoning in LLMs"
+    authors: ["Patil & Jadon"]
+    year: 2024
+    venue: "ACM"
+    summary: "Comprehensive review of prompting strategies for advancing reasoning capabilities."
+    category: "prompting"
+    link: "https://dl.acm.org/doi/pdf/10.1145/3729218"
+    tags: ["Prompting", "Reasoning Advancement", "Strategies"]
+    x: 450
+    y: 400
+
+  # Class 3: Learning-to-Reason & Post-Training
+  - id: "training"
+    type: "category"
+    parent: "reasoning_root"
+    title: "Learning-to-Reason & Post-Training"
+    description: "Training and fine-tuning approaches for better reasoning"
+    x: 500
+    y: 200
+    
+  - id: "ke-2024-frontiers"
+    type: "paper"
+    parent: "training"
+    title: "A Survey of Frontiers in LLM Reasoning"
+    authors: ["Ke et al."]
+    year: 2024
+    venue: "arXiv"
+    summary: "Survey covering inference scaling and learning-to-reason approaches in LLMs."
+    category: "training"
+    link: "https://arxiv.org/pdf/2503.10814"
+    tags: ["Frontiers", "Learning", "Inference Scaling"]
+    x: 450
+    y: 500
+    
+  - id: "xu-2024-reinforced"
+    type: "paper"
+    parent: "training"
+    title: "Towards Large Reasoning Models: Reinforced Reasoning"
+    authors: ["Xu et al."]
+    year: 2024
+    venue: "arXiv"
+    summary: "Reinforcement learning approaches for developing large-scale reasoning models."
+    category: "training"
+    link: "https://arxiv.org/pdf/2212.10403"
+    tags: ["Reinforcement Learning", "Large Models", "Training"]
+    x: 550
+    y: 500
+    
+  - id: "kumar-2024-posttrain"
+    type: "paper"
+    parent: "training"
+    title: "LLM Post-Training: A Deep Dive"
+    authors: ["Kumar et al."]
+    year: 2024
+    venue: "arXiv"
+    summary: "Comprehensive analysis of post-training techniques for enhancing LLM reasoning."
+    category: "training"
+    link: "https://arxiv.org/pdf/2503.09567"
+    tags: ["Post-Training", "Fine-tuning", "Enhancement"]
+    x: 650
+    y: 500
+    
+  - id: "feng-2025-efficient"
+    type: "paper"
+    parent: "training"
+    title: "Efficient Reasoning Models"
+    authors: ["Feng et al."]
+    year: 2025
+    venue: "ACM"
+    summary: "Survey of efficient training methods for compact reasoning models."
+    category: "training"
+    link: "https://dl.acm.org/doi/pdf/10.1145/3664194"
+    tags: ["Efficiency", "Compact Models", "Training"]
+    x: 750
+    y: 500
+
+  # Class 4: Logical & Formal Reasoning
+  - id: "logic"
+    type: "category"
+    parent: "reasoning_root"
+    title: "Logical & Formal Reasoning"
+    description: "Deductive, inductive, and formal logic reasoning approaches"
+    x: 700
+    y: 200
+    
+  - id: "cheng-2023"
+    type: "paper"
+    parent: "logic"
+    title: "Empowering LLMs with Logical Reasoning"
+    authors: ["Cheng et al."]
+    year: 2023
+    venue: "arXiv"
+    summary: "Survey of methods for enhancing logical reasoning capabilities in LLMs."
+    category: "logic"
+    link: "https://arxiv.org/pdf/2502.03671"
+    tags: ["Logical Reasoning", "Formal Logic", "Enhancement"]
+    x: 650
+    y: 300
+    
+  - id: "liu-2025"
+    type: "paper"
+    parent: "logic"
+    title: "Logical Reasoning in LLMs"
+    authors: ["Liu et al."]
+    year: 2025
+    venue: "arXiv"
+    summary: "Comprehensive analysis of logical reasoning patterns and capabilities in LLMs."
+    category: "logic"
+    link: "https://arxiv.org/pdf/2504.10903"
+    tags: ["Logic", "Reasoning Patterns", "Analysis"]
+    x: 750
+    y: 300
+    
+  - id: "yu-2024-nlr"
+    type: "paper"
+    parent: "logic"
+    title: "Natural Language Reasoning"
+    authors: ["Yu et al."]
+    year: 2024
+    venue: "arXiv"
+    summary: "Survey of natural language reasoning approaches and formal logic integration."
+    category: "logic"
+    link: "https://arxiv.org/pdf/2401.06805"
+    tags: ["Natural Language", "Formal Logic", "Integration"]
+    x: 850
+    y: 300
+
+  # Class 5: Domain-Specific Reasoning
+  - id: "domain"
+    type: "category"
+    parent: "reasoning_root"
+    title: "Domain-Specific Reasoning"
+    description: "Reasoning in specialized domains like math, code, and multimodal"
+    x: 900
+    y: 200
+    
+  - id: "ahn-2025-math"
+    type: "paper"
+    parent: "domain"
+    title: "Large Language Models for Mathematical Reasoning"
+    authors: ["Ahn et al."]
+    year: 2025
+    venue: "arXiv"
+    summary: "Comprehensive survey of mathematical reasoning capabilities and techniques in LLMs."
+    category: "domain"
+    link: "https://arxiv.org/pdf/2404.01869"
+    tags: ["Mathematics", "Domain-Specific", "Problem Solving"]
+    x: 850
+    y: 400
+    
+  - id: "wang-2024-multimodal"
+    type: "paper"
+    parent: "domain"
+    title: "EXPLORING ... Multimodal LLMs"
+    authors: ["Wang et al."]
+    year: 2024
+    venue: "arXiv"
+    summary: "Survey of reasoning capabilities in multimodal large language models."
+    category: "domain"
+    link: "https://arxiv.org/pdf/2502.21321"
+    tags: ["Multimodal", "Vision-Language", "Cross-Modal"]
+    x: 950
+    y: 400
+
+  # Class 6: Agentic & Strategic Reasoning Systems
+  - id: "agentic"
+    type: "category"
+    parent: "reasoning_root"
+    title: "Agentic & Strategic Reasoning"
+    description: "Multi-agent systems and strategic reasoning frameworks"
+    x: 100
+    y: 600
+    
+  - id: "zhang-2024-mastermind"
+    type: "paper"
+    parent: "agentic"
+    title: "LLM as a Mastermind: Strategic Reasoning"
+    authors: ["Zhang et al."]
+    year: 2024
+    venue: "arXiv"
+    summary: "Survey of strategic reasoning and game-theoretic approaches in LLMs."
+    category: "agentic"
+    link: "https://arxiv.org/pdf/2502.09100"
+    tags: ["Strategic Reasoning", "Game Theory", "Planning"]
+    x: 50
+    y: 700
+    
+  - id: "ferrag-2025-agents"
+    type: "paper"
+    parent: "agentic"
+    title: "From LLM Reasoning to Autonomous AI Agents"
+    authors: ["Ferrag et al."]
+    year: 2025
+    venue: "ResearchGate"
+    summary: "Survey of autonomous agent frameworks and multi-agent reasoning systems."
+    category: "agentic"
+    link: "https://arxiv.org/pdf/2504.19678"
+    tags: ["Autonomous Agents", "Multi-Agent", "Planning"]
+    x: 150
+    y: 700
+
+  - id: "ferrag-2025-agents"
+    type: "paper"
+    parent: "agentic"
+    title: "Understanding the planning of LLM agents: A survey"
+    authors: ["Ferrag et al."]
+    year: 2025
+    venue: "ResearchGate"
+    summary: "Survey of autonomous agent frameworks and multi-agent reasoning systems."
+    category: "agentic"
+    link: "https://www.researchgate.net/publication/380756642_Understanding_the_planning_of_LLM_agents_A_survey"
+
+  # Class 7: Evaluation & Benchmarks
+  - id: "evaluation"
+    type: "category"
+    parent: "reasoning_root"
+    title: "Evaluation & Benchmarks"
+    description: "Benchmarks and evaluation methodologies for reasoning"
+    x: 300
+    y: 600
+    
+  - id: "mondorf-2024-beyondacc"
+    type: "paper"
+    parent: "evaluation"
+    title: "Beyond Accuracy: Evaluating the Reasoning Behaviour"
+    authors: ["Mondorf & Plank"]
+    year: 2024
+    venue: "arXiv"
+    summary: "Survey of evaluation methodologies and benchmarks for assessing reasoning behavior."
+    category: "evaluation"
+    link: "https://arxiv.org/pdf/2402.00157"
+    tags: ["Evaluation", "Benchmarks", "Reasoning Assessment"]
+    x: 300
+    y: 700
+
+edges:
+  # Root to categories
+  - id: "root-overview"
+    source: "reasoning_root"
+    target: "overview"
+    type: "smoothstep"
+    
+  - id: "root-prompting"
+    source: "reasoning_root"
+    target: "prompting"
+    type: "smoothstep"
+    
+  - id: "root-training"
+    source: "reasoning_root"
+    target: "training"
+    type: "smoothstep"
+    
+  - id: "root-logic"
+    source: "reasoning_root"
+    target: "logic"
+    type: "smoothstep"
+    
+  - id: "root-domain"
+    source: "reasoning_root"
+    target: "domain"
+    type: "smoothstep"
+    
+  - id: "root-agentic"
+    source: "reasoning_root"
+    target: "agentic"
+    type: "smoothstep"
+    
+  - id: "root-evaluation"
+    source: "reasoning_root"
+    target: "evaluation"
+    type: "smoothstep"
+
+  # Overview category papers
+  - id: "overview-plaat"
+    source: "overview"
+    target: "plaat-2024"
+    type: "smoothstep"
+    
+  - id: "overview-huang"
+    source: "overview"
+    target: "huang-2023"
+    type: "smoothstep"
+    
+  - id: "overview-sun"
+    source: "overview"
+    target: "sun-2024"
+    type: "smoothstep"
+    
+  - id: "overview-li"
+    source: "overview"
+    target: "li-2025"
+    type: "smoothstep"
+
+  # Prompting category papers
+  - id: "prompting-bandyopadhyay"
+    source: "prompting"
+    target: "bandyopadhyay-2024"
+    type: "smoothstep"
+    
+  - id: "prompting-chen"
+    source: "prompting"
+    target: "chen-2025-longcot"
+    type: "smoothstep"
+    
+  - id: "prompting-patil"
+    source: "prompting"
+    target: "patil-2024"
+    type: "smoothstep"
+
+  # Training category papers
+  - id: "training-ke"
+    source: "training"
+    target: "ke-2024-frontiers"
+    type: "smoothstep"
+    
+  - id: "training-xu"
+    source: "training"
+    target: "xu-2024-reinforced"
+    type: "smoothstep"
+    
+  - id: "training-kumar"
+    source: "training"
+    target: "kumar-2024-posttrain"
+    type: "smoothstep"
+    
+  - id: "training-feng"
+    source: "training"
+    target: "feng-2025-efficient"
+    type: "smoothstep"
+
+  # Logic category papers
+  - id: "logic-cheng"
+    source: "logic"
+    target: "cheng-2023"
+    type: "smoothstep"
+    
+  - id: "logic-liu"
+    source: "logic"
+    target: "liu-2025"
+    type: "smoothstep"
+    
+  - id: "logic-yu"
+    source: "logic"
+    target: "yu-2024-nlr"
+    type: "smoothstep"
+
+  # Domain category papers
+  - id: "domain-ahn"
+    source: "domain"
+    target: "ahn-2025-math"
+    type: "smoothstep"
+    
+  - id: "domain-wang"
+    source: "domain"
+    target: "wang-2024-multimodal"
+    type: "smoothstep"
+
+  # Agentic category papers
+  - id: "agentic-zhang"
+    source: "agentic"
+    target: "zhang-2024-mastermind"
+    type: "smoothstep"
+    
+  - id: "agentic-ferrag"
+    source: "agentic"
+    target: "ferrag-2025-agents"
+    type: "smoothstep"
+
+  # Evaluation category papers
+  - id: "evaluation-mondorf"
+    source: "evaluation"
+    target: "mondorf-2024-beyondacc"
+    type: "smoothstep"
+
+# Metadata
+meta:
+  last_updated: "2025-08-02"
+  total_papers: 19
+  total_categories: 7
+  version: "1.0.0"
+  description: "Comprehensive survey taxonomy of reasoning in Large Language Models"

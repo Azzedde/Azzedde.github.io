@@ -10,5 +10,7 @@ main:
     url: /hackathons/
   - title: "Blog Posts"
     url: /blog-posts/
+  - title: "Reasoning Explorer"
+    url: /reasoning-explorer/
   # - title: "Sample Collections"
   #   url: /collection-archive/
