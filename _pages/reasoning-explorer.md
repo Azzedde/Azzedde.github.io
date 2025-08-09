@@ -12,8 +12,8 @@ sidebar:
 
 Welcome to the interactive exploration of reasoning capabilities in Large Language Models. This tool provides a visual map of the reasoning-LLM landscape, allowing you to explore different techniques, papers, and research directions.
 
-<div id="reasoning-explorer-container" style="width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
-  <div id="reasoning-explorer-app">
+<div id="reasoning-explorer-container" style="width: 100%; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;">
+  <div id="reasoning-explorer-app" style="height: 800px;">
     <!-- React app will be loaded here -->
     <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #666;">
       <p>Loading Reasoning Explorer...</p>
@@ -21,9 +21,7 @@ Welcome to the interactive exploration of reasoning capabilities in Large Langua
   </div>
 </div>
 
-
-
-Click on nodes to explore detailed information about each technique, including limitations, opportunities, and related research.
+<p style="margin-top: 1.5rem; font-size: 1.1rem; color: #333;">Click on nodes to explore detailed information about each technique, including limitations, opportunities, and related research.</p>
 
 <link rel="stylesheet" href="/assets/apps/reasoning-explorer/dist/assets/index.css">
 
@@ -50,11 +48,13 @@ Click on nodes to explore detailed information about each technique, including l
 #reasoning-explorer-container {
   background: #fafafa;
   position: relative;
+  z-index: 1;
 }
 
 #reasoning-explorer-app {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .reasoning-node {
@@ -64,5 +64,15 @@ Click on nodes to explore detailed information about each technique, including l
 
 .reasoning-node:hover {
   transform: scale(1.05);
+}
+
+/* Ensure content below is properly separated */
+#reasoning-explorer-container + p {
+  margin-top: 2rem !important;
+  clear: both;
+  position: relative;
+  z-index: 10;
+  background: white;
+  padding: 1rem 0;
 }
 </style>

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import ReactFlow, {
   MiniMap,
   Controls,
@@ -158,12 +158,11 @@ const createEdgesFromData = (): Edge[] => {
   }));
 };
 
-const ReasoningExplorer: React.FC = () => {
+const SurveyPage: React.FC = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const { selectedNodeId, setSelectedNodeId } = useStore();
 
-  // Load data on component mount
   useEffect(() => {
     const loadData = async () => {
       const surveyNodes = await createNodesFromData();
@@ -187,24 +186,26 @@ const ReasoningExplorer: React.FC = () => {
   );
 
   return (
-    <div style={{ width: '100%', height: '800px', position: 'relative' }}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        onNodeClick={onNodeClick}
-        fitView
-      >
-        <Controls />
-        <MiniMap />
-        <Background />
-      </ReactFlow>
-      
-      {selectedNodeId && <SidePanel />}
+    <div className="page-container">
+      <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onConnect={onConnect}
+          onNodeClick={onNodeClick}
+          fitView
+        >
+          <Controls />
+          <MiniMap />
+          <Background />
+        </ReactFlow>
+        
+        {selectedNodeId && <SidePanel />}
+      </div>
     </div>
   );
 };
 
-export default ReasoningExplorer;
+export default SurveyPage;
