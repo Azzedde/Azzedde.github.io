@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface NavbarProps {
-  setActiveView: (view: 'survey' | 'atlas') => void;
+  setActiveView: (view: 'survey' | 'atlas' | 'techniques') => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ setActiveView }) => {
@@ -9,6 +9,7 @@ const Navbar: React.FC<NavbarProps> = ({ setActiveView }) => {
     <nav className="navbar">
       <button onClick={() => setActiveView('survey')}>Research Survey</button>
       <button onClick={() => setActiveView('atlas')}>Definitions Atlas</button>
+      <button onClick={() => setActiveView('techniques')}>Reasoning Techniques</button>
     </nav>
   );
 };

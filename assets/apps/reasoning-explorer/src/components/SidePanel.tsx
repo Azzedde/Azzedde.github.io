@@ -53,7 +53,7 @@ const paperData: Record<string, any> = {
     venue: 'arXiv',
     summary: 'Survey of reasoning strategies and prompting techniques for large language models.',
     category: 'prompting',
-    link: 'https://arxiv.org/pdf/2501.09686',
+    link: 'https://arxiv.org/abs/2503.10814',
     tags: ['Prompting', 'Strategies', 'Chain-of-Thought']
   },
   'chen-2025-longcot': {
