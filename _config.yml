@@ -17,7 +17,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 # Site Settings
 locale                   : "en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "I Code, Therefore I Am"
+title                    : "Azzedine Idir's Personal Website" # site title that appears in the masthead
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "AIT SAID Azzedine Idir"

@@ -16,6 +16,7 @@ import {
   Play,
   AlertCircle
 } from 'lucide-react';
+import './TechniquesPage.css';
 
 // Data structure for all reasoning techniques, based on the provided text.
 const techniquesData = {
@@ -116,22 +117,6 @@ const TechniquesPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Prevent body scroll when modal is open
-  React.useEffect(() => {
-    if (selectedTechnique) {
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-      document.documentElement.style.overflow = 'unset';
-    }
-    
-    return () => {
-      document.body.style.overflow = 'unset';
-      document.documentElement.style.overflow = 'unset';
-    };
-  }, [selectedTechnique]);
-
   const getFilteredTechniques = () => {
     const category = techniquesData[selectedCategory as keyof typeof techniquesData];
     if (!category) return [];
@@ -148,22 +133,9 @@ const TechniquesPage: React.FC = () => {
   const categoryKeys = Object.keys(techniquesData);
 
   return (
-    <div className="techniques-container" style={{
-      minHeight: '600px',
-      height: '100%',
-      display: 'flex',
-      fontFamily: 'system-ui, -apple-system, sans-serif',
-      background: '#f8f9fa'
-    }}>
+    <div className="techniques-container">
       {/* Left Sidebar */}
-      <div style={{
-        width: '320px',
-        background: 'white',
-        borderRight: '1px solid #e9ecef',
-        display: 'flex',
-        flexDirection: 'column',
-        boxShadow: '1px 0 5px rgba(0,0,0,0.05)'
-      }}>
+      <div className="sidebar">
         <div style={{ padding: '24px', borderBottom: '1px solid #e9ecef' }}>
           <h2 style={{ margin: 0, fontSize: '22px', fontWeight: 700, color: '#212529' }}>
             Reasoning Techniques
@@ -249,11 +221,7 @@ const TechniquesPage: React.FC = () => {
         </div>
 
         <div ref={containerRef} style={{ flex: 1, padding: '32px', overflowY: 'auto' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-            gap: '24px'
-          }}>
+          <div className="main-content-grid">
             <AnimatePresence>
               {getFilteredTechniques().map((technique, index) => (
                 <motion.div
@@ -295,20 +263,20 @@ const TechniquesPage: React.FC = () => {
           <div
             className="modal-overlay"
             style={{
-              position: 'fixed !important',
-              top: '0 !important',
-              left: '0 !important',
-              right: '0 !important',
-              bottom: '0 !important',
-              width: '100vw !important',
-              height: '100vh !important',
-              backgroundColor: 'rgba(0, 0, 0, 0.95) !important',
-              zIndex: '2147483647 !important',
-              display: 'flex !important',
-              alignItems: 'flex-start !important',
-              justifyContent: 'center !important',
-              padding: '40px 20px !important',
-              overflowY: 'auto !important'
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: '100vw',
+              height: '100vh',
+              backgroundColor: 'rgba(0, 0, 0, 0.95)',
+              zIndex: 2147483647,
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'center',
+              padding: '40px 20px',
+              overflowY: 'auto'
             }}
             onClick={() => setSelectedTechnique(null)}
           >

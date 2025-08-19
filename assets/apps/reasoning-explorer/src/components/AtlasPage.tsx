@@ -12,6 +12,7 @@ import ReactFlow, {
 import 'reactflow/dist/style.css';
 import { useStore } from '../store/useStore';
 import { definitionsData } from '../data/definitionsData';
+import './AtlasPage.css';
 
 // Color scheme for different node types - exactly like survey
 const nodeColors = {
@@ -156,18 +157,18 @@ const AtlasPage: React.FC = () => {
   );
 
   return (
-    <div className="w-full h-full">
-      <div className="mb-4 p-4 bg-blue-50 border-l-4 border-blue-400">
-        <h2 className="text-xl font-semibold text-blue-800 mb-2">
+    <div className="atlas-container">
+      <div className="atlas-header">
+        <h2 className="atlas-title">
           🧠 Reasoning Research Atlas
         </h2>
-        <p className="text-blue-700">
-          Explore formal definitions, empirical findings, and computational models from the reasoning literature. 
+        <p className="atlas-description">
+          Explore formal definitions, empirical findings, and computational models from the reasoning literature.
           Click on any concept for research-grade content with formalization, failure modes, and key references.
         </p>
       </div>
       
-      <div style={{ width: '100%', height: '600px' }}>
+      <div className="atlas-flow-container">
         <ReactFlow
           nodes={nodes}
           edges={edges}

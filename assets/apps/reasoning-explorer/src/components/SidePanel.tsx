@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStore } from '../store/useStore';
+import './SidePanel.css';
 
 // Paper data extracted from reasoning_llms.yml - using the CORRECT links and data
 const paperData: Record<string, any> = {
@@ -258,37 +259,15 @@ const SidePanel: React.FC = () => {
   // Handle root node
   if (selectedNodeId === 'reasoning_root') {
     return (
-      <div style={{
-        position: 'absolute',
-        top: '20px',
-        right: '20px',
-        width: '350px',
-        background: 'white',
-        border: '1px solid #ddd',
-        borderRadius: '8px',
-        padding: '20px',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-        zIndex: 1000,
-        maxHeight: '600px',
-        overflowY: 'auto'
-      }}>
+      <div className="side-panel">
         <button
           onClick={() => setSelectedNodeId(null)}
-          style={{
-            position: 'absolute',
-            top: '10px',
-            right: '10px',
-            background: 'none',
-            border: 'none',
-            fontSize: '20px',
-            cursor: 'pointer',
-            color: '#666'
-          }}
+          className="side-panel-close"
         >
           ×
         </button>
         
-        <h2 style={{ color: '#1e40af', marginBottom: '15px' }}>
+        <h2 className="side-panel-title" style={{ color: '#1e40af' }}>
           Reasoning with Large Language Models
         </h2>
         
@@ -317,37 +296,15 @@ const SidePanel: React.FC = () => {
   // Handle category nodes
   if (category) {
     return (
-      <div style={{
-        position: 'absolute',
-        top: '20px',
-        right: '20px',
-        width: '350px',
-        background: 'white',
-        border: '1px solid #ddd',
-        borderRadius: '8px',
-        padding: '20px',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-        zIndex: 1000,
-        maxHeight: '600px',
-        overflowY: 'auto'
-      }}>
+      <div className="side-panel">
         <button
           onClick={() => setSelectedNodeId(null)}
-          style={{
-            position: 'absolute',
-            top: '10px',
-            right: '10px',
-            background: 'none',
-            border: 'none',
-            fontSize: '20px',
-            cursor: 'pointer',
-            color: '#666'
-          }}
+          className="side-panel-close"
         >
           ×
         </button>
         
-        <h2 style={{ color: category.color, marginBottom: '15px' }}>
+        <h2 className="side-panel-title" style={{ color: category.color }}>
           {category.title}
         </h2>
         
@@ -362,71 +319,40 @@ const SidePanel: React.FC = () => {
   if (!paper) return null;
 
   return (
-    <div style={{
-      position: 'absolute',
-      top: '20px',
-      right: '20px',
-      width: '350px',
-      background: 'white',
-      border: '1px solid #ddd',
-      borderRadius: '8px',
-      padding: '20px',
-      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-      zIndex: 1000,
-      maxHeight: '600px',
-      overflowY: 'auto'
-    }}>
+    <div className="side-panel">
       <button
         onClick={() => setSelectedNodeId(null)}
-        style={{
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
-          background: 'none',
-          border: 'none',
-          fontSize: '20px',
-          cursor: 'pointer',
-          color: '#666'
-        }}
+        className="side-panel-close"
       >
         ×
       </button>
       
-      <h2 style={{ color: '#059669', marginBottom: '10px', fontSize: '18px', lineHeight: '1.3' }}>
+      <h2 className="side-panel-title" style={{ color: '#059669' }}>
         {paper.title}
       </h2>
       
-      <div style={{ marginBottom: '15px' }}>
-        <p style={{ color: '#666', fontSize: '14px', margin: '5px 0' }}>
+      <div className="side-panel-meta">
+        <p>
           <strong>Authors:</strong> {paper.authors.join(', ')}
         </p>
-        <p style={{ color: '#666', fontSize: '14px', margin: '5px 0' }}>
+        <p>
           <strong>Year:</strong> {paper.year} | <strong>Venue:</strong> {paper.venue}
         </p>
       </div>
       
-      <div style={{ marginBottom: '15px' }}>
-        <h3 style={{ color: '#333', fontSize: '16px', marginBottom: '8px' }}>Summary</h3>
-        <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.5' }}>
+      <div className="side-panel-section">
+        <h3>Summary</h3>
+        <p>
           {paper.summary}
         </p>
       </div>
       
       {paper.tags && (
-        <div style={{ marginBottom: '15px' }}>
-          <h3 style={{ color: '#333', fontSize: '16px', marginBottom: '8px' }}>Tags</h3>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+        <div className="side-panel-section">
+          <h3>Tags</h3>
+          <div className="side-panel-tags">
             {paper.tags.map((tag: string, index: number) => (
-              <span
-                key={index}
-                style={{
-                  background: '#f0f0f0',
-                  color: '#666',
-                  padding: '4px 8px',
-                  borderRadius: '12px',
-                  fontSize: '12px'
-                }}
-              >
+              <span key={index} className="side-panel-tag">
                 {tag}
               </span>
             ))}
@@ -439,16 +365,7 @@ const SidePanel: React.FC = () => {
           href={paper.link}
           target="_blank"
           rel="noopener noreferrer"
-          style={{
-            display: 'inline-block',
-            background: '#059669',
-            color: 'white',
-            padding: '10px 20px',
-            borderRadius: '6px',
-            textDecoration: 'none',
-            fontSize: '14px',
-            fontWeight: '500'
-          }}
+          className="side-panel-link"
         >
           Read Paper →
         </a>

@@ -1,0 +1,86 @@
+.atlas-container {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+}
+
+.atlas-header {
+  margin-bottom: 16px;
+  padding: 16px;
+  background-color: #eff6ff;
+  border-left: 4px solid #3b82f6;
+  border-radius: 4px;
+}
+
+.atlas-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 8px;
+}
+
+.atlas-description {
+  color: #1d4ed8;
+  line-height: 1.5;
+}
+
+.atlas-flow-container {
+  width: 100%;
+  height: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .atlas-container {
+    padding: 12px;
+  }
+  
+  .atlas-header {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .atlas-title {
+    font-size: 1.125rem;
+  }
+  
+  .atlas-description {
+    font-size: 0.875rem;
+  }
+  
+  .atlas-flow-container {
+    height: 400px;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .atlas-container {
+    padding: 8px;
+  }
+  
+  .atlas-header {
+    padding: 8px;
+  }
+  
+  .atlas-title {
+    font-size: 1rem;
+  }
+  
+  .atlas-description {
+    font-size: 0.8rem;
+  }
+  
+  .atlas-flow-container {
+    height: 350px;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .atlas-flow-container {
+    height: 500px;
+  }
+}

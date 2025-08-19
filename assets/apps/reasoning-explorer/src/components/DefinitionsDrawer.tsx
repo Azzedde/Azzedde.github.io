@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useStore } from '../store/useStore';
+import './DefinitionsDrawer.css';
 
 const DefinitionsDrawer: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'definition' | 'formalization' | 'empirical'>('definition');
@@ -21,57 +22,28 @@ const DefinitionsDrawer: React.FC = () => {
   };
 
   return (
-    <div style={{
-      position: 'absolute',
-      top: '20px',
-      right: '20px',
-      width: '450px',
-      background: 'white',
-      border: '1px solid #ddd',
-      borderRadius: '8px',
-      padding: '20px',
-      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-      zIndex: 1000,
-      maxHeight: '600px',
-      overflowY: 'auto'
-    }}>
+    <div className="definitions-drawer">
       <button
         onClick={() => setDrawerOpen(false)}
-        style={{
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
-          background: 'none',
-          border: 'none',
-          fontSize: '20px',
-          cursor: 'pointer',
-          color: '#666'
-        }}
+        className="definitions-drawer-close"
       >
         ×
       </button>
       
-      <h2 style={{ 
-        color: getCategoryColor(selectedDefinition.category), 
-        marginBottom: '10px', 
-        fontSize: '18px', 
-        lineHeight: '1.3' 
+      <h2 className="definitions-drawer-title" style={{
+        color: getCategoryColor(selectedDefinition.category)
       }}>
         {selectedDefinition.title}
       </h2>
       
-      <div style={{ marginBottom: '15px' }}>
-        <p style={{ color: '#666', fontSize: '14px', margin: '5px 0' }}>
+      <div className="definitions-drawer-meta">
+        <p>
           <strong>Category:</strong> {selectedDefinition.category}
         </p>
       </div>
 
       {/* Tab Navigation */}
-      <div style={{ 
-        display: 'flex', 
-        borderBottom: '1px solid #e5e7eb', 
-        marginBottom: '15px' 
-      }}>
+      <div className="definitions-drawer-tabs">
         {[
           { key: 'definition', label: 'Definition' },
           { key: 'formalization', label: 'Formalization' },
@@ -80,13 +52,8 @@ const DefinitionsDrawer: React.FC = () => {
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key as any)}
+            className="definitions-drawer-tab"
             style={{
-              flex: 1,
-              padding: '8px 12px',
-              border: 'none',
-              background: 'none',
-              cursor: 'pointer',
-              fontSize: '14px',
               fontWeight: activeTab === tab.key ? '600' : '400',
               color: activeTab === tab.key ? getCategoryColor(selectedDefinition.category) : '#666',
               borderBottom: activeTab === tab.key ? `2px solid ${getCategoryColor(selectedDefinition.category)}` : '2px solid transparent'
@@ -100,50 +67,47 @@ const DefinitionsDrawer: React.FC = () => {
       {/* Tab Content */}
       {activeTab === 'definition' && (
         <div>
-          <div style={{ marginBottom: '15px' }}>
-            <h3 style={{ color: '#333', fontSize: '16px', marginBottom: '8px' }}>Definition</h3>
-            <div style={{
-              background: '#f8f9fa',
+          <div className="definitions-drawer-section">
+            <h3>Definition</h3>
+            <div className="definitions-drawer-highlight" style={{
               border: `1px solid ${getCategoryColor(selectedDefinition.category)}20`,
-              borderLeft: `4px solid ${getCategoryColor(selectedDefinition.category)}`,
-              padding: '12px',
-              borderRadius: '4px'
+              borderLeft: `4px solid ${getCategoryColor(selectedDefinition.category)}`
             }}>
-              <p style={{ color: '#333', fontSize: '14px', lineHeight: '1.5', margin: 0 }}>
+              <p style={{ color: '#333' }}>
                 {selectedDefinition.definition}
               </p>
             </div>
           </div>
 
-          <div style={{ marginBottom: '15px' }}>
-            <h3 style={{ color: '#333', fontSize: '16px', marginBottom: '8px' }}>Norms, Tests & Metrics</h3>
+          <div className="definitions-drawer-section">
+            <h3>Norms, Tests & Metrics</h3>
             
             <div style={{ marginBottom: '12px' }}>
-              <h4 style={{ color: '#555', fontSize: '14px', marginBottom: '4px', fontWeight: '600' }}>Target Function</h4>
-              <p style={{ color: '#666', fontSize: '13px', lineHeight: '1.4', margin: 0 }}>
+              <h4>Target Function</h4>
+              <p style={{ fontSize: '13px', lineHeight: '1.4' }}>
                 {selectedDefinition.normsTestsMetrics.targetFunction}
               </p>
             </div>
 
             <div style={{ marginBottom: '12px' }}>
-              <h4 style={{ color: '#555', fontSize: '14px', marginBottom: '4px', fontWeight: '600' }}>Formal Criterion</h4>
-              <p style={{ color: '#666', fontSize: '13px', lineHeight: '1.4', margin: 0 }}>
+              <h4>Formal Criterion</h4>
+              <p style={{ fontSize: '13px', lineHeight: '1.4' }}>
                 {selectedDefinition.normsTestsMetrics.formalCriterion}
               </p>
             </div>
 
             <div style={{ marginBottom: '12px' }}>
-              <h4 style={{ color: '#555', fontSize: '14px', marginBottom: '4px', fontWeight: '600' }}>Operational Test</h4>
-              <p style={{ color: '#666', fontSize: '13px', lineHeight: '1.4', margin: 0 }}>
+              <h4>Operational Test</h4>
+              <p style={{ fontSize: '13px', lineHeight: '1.4' }}>
                 {selectedDefinition.normsTestsMetrics.operationalTest}
               </p>
             </div>
 
             <div style={{ marginBottom: '12px' }}>
-              <h4 style={{ color: '#555', fontSize: '14px', marginBottom: '4px', fontWeight: '600' }}>Quantitative Metrics</h4>
-              <ul style={{ margin: 0, paddingLeft: '16px' }}>
+              <h4>Quantitative Metrics</h4>
+              <ul style={{ paddingLeft: '16px' }}>
                 {selectedDefinition.normsTestsMetrics.quantMetrics.map((metric, index) => (
-                  <li key={index} style={{ color: '#666', fontSize: '13px', lineHeight: '1.4', marginBottom: '3px' }}>
+                  <li key={index} style={{ fontSize: '13px', lineHeight: '1.4', marginBottom: '3px' }}>
                     {metric}
                   </li>
                 ))}
@@ -151,10 +115,10 @@ const DefinitionsDrawer: React.FC = () => {
             </div>
 
             <div style={{ marginBottom: '12px' }}>
-              <h4 style={{ color: '#555', fontSize: '14px', marginBottom: '4px', fontWeight: '600' }}>Failure Probes</h4>
-              <ul style={{ margin: 0, paddingLeft: '16px' }}>
+              <h4>Failure Probes</h4>
+              <ul style={{ paddingLeft: '16px' }}>
                 {selectedDefinition.normsTestsMetrics.failureProbes.map((probe, index) => (
-                  <li key={index} style={{ color: '#666', fontSize: '13px', lineHeight: '1.4', marginBottom: '3px' }}>
+                  <li key={index} style={{ fontSize: '13px', lineHeight: '1.4', marginBottom: '3px' }}>
                     {probe}
                   </li>
                 ))}
@@ -162,16 +126,10 @@ const DefinitionsDrawer: React.FC = () => {
             </div>
           </div>
 
-          <div style={{ marginBottom: '15px' }}>
-            <h3 style={{ color: '#333', fontSize: '16px', marginBottom: '8px' }}>Micro-example</h3>
-            <div style={{
-              background: '#f0f9ff',
-              border: '1px solid #0ea5e920',
-              borderLeft: '4px solid #0ea5e9',
-              padding: '12px',
-              borderRadius: '4px'
-            }}>
-              <p style={{ color: '#0c4a6e', fontSize: '14px', lineHeight: '1.5', margin: 0 }}>
+          <div className="definitions-drawer-section">
+            <h3>Micro-example</h3>
+            <div className="definitions-drawer-example">
+              <p style={{ color: '#0c4a6e' }}>
                 <strong>Input:</strong> {selectedDefinition.microExample.input}
                 {selectedDefinition.microExample.conclusion && (
                   <>
@@ -184,11 +142,11 @@ const DefinitionsDrawer: React.FC = () => {
           </div>
 
           {selectedDefinition.scopeNotes && selectedDefinition.scopeNotes.length > 0 && (
-            <div style={{ marginBottom: '15px' }}>
-              <h3 style={{ color: '#333', fontSize: '16px', marginBottom: '8px' }}>Scope & Caveats</h3>
-              <ul style={{ margin: 0, paddingLeft: '20px' }}>
+            <div className="definitions-drawer-section">
+              <h3>Scope & Caveats</h3>
+              <ul>
                 {selectedDefinition.scopeNotes.map((note, index) => (
-                  <li key={index} style={{ color: '#666', fontSize: '14px', lineHeight: '1.5', marginBottom: '4px' }}>
+                  <li key={index}>
                     {note}
                   </li>
                 ))}
