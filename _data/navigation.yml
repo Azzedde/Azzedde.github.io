@@ -6,11 +6,14 @@ main:
     url: /resume/
   - title: "My Code"
     url: /code-contribution/
-  - title: "Hackathons"
-    url: /hackathons/
+  - title: "Paper Cards"
+    url: /paper-cards/
+
   - title: "Blog Posts"
     url: /blog-posts/
   - title: "Reasoning Explorer"
     url: /reasoning-explorer/
+  - title: "Hackathons"
+    url: /hackathons/
   # - title: "Sample Collections"
   #   url: /collection-archive/

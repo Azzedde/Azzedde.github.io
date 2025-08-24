@@ -1,0 +1,130 @@
+{
+  "papers": [
+    {
+      "id": "beyondweb",
+      "briefingCard": {
+        "title": "BeyondWeb: Lessons from Scaling Synthetic Data for Trillion-scale Pretraining",
+        "authors": ["DatologyAI Team"],
+        "venueDate": "arXiv [cs.LG], 19 Aug 2025",
+        "keywords": ["Pretraining", "Dataset Creation", "Synthetic Data"],
+        "affiliations": "DatologyAI",
+        "resources": {
+          "pdfUrl": "https://arxiv.org/pdf/2508.10975.pdf",
+          "code": {
+            "url": null,
+            "status": "Not yet available"
+          },
+          "projectPage": null
+        },
+      "contributionProfile": [
+        { "type": "New Data Synthesis Method", "description": "The BeyondWeb framework, a source-rephrasing approach to generate high-quality pretraining data." },
+        { "type": "Systematic Study", "description": "Extensive ablation studies on synthetic data generation factors (Sec. 4)." },
+        { "type": "SOTA Benchmarking", "description": "Outperforms public synthetic datasets by up to 5.1 percentage points on a suite of 14 benchmarks." }
+      ],
+      "scientificHook": {
+        "problem": "Scaling LLMs is hitting a 'data wall' where simply adding more web text yields diminishing returns, limiting model improvement.",
+        "insight": "Strategic synthetic data can break the data wall. A 3B model trained on our BeyondWeb dataset outperforms a baseline 8B model trained for the same token budget, enabling up to 7.7x faster training to reach target performance."
+      },
+        "reproducibilityClaim": "The core methodology of 'source rephrasing' is conceptually clear, but reproducing the scale of the results requires significant engineering infrastructure, the details of which are noted for a future release.",
+        "bottomLine": "If you read this paper, you will understand the precise mechanisms (data quality, style-matching, diversity) that make synthetic data effective for pretraining and see empirical proof that a well-designed 3B parameter model can be made to outperform a baseline 8B model."
+      },
+      "genealogyMap": {
+        "nodes": [
+          { "id": "beyondweb", "type": "paper", "data": { "label": "BeyondWeb" } },
+          { "id": "source-rephrasing", "type": "concept", "data": { "label": "Source Rephrasing", "description": "Enhancing existing web data into higher-quality formats using smaller LLMs. This is a data-driven approach." } },
+          { "id": "generator-driven", "type": "concept", "data": { "label": "Generator-Driven", "description": "Using large, powerful LLMs (like GPT-4) to create new knowledge 'de novo'. This is a model-driven approach." } },
+          { "id": "data-wall", "type": "concept", "data": { "label": "The Data Wall", "description": "The performance plateau reached when pretraining on finite, high-quality internet text." } },
+          { "id": "wrap", "type": "paper", "data": { "label": "WRAP (Maini et al., 2024)" } },
+          { "id": "nemotron-synth", "type": "paper", "data": { "label": "Nemotron-Synth (Su et al., 2024)" } },
+          { "id": "cosmopedia", "type": "paper", "data": { "label": "Cosmopedia (Ben Allal et al., 2024)" } },
+          { "id": "redpajama", "type": "dataset", "data": { "label": "RedPajama (Weber et al., 2024)" } }
+        ],
+        "edges": [
+          { "source": "beyondweb", "target": "source-rephrasing", "label": "Belongs to" },
+          { "source": "beyondweb", "target": "generator-driven", "label": "Opposes" },
+          { "source": "beyondweb", "target": "data-wall", "label": "Addresses Problem of" },
+          { "source": "beyondweb", "target": "wrap", "label": "Builds upon (Predecessor)" },
+          { "source": "beyondweb", "target": "nemotron-synth", "label": "Outperforms (SOTA Baseline)", "style": { "stroke": "#4ade80" } },
+          { "source": "beyondweb", "target": "cosmopedia", "label": "Outperforms (Competitor)", "style": { "stroke": "#4ade80" } },
+          { "source": "beyondweb", "target": "redpajama", "label": "Outperforms (Baseline)", "style": { "stroke": "#4ade80" } }
+        ]
+      },
+      "evidenceLocker": [
+        {
+          "id": "exp-1",
+          "title": "Can synthetic data surpass the 'real data' performance ceiling? (RQ2, Sec. 4.3)",
+          "hypothesis": "A strategically designed synthetic dataset (BeyondWeb) can lead to better model performance than training on a larger, complete set of available real data.",
+          "evidence": { "figureId": "figure-4", "page": 12 },
+          "analysis": [
+            {
+              "type": "proof",
+              "symbol": "+",
+              "text": "The 'BeyondWeb' line (dark blue) achieves 50.4% average accuracy. This is a statistically significant +4.2 percentage point improvement over the 'Full Data (Upper Bound)' line (cyan), which represents the performance ceiling using only natural data and achieves only 46.2%. This is the paper's most critical evidence for 'breaching the data wall.'"
+            },
+            {
+              "type": "nuance",
+              "symbol": "-",
+              "text": "The 'Continuation' strategy (light blue), a naive form of synthetic data generation, only achieves 46.2% accuracy, merely matching the real data ceiling. This is crucial because it proves that the strategic, diverse approach of BeyondWeb is the key, not just any synthetic data."
+            }
+          ]
+        },
+        {
+          "id": "exp-2",
+          "title": "How important is the quality of the seed data for rephrasing? (RQ3, Sec. 4.4)",
+          "hypothesis": "It is more beneficial to rephrase high-quality (HQ) data, even if it means repeating knowledge, than to rephrase novel low-quality (LQ) data.",
+          "evidence": { "figureId": "figure-5", "page": 13 },
+          "analysis": [
+            {
+              "type": "proof",
+              "symbol": "+",
+              "text": "The 'HQ Synth + HQ Web' combination (dark cyan) achieves 49.2% accuracy. This significantly outperforms the 'LQ Synth + HQ Web' combination (light cyan) at 48.6%. This confirms that the quality of the source material being rephrased is a dominant factor."
+            },
+            {
+              "type": "nuance",
+              "symbol": "-",
+              "text": "The best performance is still from 'BeyondWeb' at 50.4%. This shows that while starting with high-quality data is crucial, it is not sufficient on its own. Other factors, like generation diversity, are required to reach peak performance."
+            }
+          ]
+        },
+        {
+          "id": "exp-3",
+          "title": "Does the size of the rephrasing model matter? (RQ7, Sec. 4.8)",
+          "hypothesis": "The benefits of using larger models for the constrained task of rephrasing will show diminishing returns.",
+          "evidence": { "figureId": "figure-9", "page": 19 },
+          "analysis": [
+            {
+              "type": "proof",
+              "symbol": "+",
+              "text": "The performance gain from using a 1B parameter rephraser (47.3%) to a 3B rephraser (48.8%) is substantial (+1.5pp). However, the gain from a 3B model to an 8B model (49.2%) is minimal (+0.4pp)."
+            },
+            {
+              "type": "implication",
+              "symbol": "+",
+              "text": "This result is highly practical. It demonstrates that effective, high-quality synthetic data generation is accessible without needing massive, SOTA generator models. A 3B-scale model is near the point of optimal cost/benefit, democratizing the approach."
+            }
+          ]
+        }
+      ],
+      "reviewerCorner": {
+        "impactAssessment": "The evidence presented is strong and systematic. The central claim of 'breaching the data wall' is convincingly supported by the +4.2pp gain shown in Experiment 1 (Figure 4). The paper's primary impact is shifting the conversation from merely *using* synthetic data to *strategically designing* it, with a clear focus on diversity as a key driver of sustained performance gains (a finding reinforced in their scaling experiments in Figure 7). This work solidifies 'source rephrasing' with small, efficient models as the most pragmatic and scalable path forward for pretraining.",
+        "limitations": [
+          {
+            "source": "Author-Stated",
+            "text": "The authors correctly identify that the scaling laws and nature of 'inherent repetition' in synthetic data are poorly understood and require new theoretical work."
+          },
+          {
+            "source": "System-Identified",
+            "text": "The entire BeyondWeb pipeline is benchmarked against a specific source dataset (DCLM) and a specific suite of 14 downstream tasks. The generalizability of this specific method to radically different domains (e.g., legal text, medical data) or different evaluation targets (e.g., creative writing, code generation) remains an open question."
+          },
+          {
+            "source": "System-Identified",
+            "text": "The paper demonstrates a new Pareto frontier for accuracy vs. compute, but the human engineering cost of designing the diverse generation strategies and the massive data curation infrastructure is a hidden variable not captured in the analysis. This is a critical factor for reproducibility and adoption."
+          }
+        ]
+      },
+      "thumbnail": "/assets/images/papers/beyondwebcard.jpg",
+      "figure": "/assets/images/papers/beyondweb-figure.jpg"
+    }
+
+  ]
+}
