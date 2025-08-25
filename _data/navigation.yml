@@ -4,8 +4,7 @@ main:
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "Resume"
     url: /resume/
-  - title: "My Code"
-    url: /code-contribution/
+
   - title: "Paper Cards"
     url: /paper-cards/
 
@@ -13,7 +12,6 @@ main:
     url: /blog-posts/
   - title: "Reasoning Explorer"
     url: /reasoning-explorer/
-  - title: "Hackathons"
-    url: /hackathons/
+
   # - title: "Sample Collections"
   #   url: /collection-archive/

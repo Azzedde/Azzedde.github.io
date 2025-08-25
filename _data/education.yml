@@ -1,0 +1,31 @@
+- institution: École Nationale Supérieure d'Informatique, Algiers
+  degree: Computer Engineering Degree
+  logo: /assets/images/esi-logo.png # Replace with the actual path to the logo
+  details: |
+    **ESI Algiers.** Algeria’s Grande École for computer science. It has an integrated preparatory cycle: serious math, algorithms, and core CS, then we move into the engineering (superior) cycle.
+
+    **Focus.** Computer Systems. I worked from the OS up: operating systems, computer networks, distributed systems, compilers, security, and systems design. It wasn’t theory only; we built things. Labs and team projects in C/C++, Java and Python specs first, tests early, and performance measurements when it mattered.
+
+    **Outcome.** Intense, demanding, and worth it. I left with a solid systems backbone and habits I keep. I also left with teammates who became long-term friends and collaborators.
+    
+    **Website :** [esi.dz](https://www.esi.dz/)
+
+    <img src="/assets/images/esi-campus.jpg"
+         alt="ESI Algiers — campus"
+         style="center">
+
+- institution: Université Paris-Saclay, Orsay
+  degree: M2 Data Science
+  logo: /assets/images/paris-saclay-logo.png # Replace with the actual path to the logo
+  details: |
+    <p> <strong>A World-Class Education in Data Science.</strong> My master's at Université Paris-Saclay, ranked the top university in Continental Europe by the Shanghai Ranking, was a deep dive into the world of data. This program provided a rigorous blend of theoretical foundations and practical application, equipping me with a sophisticated understanding of modern data science.
+    </p>
+    <p>
+    <strong>Focus & Curriculum.</strong> The curriculum was intensely focused on the core pillars of modern data science. We thoroughly covered advanced topics in Machine Learning, Deep Learning, and Natural Language Processing. The learning environment was enriched by world-class professors, including leading researchers from prestigious institutions like CNRS and INRIA, and industry experts from tech giants such as IBM, Snowflake, and Intel. This unique combination of academic and industry perspectives ensured that our skills were both cutting-edge and relevant to real-world challenges.
+    </p>
+    <p>
+    <strong>Outcome.</strong> Beyond the technical skills, my time at Paris-Saclay was about community. I forged lasting friendships and professional connections, actively participating in university life through clubs and associations like Unaite. I left not only with a prestigious degree but also with a network of talented peers and mentors, and a reinforced passion for solving complex problems with data.
+    </p>
+    <strong>Website:</strong> <a href="https://www.universite-paris-saclay.fr/" target="_blank">universite-paris-saclay.fr</a>
+    <img src="/assets/images/saclay-campus.jpg" alt="Université Paris-Saclay — campus" style="center">
+

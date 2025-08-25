@@ -2,7 +2,6 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 search: false
 ---
-
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
@@ -32,3 +31,5 @@ search: false
 .cat-pill:hover {
   background-color: #b2dfdb;        /* darker mint on hover */
 }
+
+@import "resume-interactive";

@@ -1,0 +1,95 @@
+---
+layout: splash
+title: "Interactive Resume"
+---
+
+{% if page.title %}
+<h1 id="page-title" class="page__title">{{ page.title }}</h1>
+{% endif %}
+
+<!-- Education Section -->
+<div class="resume-section">
+  <h2 class="resume-section__title">Education</h2>
+  <div class="logo-grid">
+    {% for item in site.data.education %}
+      <div class="logo-card"
+           data-title="{{ item.institution }}"
+           data-date="{{ item.period }}">
+        <img src="{{ item.logo | relative_url }}" alt="{{ item.institution }} logo">
+        <div class="modal-hidden-content" style="display:none;">
+          <h3>{{ item.degree }}</h3>
+          {{ item.details | markdownify }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Work Experience Section -->
+<div class="resume-section">
+  <h2 class="resume-section__title">Work Experience</h2>
+  <div class="logo-grid">
+    {% for item in site.data.experience %}
+      <div class="logo-card"
+           data-title="{{ item.company }}"
+           data-date="{{ item.period }}">
+        <img src="{{ item.logo | relative_url }}" alt="{{ item.company }} logo">
+        <div class="modal-hidden-content" style="display:none;">
+          <h3>{{ item.title }}</h3>
+          {{ item.details | markdownify }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Hackathons Section -->
+<div class="resume-section">
+  <h2 class="resume-section__title">Hackathons & Competitions</h2>
+  <div class="logo-grid">
+    {% for item in site.data.hackathons %}
+      <div class="logo-card"
+           data-title="{{ item.name }}"
+           data-date="{{ item.period }}">
+
+        {% if item.ranking %}  <!-- CHECK IF RANKING EXISTS -->
+          <span class="logo-card__ranking {{ item.ranking_class }}">{{ item.ranking }}</span>
+        {% endif %}
+
+        <img src="{{ item.logo | relative_url }}" alt="{{ item.name }} logo">
+        <div class="modal-hidden-content" style="display:none;">
+          <h3>{{ item.project_name }}</h3>
+          {{ item.details | markdownify }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Open Source Projects Section -->
+<div class="resume-section">
+  <h2 class="resume-section__title">Open Source Projects</h2>
+  <div class="logo-grid project-grid">
+    {% for item in site.data.projects %}
+      <div class="logo-card"
+           data-title="{{ item.name }}"
+           data-date="">
+        <img src="{{ item.image | relative_url }}" alt="{{ item.name }} screenshot">
+        <div class="modal-hidden-content" style="display:none;">
+          {{ item.details | markdownify }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="resume-modal" class="resume-modal">
+  <div class="resume-modal__content">
+    <button class="resume-modal__close" aria-label="Close">×</button>
+    <h2 id="modal-title"></h2>
+    <p id="modal-date" style="color:#666;margin-top:-10px;"></p>
+    <hr style="margin:1em 0;">
+    <div id="modal-body"></div>
+  </div>
+</div>

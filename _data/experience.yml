@@ -1,0 +1,44 @@
+- company: NAMLA
+  title: MLOps Engineer
+  period: Jun '23 - Dec '23
+  logo: /assets/images/icon-namla.jpg
+  details: |
+    <h4>Project 1: Shoplifting Detection System</h4>
+    <p>Designed and developed an <strong>end-to-end real-time shoplifting detection system</strong> using a 3D CNN model, optimized with <strong>OpenVINO</strong> for edge deployment.</p>
+    <ul>
+      <li>Built the backend and real-time frontend dashboard using <strong>Python</strong>, <strong>React</strong>, <strong>sockets</strong>, and <strong>Docker</strong>.</li>
+      <li>Deployed the model via <strong>NVIDIA Triton Inference Server</strong>, leveraging parallel processing for efficient inference.</li>
+      <li>Focused on design-system principles for scalable deployment in smart retail contexts.</li>
+    </ul>
+    <h4>Project 2: LLM-Powered Assistant for DevOps</h4>
+    <p>Contributed to the development of a <strong>LangChain-based intelligent assistant</strong> designed to help Namla’s technical team handle complex tasks via natural language.</p>
+    <ul>
+      <li>Integrated <strong>open-source LLMs</strong> using <strong>Gorilla-CLI</strong> and customized chains for tailored functionality.</li>
+      <li>Monitored and evaluated assistant performance using <strong>Prometheus</strong> and <strong>Grafana</strong>.</li>
+    </ul>
+
+- company: EURECOM
+  title: LLMs Research Engineer 
+  period: Jan '24 – Jun '24
+  logo: /assets/images/icon-eurecom.svg
+  details: |
+    <p>Led the full lifecycle of an applied research project that bridges <strong>telecommunications and generative AI</strong>, culminating in a <strong><a href="https://ieeexplore.ieee.org/document/10794684" target="_blank">published paper</a></strong>.</p>
+    <h4>5G Instruct Forge: Data Engineering Pipeline for LLM Fine-Tuning</h4>
+    <ul>
+      <li>Created <strong>5G-specific INSTRUCT datasets</strong> from 22+ 3GPP specifications using custom text-processing pipelines and Python automation.</li>
+      <li>Authored and released an <strong><a href="https://gitlab.eurecom.fr/netsoft/5g-instruct-forge" target="_blank">open-source pipeline</a></strong> capable of producing large-scale, instruction-tuned datasets for <strong>fine-tuning open-source LLMs</strong> to efficiently learn knowledge about 5G.</li>
+    </ul>
+    
+- company: EDF R&D Labs
+  title: LLM Engineer
+  period: Oct '24 – Present
+  logo: /assets/images/icon-edf.svg
+  details: |
+    <h4>LLM & RAG-based Conversational Agents</h4>
+    <ul>
+      <li>Developed <strong>domain-specific chatbots</strong> using <strong>Retrieval-Augmented Generation (RAG)</strong> and <strong>Large Language Models (LLMs)</strong> to assist internal teams with natural language queries over complex technical documents.</li>
+    </ul>
+    <h4>Evaluation of Multimodal Generative AI Systems</h4>
+    <ul>
+      <li>Benchmarked <strong>state-of-the-art multimodal AI systems</strong> for tasks such as document information extraction and summarization.</li>
+    </ul>

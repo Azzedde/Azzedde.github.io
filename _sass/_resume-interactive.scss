@@ -1,0 +1,195 @@
+/* _resume-interactive.scss */
+
+.resume-section {
+  margin-bottom: 2em;
+}
+
+.resume-section__title {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5em;
+}
+
+.logo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.7em;
+  min-height: 150px; 
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.logo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Force logos to grow (not just cap them) */
+.logo-grid .logo-card img {
+  height: 100px;          /* <-- this actually scales up */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  transition: filter .2s;
+}
+
+.logo-card:hover img {
+  filter: grayscale(0%);
+}
+
+/* Base style for the ranking badge */
+.logo-card__ranking {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #333;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border: 2px solid #fff;
+
+  /* --- THE FIX --- */
+  /* This forces the badge to be permanently visible */
+  opacity: 1 !important;
+  /* --- END OF FIX --- */
+}
+
+/* Color styles based on the class from our YML file */
+.logo-card__ranking.gold {
+  background-color: #ffd700; /* Gold */
+  color: #4d3d00;
+}
+
+.logo-card__ranking.silver {
+  background-color: #c0c0c0; /* Silver */
+  color: #383838;
+}
+
+.logo-card__ranking.participant {
+  background-color: #6c757d; /* A nice neutral gray */
+  color: #ffffff;
+}
+
+/* === Bullet-proof resume modal === */
+html, body { margin: 0; }
+
+html.modal-open,
+body.modal-open {
+  overflow: hidden;
+  transform: none !important;        /* neutralize any theme transform */
+}
+
+/* Overlay */
+#resume-modal.resume-modal {
+  position: fixed !important;
+  inset: 0 !important;               /* top:0 right:0 bottom:0 left:0 */
+  z-index: 2147483647;               /* above everything */
+  background: rgba(0,0,0,.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .25s ease, visibility .25s ease;
+}
+
+#resume-modal.resume-modal.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Card */
+.resume-modal__content {
+  background: #fff;
+  width: min(750px, 92vw);
+  max-height: 90dvh;
+  overflow: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  position: relative;
+  padding: 28px 36px;
+}
+
+/* Close */
+.resume-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: #777;
+  background: transparent;
+  border: 0;
+}
+
+.resume-modal__close:hover { color: #000; }
+
+/* Project-specific styling */
+.resume-section:has(.project-grid) .logo-grid,
+.resume-section .logo-grid.project-grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2em;
+}
+
+.resume-section:has(.project-grid) .logo-card,
+.resume-section .logo-grid.project-grid .logo-card {
+  min-height: 200px;
+  padding: 1.5em;
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-section:has(.project-grid) .logo-card img,
+.resume-section .logo-grid.project-grid .logo-card img {
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.resume-section:has(.project-grid) .logo-card::after,
+.resume-section .logo-grid.project-grid .logo-card::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 1em;
+  left: 1.5em;
+  right: 1.5em;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.resume-section:has(.project-grid) .logo-card:hover::after,
+.resume-section .logo-grid.project-grid .logo-card:hover::after {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+}

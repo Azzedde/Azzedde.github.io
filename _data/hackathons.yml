@@ -1,0 +1,85 @@
+- name: "Hardcore AI Hackathon Berlin"
+  period: "24 Hours"
+  logo: /assets/images/hackathon-hardcore-ai.avif # <-- Create and place your logo here
+  project_name: "🏆 1st Place: Neural Network Compression"
+  ranking: "🏆" # <-- CHANGED        # <-- ADDED
+  ranking_class: "gold"  # <-- ADDED
+  details: |
+    <p>At The Delta Campus, my team tackled SEMRON’s Software Challenge to optimize neural networks under binary hashing constraints, achieving top scores for both compression ratio and retained accuracy.</p>
+    <img src="/assets/images/hackathon4-1.jpg" alt="Celebrating our victory at the Hardcore AI Hackathon" style="width:100%; border-radius: 5px; margin-top: 1em;">
+    <ul>
+      <li><strong>Outcome:</strong> 🏆 <strong>1st place out of 100+ participants.</strong></li>
+      <li><strong>Skills Gained:</strong> Neural network quantization, binary hashing, and large-scale GPU orchestration using dstack and RunPod.</li>
+      <li><strong>Key Moments:</strong> Real-time trade-off analysis between model size and inference latency, and midnight CUDA debugging sessions powered by RunPod credits.</li>
+    </ul>
+    <strong>Project details coming soon.</strong>
+
+- name: "Generative AI Challenge"
+  period: "4 Days"
+  logo: /assets/images/hackathon-gac.png # <-- Create and place your logo here
+  project_name: "Runner-Up: COBOL Documentation Generator"
+  ranking: "🥈"          # <-- ADDED
+  ranking_class: "silver" # <-- ADDED
+  details: |
+    <p>A hackathon uniting Université Paris-Saclay, Paris 8, and UQAC. My team tackled the real-world need for automated COBOL documentation by fine-tuning a 3B-parameter LLM and shipping a VS Code extension.</p>
+    <img src="/assets/images/hackathon1-2.jpg" alt="VS Code extension demo for COBOL documentation" style="width:100%; border-radius: 5px; margin-top: 1em;">
+    <ul>
+      <li><strong>Outcome:</strong> Runner-up (2nd place) out of 27 teams.</li>
+      <li><strong>Skills Gained:</strong> Rapid domain research, model fine-tuning, VS Code API integration.</li>
+    </ul>
+    <p><a href="https://github.com/Azzedde/cobol-doc-extension" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+
+- name: "AI Action Summit Hackathon"
+  period: "24 Hours"
+  logo: /assets/images/hackathon-ai-action.jpeg # <-- Create and place your logo here
+  project_name: "Medical Co-pilot"
+
+  details: |
+    <p>In 24 hours, Team AN2I built an agentic assistant for clinicians that captures consultation dialogue, suggests follow-up questions, fetches authoritative medical data, and auto-generates structured reports.</p>
+    <img src="/assets/images/hackathon2-1.jpg" alt="Live demo of Medical Co-pilot" style="width:100%; border-radius: 5px; margin-top: 1em;">
+    <ul>
+      <li><strong>Tech Stack:</strong> Docker, Celery, UV, OpenAI SDK, Mistral API.</li>
+      <li><strong>Learnings:</strong> System-first design and the importance of parallelization in code and workflow.</li>
+    </ul>
+    <p><a href="https://github.com/mlengineershub/ai_action_summit_hackathon_an2i" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+
+- name: "UTOPIA × Kryptosphere Agentathon"
+  period: "1 Day"
+  logo: /assets/images/hackathon-utopia.png # <-- Create and place your logo here
+  project_name: "Sherlock: Security Investigation Agent"
+  details: |
+    <p>At ESSEC Cergy, we built “Sherlock,” a security-breach investigation agent using a React frontend, FastAPI backend, and AWS Bedrock (Claude models). Sherlock visualizes hypotheses in an interactive tree and generates detailed investigation reports.</p>
+    <img src="/assets/images/hackathon3-2.jpg" alt="Interactive investigation tree in Sherlock" style="width:100%; border-radius: 5px; margin-top: 1em;">
+    <ul>
+      <li><strong>Features:</strong> AI-powered hypothesis generation, node expansion, and plausibility marking.</li>
+      <li><strong>Impact:</strong> Demonstrated the power of agentic frameworks for cybersecurity.</li>
+    </ul>
+    <p><a href="https://github.com/mlengineershub/sherlock" target="_blank" rel="noopener noreferrer">Explore the Code</a></p>
+
+- name: "RAISE Summit Hackathon"
+  period: "1 Day"
+  logo: /assets/images/hackathon-raise.avif # <-- Create and place your logo here
+  project_name: "Sherlock: Security Investigation Agent"
+  ranking: "🥈"          # <-- ADDED
+  ranking_class: "silver" # <-- ADDED
+  details: |
+    <p>At ESSEC Cergy, we built “Sherlock,” a security-breach investigation agent using a React frontend, FastAPI backend, and AWS Bedrock (Claude models). Sherlock visualizes hypotheses in an interactive tree and generates detailed investigation reports.</p>
+    <img src="/assets/images/hackathon3-2.jpg" alt="Interactive investigation tree in Sherlock" style="width:100%; border-radius: 5px; margin-top: 1em;">
+    <ul>
+      <li><strong>Features:</strong> AI-powered hypothesis generation, node expansion, and plausibility marking.</li>
+      <li><strong>Impact:</strong> Demonstrated the power of agentic frameworks for cybersecurity.</li>
+    </ul>
+    <p><a href="https://github.com/mlengineershub/sherlock" target="_blank" rel="noopener noreferrer">Explore the Code</a></p>
+
+- name: "Agents Hack Unaite x Hugging Face"
+  period: "1 Day"
+  logo: /assets/images/hackathon-huggingface.jpg # <-- Create and place your logo here
+  project_name: "Sherlock: Security Investigation Agent"
+  details: |
+    <p>At ESSEC Cergy, we built “Sherlock,” a security-breach investigation agent using a React frontend, FastAPI backend, and AWS Bedrock (Claude models). Sherlock visualizes hypotheses in an interactive tree and generates detailed investigation reports.</p>
+    <img src="/assets/images/hackathon3-2.jpg" alt="Interactive investigation tree in Sherlock" style="width:100%; border-radius: 5px; margin-top: 1em;">
+    <ul>
+      <li><strong>Features:</strong> AI-powered hypothesis generation, node expansion, and plausibility marking.</li>
+      <li><strong>Impact:</strong> Demonstrated the power of agentic frameworks for cybersecurity.</li>
+    </ul>
+    <p><a href="https://github.com/mlengineershub/sherlock" target="_blank" rel="noopener noreferrer">Explore the Code</a></p>

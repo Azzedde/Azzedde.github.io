@@ -6,28 +6,7 @@ header:
   overlay_filter: 0.5
   caption: "Aurora Borealis"
 excerpt: "Computer engineer & data scientist. Passionate about AI, open-source, and making a difference. Already published at IEEE. Dreaming of NeurIPS and ICML. + 1000 GitHub stars. Let's connect!" 
-feature_row:
-  - image_path: /assets/images/resume.jpg
-    alt: "Resume"
-    title: "My Detailed Resume"
-    excerpt: "View my professional experience and education"
-    url: "/resume/"
-    btn_class: "btn--primary"
-    btn_label: "View Resume"
-  - image_path: /assets/images/code.jpg 
-    alt: "Code"
-    title: "My Code Contributions"
-    excerpt: "Explore my open-source projects and code"
-    url: "/code-contribution/"
-    btn_class: "btn--primary"
-    btn_label: "View Code"
-  - image_path: /assets/images/research.jpg
-    alt: "Research"
-    title: "My Research Contributions"
-    excerpt: "Read my published papers and current research ideas"
-    url: "#research"
-    btn_class: "btn--primary"
-    btn_label: "View Research"
+
 author_profile: true
 ---
 
@@ -37,16 +16,82 @@ author_profile: true
 
 <p>"Who am I?" It's a tough question, but I aim to live so fully that, at my last breath, I can smile and say, "What a life!" I dream of chasing polar lights, publishing at NeurIPS and ICML, and building intelligent homes with my own code. I'll build wealth not for luxury but to uplift those in need, delight my future family, and power my own GPU server farm. Yet I'm more than my ambitions or my achievements, I'm driven by curiosity, by code, and by the conviction that even the smallest voice can leave an enduring mark.</p>
 
-{% include feature_row %}
+<!-- Exploration Cards Section -->
+<div class="exploration-section" style="margin: 3rem 0;">
+  <h2 style="text-align: center; margin-bottom: 2rem; color: #2c3e50; font-size: 2.2rem;">Explore My World</h2>
+  <p style="text-align: center; margin-bottom: 3rem; color: #666; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+    Dive into my journey through AI research, open-source projects, and technical insights. Each section tells a different part of my story.
+  </p>
+  
+  <div class="exploration-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+    
+    <!-- Interactive Resume Card -->
+    <div class="exploration-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; padding: 2rem; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onclick="window.location.href='/resume/'">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">📋</div>
+      <h3 style="margin-bottom: 1rem; font-size: 1.4rem;">Interactive Resume</h3>
+      <p style="margin-bottom: 1.5rem; opacity: 0.9; line-height: 1.6;">
+        Explore my professional journey through an interactive experience. Click through my education, work experience, hackathons, and open-source projects with detailed modal views.
+      </p>
+      <div style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; font-size: 0.9rem;">
+        Click to explore →
+      </div>
+    </div>
 
-<div id="resume" class="section">
+    <!-- Paper Cards Card -->
+    <div class="exploration-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 15px; padding: 2rem; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onclick="window.location.href='/paper-cards/'">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">📚</div>
+      <h3 style="margin-bottom: 1rem; font-size: 1.4rem;">Paper Cards & Reading List</h3>
+      <p style="margin-bottom: 1.5rem; opacity: 0.9; line-height: 1.6;">
+        Discover my curated collection of research papers with visual summaries and insights. A beautiful way to explore cutting-edge AI research and my reading journey.
+      </p>
+      <div style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; font-size: 0.9rem;">
+        Browse papers →
+      </div>
+    </div>
 
+    <!-- Reasoning Explorer Card -->
+    <div class="exploration-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 15px; padding: 2rem; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onclick="window.location.href='/reasoning-explorer/'">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">🧠</div>
+      <h3 style="margin-bottom: 1rem; font-size: 1.4rem;">Reasoning LLMs Explorer</h3>
+      <p style="margin-bottom: 1.5rem; opacity: 0.9; line-height: 1.6;">
+        Navigate through the state-of-the-art in reasoning LLMs. An interactive visualization I created to map the landscape of reasoning techniques and models.
+      </p>
+      <div style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; font-size: 0.9rem;">
+        Explore reasoning →
+      </div>
+    </div>
+
+    <!-- Blog Posts Card -->
+    <div class="exploration-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 15px; padding: 2rem; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onclick="window.location.href='/blog-posts/'">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">✍️</div>
+      <h3 style="margin-bottom: 1rem; font-size: 1.4rem;">Blog & Insights</h3>
+      <p style="margin-bottom: 1.5rem; opacity: 0.9; line-height: 1.6;">
+        Read my thoughts on AI, technology, and life. From technical deep-dives to personal reflections, discover the stories behind the code.
+      </p>
+      <div style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; font-size: 0.9rem;">
+        Read posts →
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div id="code" class="section">
-  <!-- Code section will be added here -->  
-</div>
+<style>
+.exploration-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
+}
 
-<div id="research" class="section">
+@media (max-width: 768px) {
+  .exploration-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .exploration-card {
+    padding: 1.5rem !important;
+  }
+}
+</style>
 
 </div>
