@@ -23,14 +23,14 @@ author_profile: true
     Dive into my journey through AI research, open-source projects, and technical insights. Each section tells a different part of my story.
   </p>
   
-  <div class="exploration-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+  <div class="exploration-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto;">
     
     <!-- Interactive Resume Card -->
     <div class="exploration-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; padding: 2rem; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;" onclick="window.location.href='/resume/'">
       <div style="font-size: 3rem; margin-bottom: 1rem;">📋</div>
       <h3 style="margin-bottom: 1rem; font-size: 1.4rem;">Interactive Resume</h3>
       <p style="margin-bottom: 1.5rem; opacity: 0.9; line-height: 1.6;">
-        Explore my professional journey through an interactive experience. Click through my education, work experience, hackathons, and open-source projects with detailed modal views.
+        Interactive journey through my education, work experience, and projects.
       </p>
       <div style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; font-size: 0.9rem;">
         Click to explore →
@@ -42,7 +42,7 @@ author_profile: true
       <div style="font-size: 3rem; margin-bottom: 1rem;">📚</div>
       <h3 style="margin-bottom: 1rem; font-size: 1.4rem;">Paper Cards & Reading List</h3>
       <p style="margin-bottom: 1.5rem; opacity: 0.9; line-height: 1.6;">
-        Discover my curated collection of research papers with visual summaries and insights. A beautiful way to explore cutting-edge AI research and my reading journey.
+        Curated research papers with visual summaries and insights.
       </p>
       <div style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; font-size: 0.9rem;">
         Browse papers →
@@ -54,7 +54,7 @@ author_profile: true
       <div style="font-size: 3rem; margin-bottom: 1rem;">🧠</div>
       <h3 style="margin-bottom: 1rem; font-size: 1.4rem;">Reasoning LLMs Explorer</h3>
       <p style="margin-bottom: 1.5rem; opacity: 0.9; line-height: 1.6;">
-        Navigate through the state-of-the-art in reasoning LLMs. An interactive visualization I created to map the landscape of reasoning techniques and models.
+        Interactive visualization mapping reasoning LLMs and techniques.
       </p>
       <div style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; font-size: 0.9rem;">
         Explore reasoning →
@@ -66,7 +66,7 @@ author_profile: true
       <div style="font-size: 3rem; margin-bottom: 1rem;">✍️</div>
       <h3 style="margin-bottom: 1rem; font-size: 1.4rem;">Blog & Insights</h3>
       <p style="margin-bottom: 1.5rem; opacity: 0.9; line-height: 1.6;">
-        Read my thoughts on AI, technology, and life. From technical deep-dives to personal reflections, discover the stories behind the code.
+        Thoughts on AI, technology, and life. Technical insights and reflections.
       </p>
       <div style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; display: inline-block; font-size: 0.9rem;">
         Read posts →
@@ -80,6 +80,13 @@ author_profile: true
 .exploration-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
+}
+
+@media (max-width: 1024px) {
+  .exploration-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
 }
 
 @media (max-width: 768px) {
