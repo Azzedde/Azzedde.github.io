@@ -4,6 +4,8 @@ search: false
 ---
 @charset "utf-8";
 
+
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
@@ -31,5 +33,6 @@ search: false
 .cat-pill:hover {
   background-color: #b2dfdb;        /* darker mint on hover */
 }
+
 
 @import "resume-interactive";
