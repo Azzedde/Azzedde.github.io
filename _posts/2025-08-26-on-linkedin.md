@@ -10,7 +10,7 @@ read_time: true
 classes: [wide, full-bleed]  # <- add this custom class
 header:
   overlay_image: /assets/images/linkedin post cover.png
-  overlay_filter: 0.25
+  overlay_filter: 0.5
   caption: "Photo: …"
 ---
 

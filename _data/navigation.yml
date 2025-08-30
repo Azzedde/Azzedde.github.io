@@ -5,11 +5,13 @@ main:
   - title: "Resume"
     url: /resume/
 
+  - title: "Blog Posts"
+    url: /blog-posts/
+
   - title: "Paper Cards"
     url: /paper-cards/
 
-  - title: "Blog Posts"
-    url: /blog-posts/
+
   - title: "Reasoning Explorer"
     url: /reasoning-explorer/
 
