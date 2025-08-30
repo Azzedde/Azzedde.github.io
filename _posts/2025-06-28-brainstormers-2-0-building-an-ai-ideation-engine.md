@@ -4,9 +4,14 @@ title: "Brainstormers 2.0 – Building an AI Ideation Engine That Thinks *with* 
 date: 2025-06-28 15:56:59 +0200
 categories: technical
 excerpt: >
-  Brainstormers 2.0 is a privacy-first, Next.js-powered platform that lets you
-  ideate with AI agents through six scientifically backed brainstorming
-  techniques—all while your API key never leaves the browser.
+  Come see how I built a platform that help you brainstorm following scientifically proven brainstorming methods ... with LLMs !
+author_profile: true
+read_time: true
+classes: [wide, full-bleed]
+header:
+  overlay_image: /assets/images/brainstomers-post-cover.avif
+  overlay_filter: 0.5
+  caption: "Thinking is the best thing ever !"
 ---
 
 > **"When two or more brains clash, sparks fly.  

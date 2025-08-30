@@ -1,15 +1,21 @@
 ---
 layout: single
-title: "Write-up: How we won the Hardcore AI Hackathon in Berlin"
+title: "How we won the Hardcore AI Hackathon in Berlin"
 date: 2025-06-09 21:42:59 +0200
 categories: technical
 excerpt: >
-  A deep dive into our winning approach for the "Bit by Bit" challenge at the Hardcore AI Hackathon in Berlin, where we optimized neural network inference using hash-based matrix approximations and analog in-memory computing techniques.
+  A deep dive into our winning approach for the "Bit by Bit" challenge at the Hardcore AI Hackathon in Berlin.
+author_profile: true
+read_time: true
+classes: [wide, full-bleed]
+header:
+  overlay_image: /assets/images/hackathon-post-cover.jpg
+  overlay_filter: 0.5
+  caption: "Winning a hackathon is so delightful !"
 ---
 
 When my team first encountered the "Bit by Bit: Hashing Towards Energy-Efficient AI Inference" challenge at the Hardcore AI Hackathon in Berlin, something electric struck between us. This wasn't just another typical hackathon challenge involving API integrations or web applications - this was hardcore AI research with real-world implications that could fundamentally change how we deploy large language models at scale.
 
-<img src="/assets/images/hackathon4-1.jpg" alt="Celebrating our victory at the Hardcore AI Hackathon"> 
 
 The challenge addressed one of the most pressing issues in modern AI: the energy and latency bottleneck in neural network inference. As deep neural networks, especially large language models, continue to expand at unprecedented rates, the principal cost driver has shifted from arithmetic throughput to the energy and latency associated with transferring parameters and activations between processing elements and external memory. The conventional digital trajectory was becoming unsustainable.
 
