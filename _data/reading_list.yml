@@ -1,0 +1,59 @@
+- title: "BeyondWeb: Lessons from Scaling Synthetic Data for Trillion-scale Pretraining"
+  url: "https://arxiv.org/pdf/2508.10975.pdf"
+  status: "completed"
+  card_created: true
+  notes: "High priority - synthetic data scaling"
+
+- title: "Memento: Fine-tuning LLM Agents without Fine-tuning LLMs"
+  url: "https://www.arxiv.org/pdf/2508.16153"
+  status: "currently_reading"
+  card_created: true
+  notes: "Continual learning for agents"
+
+- title: "PickLLM: Context-Aware RL-Assisted Large Language Model Routing"
+  url: "https://arxiv.org/pdf/2412.12170.pdf"
+  status: "completed"
+  card_created: true
+  notes: "RL for LLM selection - interesting approach"
+
+- title: "Router-R1: Teaching LLMs Multi-Round Routing and Aggregation via Reinforcement Learning"
+  url: "https://arxiv.org/pdf/2506.09033.pdf"
+  status: "completed"
+  card_created: true
+  notes: "Multi-step routing with RL - excellent framework"
+
+- title: "Deep Graph Anomaly Detection: A Survey and New Perspectives"
+  url: "https://arxiv.org/pdf/2409.09957.pdf"
+  status: "currently_reading"
+  card_created: true
+  notes: "Comprehensive survey - good reference"
+
+- title: "Deep Think with Confidence"
+  url: "https://arxiv.org/pdf/2508.15260.pdf"
+  status: "completed"
+  card_created: true
+  notes: "Confidence-based reasoning filtering - practical"
+
+- title: "gpt-oss-120b & gpt-oss-20b Model Card"
+  url: "https://arxiv.org/pdf/2508.10925.pdf"
+  status: "not-started"
+  card_created: false
+  notes: "Model card for new open-weight reasoning models from OpenAI with agentic capabilities."
+
+- title: "R-Zero: Self-Evolving Reasoning LLM from Zero Data"
+  url: "https://arxiv.org/pdf/2508.05004.pdf"
+  status: "not-started"
+  card_created: false
+  notes: "Fully autonomous framework where Challenger/Solver models co-evolve to generate their own training curriculum from scratch."
+
+- title: "Graph-R1: Towards Agentic GraphRAG Framework via End-to-end Reinforcement Learning"
+  url: "https://arxiv.org/pdf/2507.21892.pdf"
+  status: "not-started"
+  card_created: false
+  notes: "An agentic GraphRAG that models retrieval as a multi-turn interaction and optimizes it with end-to-end RL."
+
+- title: "A Survey of Self-Evolving Agents: On Path to Artificial Super Intelligence"
+  url: "https://arxiv.org/pdf/2507.21046.pdf"
+  status: "not-started"
+  card_created: false
+  notes: "The first systematic survey of self-evolving agents, organized by what, when, and how agents evolve."

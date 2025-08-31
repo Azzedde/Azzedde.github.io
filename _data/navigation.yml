@@ -11,6 +11,8 @@ main:
   - title: "Paper Cards"
     url: /paper-cards/
 
+  - title: "Reading List"
+    url: /reading-list/
 
   - title: "Reasoning Explorer"
     url: /reasoning-explorer/
