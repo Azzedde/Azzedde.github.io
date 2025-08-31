@@ -13,5 +13,6 @@ export default defineConfig({
         assetFileNames: 'assets/[name].[ext]'
       }
     }
-  }
+  },
+  base: '/assets/apps/paper-cards/'
 })
