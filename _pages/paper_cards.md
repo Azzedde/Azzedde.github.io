@@ -13,13 +13,13 @@ permalink: /paper-cards/
   </div>
 </div>
 
-<link rel="stylesheet" href="/assets/apps/paper-cards/assets/index.css">
+<link rel="stylesheet" href="/assets/apps/paper-cards/dist/assets/index.css">
 
 <script>
 // Load the React app
 (function() {
   const script = document.createElement('script');
-  script.src = '/assets/apps/paper-cards/main.js';
+  script.src = '/assets/apps/paper-cards/dist/main.js';
   script.onload = function() {
     console.log('Paper Cards loaded successfully');
   };

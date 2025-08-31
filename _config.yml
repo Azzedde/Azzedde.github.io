@@ -163,8 +163,10 @@ footer:
 include:
   - .htaccess
   - _pages
-  - assets/apps
+  - assets/apps/paper-cards/dist
 exclude:
+  - assets/apps/paper-cards/src
+  - assets/apps/paper-cards/node_modules
   - "*.sublime-project"
   - "*.sublime-workspace"
   - vendor

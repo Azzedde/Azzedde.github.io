@@ -4,8 +4,7 @@ title: "Why do I post ?"
 date: 2025-06-09 21:42:59 +0200
 categories: general
 excerpt: >
-  In this post, I explain why I feel compelled to write online, what it brings me,
-  and why you might recognize yourself in this reflection.
+  In this post, I explain why I feel compelled to write online, what it brings me, and why you might recognize yourself in this reflection.
 ---
 
 I always questioned myself: why do I post online? Why am I writing this for you to read? Why do I have that need to write my ideas somewhere for someone to read? Is it a need at the end of the day, or maybe a hobby, or something that makes me escape from reality? I don't have a clear answer for that, but I will try to make it a little bit clearer in my mind.

@@ -9,10 +9,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         entryFileNames: 'main.js',
-        chunkFileNames: 'chunk-[hash].js',
+        chunkFileNames: 'assets/chunk-[hash].js',
         assetFileNames: 'assets/[name].[ext]'
       }
     }
-  },
-  base: '/assets/apps/paper-cards/'
+  }
 })
