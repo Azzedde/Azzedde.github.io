@@ -1,11 +1,10 @@
 ---
 layout: single
-
+title: 📚 Reading List
 permalink: /reading-list/
 classes: [wide, full-bleed]
 ---
 
-# 📚 Reading List
 
 A curated collection of papers I'm reading, planning to read, or have completed. This table helps me track my progress and whether I've created detailed cards for each paper.
 
