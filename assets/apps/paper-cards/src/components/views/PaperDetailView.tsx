@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import papersData from '../../data/papersData.json';
+import GenealogyMap from '../GenealogyMap';
 
 interface PaperDetailViewProps {
   paperId: string;
@@ -64,18 +65,42 @@ const PaperDetailView = ({ paperId, onBack }: PaperDetailViewProps) => {
             {paper.briefingCard.title}
           </h1>
           <p className="text-lg text-gray-600 mb-12">
-            {paper.briefingCard.authors.join(', ')} • {paper.briefingCard.venueDate}
+            {paper.briefingCard.affiliations} • {paper.briefingCard.venueDate}
           </p>
         </motion.div>
 
-        {/* Main content grid */}
+        {/* Knowledge Genealogy - Moved to appear first */}
+        <motion.div
+          className="mb-12"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          <div className="w-full bg-gray-100 py-16 rounded-2xl">
+            <div className="max-w-7xl mx-auto px-6">
+              <h2 className="text-3xl font-bold text-center mb-4">Knowledge Genealogy</h2>
+              <p className="text-center text-gray-600">Interactive visualization of research connections and relationships.</p>
+              <div className="bg-white mt-8 rounded-lg shadow-lg overflow-hidden">
+                {paper.genealogyMap ? (
+                  <GenealogyMap data={paper.genealogyMap} height="700px" />
+                ) : (
+                  <div className="flex items-center justify-center h-96 text-gray-500">
+                    No genealogy data available for this paper.
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Main content grid - Executive Summary (now appears second) */}
         <div className="grid grid-cols-12 gap-8 items-stretch">
           {/* Problem + Insight (left) */}
           <motion.div
             className="glass-card rounded-2xl p-8 col-span-12 lg:col-span-8 h-full"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.5 }}
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6">The Problem</h2>
             <p className="text-gray-700 mb-8 text-lg leading-relaxed">
@@ -93,7 +118,7 @@ const PaperDetailView = ({ paperId, onBack }: PaperDetailViewProps) => {
             className="glass-card rounded-2xl p-8 col-span-12 lg:col-span-4 h-full"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.6 }}
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Contributions</h2>
             <div className="space-y-4">
@@ -107,37 +132,7 @@ const PaperDetailView = ({ paperId, onBack }: PaperDetailViewProps) => {
           </motion.div>
         </div>
 
-        {/* Feature Zone 1 */}
-        <motion.div
-          className="mt-12"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.7 }}
-        >
-          <div className="w-full bg-gray-100 py-20 rounded-2xl">
-            <div className="max-w-7xl mx-auto px-6">
-              <h2 className="text-3xl font-bold text-center mb-4">Feature Zone 1</h2>
-              <p className="text-center text-gray-600">This is a placeholder for a new feature with diagrams.</p>
-              <div className="bg-white mt-8 rounded-lg shadow-lg" style={{ minHeight: '400px' }}></div>
-            </div>
-          </div>
-        </motion.div>
 
-        {/* Feature Zone 2 */}
-        <motion.div
-          className="mt-12"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.8 }}
-        >
-          <div className="w-full bg-white py-20 rounded-2xl">
-            <div className="max-w-7xl mx-auto px-6">
-              <h2 className="text-3xl font-bold text-center mb-4">Feature Zone 2</h2>
-              <p className="text-center text-gray-600">This is another placeholder for a new feature with diagrams.</p>
-              <div className="bg-gray-50 mt-8 rounded-lg shadow-inner" style={{ minHeight: '400px' }}></div>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Full-width Genealogy Map Section */}
         <motion.div

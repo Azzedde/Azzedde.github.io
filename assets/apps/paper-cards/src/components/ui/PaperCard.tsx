@@ -10,6 +10,7 @@ interface Paper {
     authors: string[];
     venueDate: string;
     keywords: string[];
+    affiliations: string;
     contributionProfile: Array<{
       type: string;
       description: string;
@@ -120,9 +121,9 @@ const PaperCard = ({ paper, onClick }: PaperCardProps) => {
           </div>
         )}
 
-        {/* Authors */}
-        <p className="text-sm text-slate-600 mb-4 flex-grow">
-          {briefingCard.authors.join(', ')}
+        {/* Affiliations */}
+        <p className="text-sm text-slate-600 mb-4 flex-grow font-medium">
+          {briefingCard.affiliations}
         </p>
 
         {/* Scientific Hook Preview */}

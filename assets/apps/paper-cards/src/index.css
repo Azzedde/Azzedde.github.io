@@ -115,6 +115,8 @@
 #paper-cards-root .h-64 { height: 16rem; }
 #paper-cards-root .h-96 { height: 24rem; }
 #paper-cards-root .h-full { height: 100%; }
+#paper-cards-root .max-h-screen { max-height: 100vh; }
+#paper-cards-root .min-h-0 { min-height: 0; }
 
 #paper-cards-root .max-w-2xl { max-width: 42rem; }
 #paper-cards-root .max-w-7xl { max-width: 80rem; }
@@ -157,6 +159,9 @@
 #paper-cards-root .z-10 { z-index: 10; }
 
 #paper-cards-root .overflow-hidden { overflow: hidden; }
+#paper-cards-root .overflow-auto { overflow: auto; }
+#paper-cards-root .overflow-y-auto { overflow-y: auto; }
+#paper-cards-root .overflow-x-auto { overflow-x: auto; }
 
 #paper-cards-root .cursor-pointer { cursor: pointer; }
 
@@ -267,3 +272,22 @@
 
 /* Object fit utilities */
 #paper-cards-root .object-cover { object-fit: cover; }
+
+/* Custom scrollbar styling for better visibility */
+#paper-cards-root ::-webkit-scrollbar {
+  width: 8px;
+}
+
+#paper-cards-root ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+#paper-cards-root ::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+#paper-cards-root ::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

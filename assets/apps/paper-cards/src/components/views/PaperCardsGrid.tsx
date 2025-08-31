@@ -24,9 +24,7 @@ const PaperCardsGrid = ({ onPaperClick }: PaperCardsGridProps) => {
 
   const filteredPapers = papersData.papers.filter(paper => {
     const matchesSearch = paper.briefingCard.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         paper.briefingCard.authors.some(author => 
-                           author.toLowerCase().includes(searchTerm.toLowerCase())
-                         );
+                         paper.briefingCard.affiliations.toLowerCase().includes(searchTerm.toLowerCase());
     
     if (selectedFilter === 'all') return matchesSearch;
     
@@ -89,7 +87,7 @@ const PaperCardsGrid = ({ onPaperClick }: PaperCardsGridProps) => {
           <div className="flex-1">
             <input
               type="text"
-              placeholder="Search papers by title or author..."
+              placeholder="Search papers by title or affiliation..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/80 backdrop-blur-sm"

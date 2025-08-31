@@ -28,27 +28,138 @@
         "reproducibilityClaim": "The core methodology of 'source rephrasing' is conceptually clear, but reproducing the scale of the results requires significant engineering infrastructure, the details of which are noted for a future release.",
         "bottomLine": "If you read this paper, you will understand the precise mechanisms (data quality, style-matching, diversity) that make synthetic data effective for pretraining and see empirical proof that a well-designed 3B parameter model can be made to outperform a baseline 8B model."
       },
-      "genealogyMap": {
-        "nodes": [
-          { "id": "beyondweb", "type": "paper", "data": { "label": "BeyondWeb" } },
-          { "id": "source-rephrasing", "type": "concept", "data": { "label": "Source Rephrasing", "description": "Enhancing existing web data into higher-quality formats using smaller LLMs. This is a data-driven approach." } },
-          { "id": "generator-driven", "type": "concept", "data": { "label": "Generator-Driven", "description": "Using large, powerful LLMs (like GPT-4) to create new knowledge 'de novo'. This is a model-driven approach." } },
-          { "id": "data-wall", "type": "concept", "data": { "label": "The Data Wall", "description": "The performance plateau reached when pretraining on finite, high-quality internet text." } },
-          { "id": "wrap", "type": "paper", "data": { "label": "WRAP (Maini et al., 2024)" } },
-          { "id": "nemotron-synth", "type": "paper", "data": { "label": "Nemotron-Synth (Su et al., 2024)" } },
-          { "id": "cosmopedia", "type": "paper", "data": { "label": "Cosmopedia (Ben Allal et al., 2024)" } },
-          { "id": "redpajama", "type": "dataset", "data": { "label": "RedPajama (Weber et al., 2024)" } }
-        ],
-        "edges": [
-          { "source": "beyondweb", "target": "source-rephrasing", "label": "Belongs to" },
-          { "source": "beyondweb", "target": "generator-driven", "label": "Opposes" },
-          { "source": "beyondweb", "target": "data-wall", "label": "Addresses Problem of" },
-          { "source": "beyondweb", "target": "wrap", "label": "Builds upon (Predecessor)" },
-          { "source": "beyondweb", "target": "nemotron-synth", "label": "Outperforms (SOTA Baseline)", "style": { "stroke": "#4ade80" } },
-          { "source": "beyondweb", "target": "cosmopedia", "label": "Outperforms (Competitor)", "style": { "stroke": "#4ade80" } },
-          { "source": "beyondweb", "target": "redpajama", "label": "Outperforms (Baseline)", "style": { "stroke": "#4ade80" } }
-        ]
-      },
+        "genealogyMap": {
+          "nodes": [
+            {
+              "id": "beyondweb",
+              "type": "root",
+              "data": {
+                "label": "BeyondWeb",
+                "more": "A synthetic data generation framework that produces high-quality data for pretraining large language models. Its core methodology is 'targeted document rephrasing' to create diverse, relevant, and information-dense synthetic data. The paper demonstrates it establishes a new Pareto frontier for the accuracy-efficiency trade-off in LLM pretraining."
+              }
+            },
+            {
+              "id": "source-rephrasing",
+              "type": "concept",
+              "data": {
+                "label": "Source Rephrasing",
+                "description": "Enhancing existing web data into higher-quality formats using smaller LLMs. This is a data-driven approach.",
+                "more": "This paradigm, detailed in Section 2.2, uses existing web documents as a source of knowledge and employs smaller LLMs to rephrase the content into more structured or targeted formats (e.g., Q&A pairs, instructional passages). It is positioned as a practical and efficient solution that achieves superior coverage and diversity at a lower compute cost compared to generator-driven methods."
+              }
+            },
+            {
+              "id": "generator-driven",
+              "type": "concept",
+              "data": {
+                "label": "Generator-Driven",
+                "description": "Using large, powerful LLMs (like GPT-4) to create new knowledge 'de novo'. This is a model-driven approach.",
+                "more": "This approach, described in Section 2.1, uses a powerful existing model as a knowledge bank to generate synthetic data from scratch. The paper notes its limitations: high computational cost of using models like GPT-4, inaccessibility for many researchers, and susceptibility to model collapse, where the model inherits the biases and knowledge gaps of the generator."
+              }
+            },
+            {
+              "id": "data-wall",
+              "type": "concept",
+              "data": {
+                "label": "The Data Wall",
+                "description": "The performance plateau reached when pretraining on finite, high-quality internet text.",
+                "more": "The paper's introduction explains that as data collection scales into trillions of tokens, high-information-density data becomes prohibitively scarce. The returns on collecting more internet data diminish rapidly, creating a 'data wall'. This motivates the exploration of alternative paradigms like synthetic data generation. BeyondWeb demonstrates that this wall can be surpassed with thoughtfully-created data (Section 4.3)."
+              }
+            },
+            {
+              "id": "wrap",
+              "type": "paper",
+              "data": {
+                "label": "WRAP (Maini et al., 2024)",
+                "more": "Web Rephrase Augmented Pre-training (WRAP) is cited in Section 2.2 as a key work that proposed the source rephrasing approach. It demonstrated that using smaller models to rephrase existing web documents into higher-quality formats could speed up pretraining by more than 3x."
+              }
+            },
+            {
+              "id": "nemotron-synth",
+              "type": "paper",
+              "data": {
+                "label": "Nemotron-Synth (Su et al., 2024)",
+                "more": "This is described as the high-quality synthetic subset of Nvidia's Nemotron-CC dataset. The paper identifies it as an 'extremely competitive baseline' and the 'strongest synthetic pretraining data baseline' used in the experiments (Sections 3 & 6). It was generated by applying diverse rephrasing prompts to high-quality inputs."
+              }
+            },
+            {
+              "id": "cosmopedia",
+              "type": "paper",
+              "data": {
+                "label": "Cosmopedia (Ben Allal et al., 2024)",
+                "more": "A large-scale, open-source synthetic dataset from the generator-driven paradigm. It contains over 39 million textbooks, blog posts, and stories generated by a Mixtral-8x7B model. The paper uses it as a key baseline representing the generator-driven approach (Section 3)."
+              }
+            },
+            {
+              "id": "redpajama",
+              "type": "dataset",
+              "data": {
+                "label": "RedPajama (Weber et al., 2024)",
+                "more": "A well-established, non-synthetic open web dataset. It is chosen as a baseline because it has minimal curation, allowing for a robust assessment of the effects of adding synthetic data (Section 3). It represents the standard 'web-scale' data that synthetic approaches aim to improve upon."
+              }
+            }
+          ],
+          "edges": [
+            {
+              "source": "beyondweb",
+              "target": "source-rephrasing",
+              "label": "Belongs to",
+              "data": {
+                "more": "BeyondWeb is a direct implementation and extension of the source rephrasing paradigm. The paper states: 'we introduce BeyondWeb, a rephrasing-driven approach grounded in real web documents and diversified across styles and formats' (Section 6)."
+              }
+            },
+            {
+              "source": "beyondweb",
+              "target": "generator-driven",
+              "label": "Opposes",
+              "data": {
+                "more": "The paper positions source rephrasing (and thus BeyondWeb) as a data-driven alternative to the model-driven generator approach, highlighting the latter's high costs, scalability issues, and risk of model collapse (Section 2.2)."
+              }
+            },
+            {
+              "source": "beyondweb",
+              "target": "data-wall",
+              "label": "Addresses Problem of",
+              "data": {
+                "more": "The abstract states that 'simply scaling data quantity eventually leads to diminishing returns, hitting a data wall.' BeyondWeb is presented as a solution, with Section 4.3 and Figure 4 showing that 'Strategic synthetic data breaches the data wall,' achieving 50.4% accuracy, surpassing the 'Full Data' upper bound of 46.2%."
+              }
+            },
+            {
+              "source": "beyondweb",
+              "target": "wrap",
+              "label": "Builds upon (Predecessor)",
+              "data": {
+                "more": "The paper explicitly cites WRAP and its refinement in Nemotron-CC as the developers of the 'source rephrasing approach' (Section 1). BeyondWeb follows this methodology of rephrasing existing web data."
+              }
+            },
+            {
+              "source": "beyondweb",
+              "target": "nemotron-synth",
+              "label": "Outperforms (SOTA Baseline)",
+              "style": { "stroke": "#4ade80" },
+              "data": {
+                "more": "BeyondWeb outperforms Nemotron-Synth by up to 2.6 percentage points on average across 14 benchmarks. For the 8B model, BeyondWeb achieves 63.7% accuracy vs. 61.1% for Nemotron-Synth (Table 1). It also delivers a 2.7x training speedup to reach Nemotron-Synth's baseline accuracy (Figure 1)."
+              }
+            },
+            {
+              "source": "beyondweb",
+              "target": "cosmopedia",
+              "label": "Outperforms (Competitor)",
+              "style": { "stroke": "#4ade80" },
+              "data": {
+                "more": "BeyondWeb outperforms Cosmopedia by up to 5.1 percentage points. A key finding highlighted in the abstract is that 'a 3B model trained for 180B tokens on BeyondWeb outperforms an 8B model trained for the same token budget on Cosmopedia,' demonstrating superior efficiency."
+              }
+            },
+            {
+              "source": "beyondweb",
+              "target": "redpajama",
+              "label": "Outperforms (Baseline)",
+              "style": { "stroke": "#4ade80" },
+              "data": {
+                "more": "On 8B models trained for 180B tokens, BeyondWeb outperforms the non-synthetic RedPajama baseline by +7.1 percentage points (63.7% vs 56.6% from Table 1). It also achieves a 7.7x speedup in 'time to reach baseline accuracy' over RedPajama (Figure 1)."
+              }
+            }
+          ]
+        },
       "evidenceLocker": [
         {
           "id": "exp-1",
@@ -124,7 +235,728 @@
       },
       "thumbnail": "/assets/images/papers/beyondwebcard.jpg",
       "figure": "/assets/images/papers/beyondweb-figure.jpg"
-    }
+    },
 
+    {
+      "id": "memento",
+      "briefingCard": {
+        "title": "Memento: Fine-tuning LLM Agents without Fine-tuning LLMs",
+        "authors": ["Huichi Zhou", "Yihang Chen", "Siyuan Guo", "Xue Yan", "Kin Hei Lee", "Zihan Wang", "Ka Yiu Lee", "Guchun Zhang", "Kun Shao", "Linyi Yang", "Jun Wang"],
+        "venueDate": "arXiv [cs.LG], 25 Aug 2025",
+        "keywords": ["LLM Agents", "Continual Learning", "Reinforcement Learning", "Memory-Augmented Models", "Case-Based Reasoning"],
+        "affiliations": "AI Centre, UCL; Huawei Noah's Ark Lab, UK; Jilin University; Institute of Automation, CAS",
+        "resources": {
+          "pdfUrl": "https://www.arxiv.org/pdf/2508.16153",
+          "code": {
+            "url": "https://github.com/Agent-on-the-Fly/Memento",
+            "status": "Available"
+          },
+          "projectPage": null
+        },
+        "contributionProfile": [
+          { "type": "New Learning Paradigm", "description": "Introduces a novel paradigm for LLM agents that enables continual adaptation and learning without any gradient-based fine-tuning of the underlying LLM's parameters." },
+          { "type": "New Formalism", "description": "Formalizes the agent learning process as a Memory-augmented Markov Decision Process (M-MDP) with a neural case-selection policy guided by online reinforcement learning." },
+          { "type": "SOTA Benchmarking", "description": "Achieves top-1 performance on the GAIA validation set (87.88% Pass@3) and outperforms state-of-the-art training-based methods on the DeepResearcher dataset (66.6% F1, 80.4% PM)." }
+        ],
+        "scientificHook": {
+          "problem": "Current LLM agents are either static and inflexible or require computationally expensive fine-tuning for adaptation, making them impractical for continuous learning in open-ended scenarios.",
+          "insight": "Continual adaptation can be achieved efficiently by augmenting a frozen LLM with an external episodic memory. By using memory-based online reinforcement learning to retrieve and rewrite past experiences (cases), an agent can improve its policy without costly gradient updates to the base model."
+        },
+        "reproducibilityClaim": "The code is publicly available. However, reproducing the exact SOTA results depends on access to the specific proprietary models used as the planner and executor (e.g., GPT-4.1), as detailed in the full paper.",
+        "bottomLine": "If you read this paper, you will understand how to build an LLM agent that learns and adapts in real-time without fine-tuning the core LLM. It demonstrates that a memory-based approach, inspired by case-based reasoning, can be more efficient and outperform traditional gradient-based methods on complex, long-horizon research tasks."
+      },
+
+      "genealogyMap": {
+        "nodes": [
+          {
+            "id": "memento",
+            "type": "root",
+            "data": {
+              "label": "Memento",
+              "more": "A novel learning paradigm and framework for LLM agents that enables low-cost, real-time continual adaptation without fine-tuning the underlying LLM's parameters. It is instantiated as a planner-executor architecture for deep research tasks."
+            }
+          },
+          {
+            "id": "case-based-reasoning",
+            "type": "concept",
+            "data": {
+              "label": "Case-Based Reasoning (CBR)",
+              "description": "A psychologically grounded learning strategy where new problems are solved by retrieving and adapting solutions from similar past problems.",
+              "more": "Memento is directly inspired by human memory mechanisms and explicitly aligns with the principles of CBR (Aamodt and Plaza, 1994). Instead of fine-tuning, the agent leverages an external memory of past trajectories (cases) to guide decision-making, mirroring how humans recall analogous situations (Section 1)."
+            }
+          },
+          {
+            "id": "m-mdp",
+            "type": "concept",
+            "data": {
+              "label": "Memory-augmented MDP (M-MDP)",
+              "description": "A Markov Decision Process extended with an explicit memory space of past experiences.",
+              "more": "Memento formalizes the agent's sequential decision-making process as an M-MDP. The key difference from a standard MDP is the introduction of a memory space 'M' which the agent's policy is conditioned on. The agent's goal is optimized via soft Q-learning to learn a case retrieval policy (Section 3, Figure 2)."
+            }
+          },
+          {
+            "id": "llm-finetuning-problem",
+            "type": "concept",
+            "data": {
+              "label": "Costly LLM Fine-Tuning",
+              "description": "The prohibitive computational cost and inefficiency of adapting LLM agents via gradient-based parameter updates.",
+              "more": "The paper identifies two prevailing paradigms for LLM agents: rigid, fixed workflows, and flexible but computationally expensive fine-tuning. The latter is deemed 'inefficient for continuous adaptation and online learning'. Memento directly addresses the central research question: 'How can we build LLM agents that learn continuously... without the prohibitive cost of fine-tuning the underlying LLMs?' (Section 1)."
+            }
+          },
+          {
+            "id": "parametric-approaches",
+            "type": "concept",
+            "data": {
+              "label": "Parametric Approaches",
+              "description": "Continual learning strategies that update the LLM's parameters through methods like supervised fine-tuning or reinforcement learning.",
+              "more": "Section 2.1 contrasts parametric approaches, which update the LLM itself, with non-parametric approaches like Memento, which freeze the LLM and attach an external memory. Memento is a non-parametric framework."
+            }
+          },
+          {
+            "id": "deepresearcher-sota",
+            "type": "paper",
+            "data": {
+              "label": "DeepResearcher (Zheng et al., 2025)",
+              "more": "The state-of-the-art training-based system used as a primary baseline. Memento is evaluated on the DeepResearcher benchmark, which consists of seven open-domain QA datasets requiring real-time web research."
+            }
+          },
+          {
+            "id": "gaia-leaderboard-agents",
+            "type": "dataset",
+            "data": {
+              "label": "GAIA Leaderboard Agents",
+              "more": "Represents the top-performing agent frameworks on the GAIA benchmark, a test for long-horizon planning and tool orchestration. Agents include Alita, Aworld, Manus, etc. (Table 2)."
+            }
+          }
+        ],
+        "edges": [
+          {
+            "source": "memento",
+            "target": "case-based-reasoning",
+            "label": "Builds upon",
+            "data": {
+              "more": "Memento is a 'non-parametric, learn-on-the-fly framework for CBR' (Section 1). It implements online case-based reasoning by storing episodic traces in a growing 'Case Bank' to guide future actions."
+            }
+          },
+          {
+            "source": "memento",
+            "target": "m-mdp",
+            "label": "Formalized as",
+            "data": {
+              "more": "The abstract states: 'We formalise this as a Memory-augmented Markov Decision Process (M-MDP), equipped with a neural case-selection policy to guide action decisions.' This provides the theoretical foundation for the learning mechanism."
+            }
+          },
+          {
+            "source": "memento",
+            "target": "llm-finetuning-problem",
+            "label": "Addresses Problem of",
+            "data": {
+              "more": "The core contribution is a 'novel learning paradigm... that eliminates the need for fine-tuning the underlying LLMs' (Abstract). It offers a scalable and efficient pathway for continuous, real-time learning without gradient updates."
+            }
+          },
+          {
+            "source": "memento",
+            "target": "parametric-approaches",
+            "label": "Opposes",
+            "data": {
+              "more": "Memento is a non-parametric approach. Unlike parametric methods that update model weights, Memento freezes the LLM and achieves policy improvement through efficient memory reading (retrieval) and rewriting (updating the Q-function for the retrieval policy)."
+            }
+          },
+          {
+            "source": "memento",
+            "target": "deepresearcher-sota",
+            "label": "Outperforms (SOTA Baseline)",
+            "style": { "stroke": "#4ade80" },
+            "data": {
+              "more": "Memento outperforms the DeepResearcher SOTA method on its own benchmark, achieving a weighted average of 66.6% F1 and 80.4% PM, compared to the baseline's 51.8% F1 and 60.5% PM (Table 1)."
+            }
+          },
+          {
+            "source": "memento",
+            "target": "gaia-leaderboard-agents",
+            "label": "Outperforms (Competitors)",
+            "style": { "stroke": "#4ade80" },
+            "data": {
+              "more": "As of June 26, 2025, Memento achieves the Top-1 performance on the GAIA validation set with an 87.88% average score, surpassing other frameworks like Alita (87.27%) and Aworld (77.58%) (Table 2)."
+            }
+          }
+        ]
+      },
+      "thumbnail": "/assets/images/papers/mementocard.png",
+      "figure": "/assets/images/papers/mementocard.png"
+    },
+
+    {
+      "id": "pickllm",
+      "briefingCard": {
+        "title": "PickLLM: Context-Aware RL-Assisted Large Language Model Routing",
+        "authors": ["Dimitrios Sikeridis", "Dennis Ramdass", "Pranay Pareek"],
+        "venueDate": "arXiv [cs.LG], 12 Dec 2024",
+        "keywords": ["LLM Routing", "Reinforcement Learning", "Model Selection", "Cost Optimization", "Q-learning", "Learning Automaton"],
+        "affiliations": "AI and Advanced Services, VMware Cloud Foundation (VCF) Division, Broadcom",
+        "resources": {
+          "pdfUrl": "https://arxiv.org/pdf/2412.12170.pdf",
+          "code": {
+            "url": null,
+            "status": "Not mentioned"
+          },
+          "projectPage": null
+        },
+        "contributionProfile": [
+          { "type": "New RL Framework", "description": "Proposes PickLLM, a lightweight framework that uses Reinforcement Learning (RL) to route queries on-the-fly to a pool of available LLMs." },
+          { "type": "Customizable Reward Function", "description": "Introduces a weighted reward function that considers per-query cost, inference latency, and response accuracy via a customizable scoring function." },
+          { "type": "Exploration of RL Algorithms", "description": "Implements and compares two RL alternatives for routing: a learning automaton using gradient ascent and a stateless Q-learning model with an e-greedy approach." }
+        ],
+        "scientificHook": {
+          "problem": "The proliferation of LLMs makes it difficult for users to select the optimal model for a specific query, especially when needing to balance cost, latency, and accuracy. Existing routing solutions often focus only on cost or require heavy supervised pre-training.",
+          "insight": "A lightweight, on-the-fly Reinforcement Learning agent can efficiently solve the LLM routing problem. By using a simple, weighted reward function, the agent can quickly learn to select the best LLM from a pool for a given session of queries, adapting to user-defined objectives (like minimizing cost or latency) without any pre-training."
+        },
+        "reproducibilityClaim": "The paper details the experimental setup, including the four specific LLMs in the pool and the HC3 dataset. The RL algorithms are standard; however, the experiments rely on an internal, in-house LLM API service, which may make exact replication challenging.",
+        "bottomLine": "If you read this paper, you will understand how to apply simple, model-free Reinforcement Learning to create an adaptive LLM router that optimizes for cost, latency, and accuracy. The results show this approach can reduce session costs and latency by up to 50-60% compared to baseline strategies."
+      },
+      "genealogyMap": {
+        "nodes": [
+          {
+            "id": "pickllm",
+            "type": "root",
+            "data": {
+              "label": "PickLLM",
+              "more": "A framework that uses Reinforcement Learning to select the optimal LLM from a model pool for specific queries with customizable objectives. It is designed to be lightweight, adaptable, and operate on-the-fly without pre-training."
+            }
+          },
+          {
+            "id": "llm-routing",
+            "type": "concept",
+            "data": {
+              "label": "LLM Routing / Selection",
+              "description": "The task of dynamically selecting the most appropriate LLM from a pool of candidates for a given query.",
+              "more": "PickLLM addresses the LLM routing problem by considering a context of multiple optimization choices, including running cost, response latency, and accuracy. The goal is to converge on the most appropriate model for a session of contextually related queries (Section 3.1)."
+            }
+          },
+          {
+            "id": "reinforcement-learning",
+            "type": "concept",
+            "data": {
+              "label": "Reinforcement Learning (RL)",
+              "description": "A machine learning paradigm where an agent learns to make decisions by taking actions in an environment to maximize a cumulative reward.",
+              "more": "PickLLM is an RL-based framework. It learns from a reward signal derived from the cost, latency, and accuracy of an LLM's response to a query, and updates its selection policy to maximize this reward over time."
+            }
+          },
+          {
+            "id": "learning-automaton",
+            "type": "concept",
+            "data": {
+              "label": "Learning Automaton (LA)",
+              "description": "An adaptive decision-making unit that learns the optimal action from a finite set through interaction with an environment.",
+              "more": "One of the two methods explored by PickLLM. It acts as a stochastic learning automaton (SLA) that uses a gradient ascent approach (specifically, the Linear Reward-Inaction algorithm) to update the action probability vector for selecting an LLM (Section 3.3)."
+            }
+          },
+          {
+            "id": "stateless-q-learning",
+            "type": "concept",
+            "data": {
+              "label": "Stateless Q-Learning",
+              "description": "A model-free RL algorithm used to find the optimal action-selection policy for a given finite Markov decision process.",
+              "more": "The second method explored by PickLLM. It uses a stateless, e-greedy Q-learning approach to maintain an action-value for each LLM, balancing exploration (trying random LLMs) and exploitation (choosing the LLM with the highest expected reward) (Section 3.4)."
+            }
+          },
+          {
+            "id": "llm-cascades",
+            "type": "paper",
+            "data": {
+              "label": "LLM Cascades",
+              "more": "A related work approach mentioned in Section 2 where queries are passed through a sequence of increasingly expensive LLMs until an acceptable answer is produced. PickLLM contrasts with this by aiming to select the optimal model in a single step, avoiding the cost of multiple inferences per query."
+            }
+          },
+          {
+            "id": "supervised-reward-models",
+            "type": "concept",
+            "data": {
+              "label": "Supervised Reward Models",
+              "more": "An alternative approach discussed in the related work (Section 2) that requires computationally heavy pre-training of models on generic or user-specific datasets to rank or score LLM outputs. PickLLM's RL approach avoids this pre-training phase."
+            }
+          }
+        ],
+        "edges": [
+          {
+            "source": "pickllm",
+            "target": "llm-routing",
+            "label": "Addresses Problem of",
+            "data": {
+              "more": "The paper's abstract explicitly states, 'In this work, we tackle the challenge of selecting the optimal LLM from a model pool for specific queries with customizable objectives.'"
+            }
+          },
+          {
+            "source": "pickllm",
+            "target": "reinforcement-learning",
+            "label": "Applies Method",
+            "data": {
+              "more": "The core of the framework is RL. The abstract states, 'We propose PickLLM, a lightweight framework that relies on Reinforcement Learning (RL) to route on-the-fly queries to available models.'"
+            }
+          },
+          {
+            "source": "pickllm",
+            "target": "learning-automaton",
+            "label": "Implements",
+            "data": {
+              "more": "The paper explores two RL alternatives. The first is 'PickLLM router acting as a learning automaton that utilizes gradient ascent to select a specific LLM' (Abstract & Section 3.3)."
+            }
+          },
+          {
+            "source": "pickllm",
+            "target": "stateless-q-learning",
+            "label": "Implements",
+            "data": {
+              "more": "The second RL alternative is 'utilizing stateless Q-learning to explore the set of LLMs and perform selection with a e-greedy approach' (Abstract & Section 3.4)."
+            }
+          },
+          {
+            "source": "pickllm",
+            "target": "llm-cascades",
+            "label": "Alternative to",
+            "data": {
+              "more": "Unlike LLM Cascades which may query multiple models sequentially, PickLLM's goal is to learn the single best router choice, making it more efficient for real-time applications by avoiding repeated computations for the same input query."
+            }
+          },
+          {
+            "source": "pickllm",
+            "target": "supervised-reward-models",
+            "label": "Alternative to",
+            "data": {
+              "more": "PickLLM's on-the-fly RL approach is presented as an alternative to solutions that 'relies only on computationally heavy pre-training of supervised reward models,' offering better generalization for different user cases without prior training."
+            }
+          }
+        ]
+      }
+      ,
+      "thumbnail": "/assets/images/papers/pickllmcard.png",
+      "figure": "/assets/images/papers/pickllmcard.png"
+    },
+
+    {
+      "id": "router-r1",
+      "briefingCard": {
+        "title": "Router-R1: Teaching LLMs Multi-Round Routing and Aggregation via Reinforcement Learning",
+        "authors": ["Haozhen Zhang", "Tao Feng", "Jiaxuan You"],
+        "venueDate": "arXiv [cs.CL], 18 Jun 2025",
+        "keywords": ["LLM Routing", "Multi-Round Routing", "Reinforcement Learning", "Sequential Decision Process", "Cost-Performance Trade-off", "LLM Coordination"],
+        "affiliations": "University of Illinois at Urbana-Champaign",
+        "resources": {
+          "pdfUrl": "https://arxiv.org/pdf/2506.09033.pdf",
+          "code": {
+            "url": "https://github.com/ulab-uiuc/Router-R1",
+            "status": "Available"
+          },
+          "projectPage": null
+        },
+        "contributionProfile": [
+          { "type": "New RL Framework", "description": "Presents Router-R1, an RL-based framework that formulates multi-LLM routing and aggregation as a sequential decision process, going beyond single-shot routing." },
+          { "type": "Novel Architecture", "description": "Instantiates the router itself as a capable LLM that interleaves internal reasoning ('think' actions) with external model invocation ('route' actions)." },
+          { "type": "Cost-Aware Reward Model", "description": "Designs a lightweight, rule-based reward function combining format, final outcome, and a novel cost reward to optimize the performance-cost trade-off." }
+        ],
+        "scientificHook": {
+          "problem": "Existing LLM routers perform a single-round, one-to-one mapping of a query to a single LLM, which is insufficient for complex tasks that require the coordinated, complementary strengths of multiple models in a sequence.",
+          "insight": "Complex LLM routing can be modeled as a sequential decision problem. By using an LLM as the router and training it with reinforcement learning, the router can learn to orchestrate a sequence of model calls, interleaving its own reasoning with information gathered from a pool of specialized LLMs to iteratively construct a better answer."
+        },
+        "reproducibilityClaim": "The paper provides a public GitHub repository and details on the base models, routing pool, and training datasets. The RL training uses the PPO algorithm via the veRL framework. Full reproduction requires access to specific GPUs (NVIDIA A6000) and the NVIDIA NIM APIs used for model access.",
+        "bottomLine": "If you read this paper, you will understand how to advance from simple LLM routing to sophisticated, multi-step LLM coordination. It provides a complete RL-based framework for training an LLM to act as a 'conductor,' intelligently deciding when to think for itself and when to delegate sub-tasks to other LLMs to solve complex problems efficiently."
+      },
+      "genealogyMap": {
+        "nodes": [
+          {
+            "id": "router-r1",
+            "type": "root",
+            "data": {
+              "label": "Router-R1",
+              "more": "A reinforcement learning-based framework that formulates multi-LLM routing and aggregation as a sequential decision process. It uses a capable LLM as the router to interleave internal reasoning with dynamic, multi-round model invocation."
+            }
+          },
+          {
+            "id": "multi-round-routing",
+            "type": "concept",
+            "data": {
+              "label": "Multi-Round Routing",
+              "description": "A routing process involving a sequence of model calls to leverage the complementary strengths of multiple LLMs.",
+              "more": "Router-R1 introduces this concept to solve complex tasks that require 'coordinated interactions among multiple models, orchestrating not just a single choice but a sequence of model calls'. This contrasts with the prevailing single-step regime (Section 1)."
+            }
+          },
+          {
+            "id": "single-round-routing",
+            "type": "concept",
+            "data": {
+              "label": "Single-Round Routing",
+              "description": "The conventional approach where a router assigns a user query to a single, most suitable LLM in a one-shot decision.",
+              "more": "The paper identifies this as the typical behavior of existing LLM routers, which 'perform a single-round, one-to-one mapping'. This approach is critiqued for limiting the ability to tackle complex tasks that demand complementary strengths of multiple LLMs (Abstract)."
+            }
+          },
+          {
+            "id": "sequential-decision-process",
+            "type": "concept",
+            "data": {
+              "label": "Sequential Decision Process",
+              "description": "A mathematical formulation of a problem where decisions are made sequentially over time to maximize some notion of cumulative reward.",
+              "more": "Router-R1 formulates the multi-LLM routing and aggregation problem as a sequential decision process. At each step, the router chooses whether to 'think' (internal deliberation) or 'route' (invoke an external model), gradually constructing an answer (Abstract, Section 2)."
+            }
+          },
+          {
+            "id": "reinforcement-learning",
+            "type": "concept",
+            "data": {
+              "label": "Reinforcement Learning (RL)",
+              "description": "A machine learning paradigm for training agents to make a sequence of decisions.",
+              "more": "RL is the core training mechanism for Router-R1. The paper adopts a 'general policy optimization objective' and uses a custom rule-based reward function (format, outcome, cost) to steer the router's policy towards balancing performance and cost (Section 3.1)."
+            }
+          },
+          {
+            "id": "llm-as-router",
+            "type": "concept",
+            "data": {
+              "label": "LLM as Router",
+              "description": "An architectural choice where a capable LLM itself serves as the routing decision-maker.",
+              "more": "A key design feature of Router-R1 is that it 'instantiates the router itself as a capable LLM, leveraging its reasoning ability to interleave “think” actions (internal deliberation) with “route” actions (dynamic model invocation)' (Abstract). This enables flexible, adaptive coordination."
+            }
+          },
+          {
+            "id": "query-based-routers",
+            "type": "paper",
+            "data": {
+              "label": "Query-based Routers (e.g., FrugalGPT, GraphRouter)",
+              "more": "The class of existing systems that Router-R1 builds upon and competes with. These routers aim to direct queries to the most appropriate model but typically operate in a single-shot manner. Router-R1 significantly surpasses these baselines in performance (Section 2.1, Table 1)."
+            }
+          }
+        ],
+        "edges": [
+          {
+            "source": "router-r1",
+            "target": "multi-round-routing",
+            "label": "Introduces",
+            "data": {
+              "more": "Router-R1 is presented as a framework for 'multi-round LLM routing and aggregation', a key departure from existing methods."
+            }
+          },
+          {
+            "source": "router-r1",
+            "target": "single-round-routing",
+            "label": "Surpasses",
+            "data": {
+              "more": "The paper's central thesis is that the single-round approach is limited. Experiments show Router-R1 'consistently outperforms several strong baselines' that use single-round routing, such as Prompt LLM and KNN Router (Table 1)."
+            }
+          },
+          {
+            "source": "router-r1",
+            "target": "sequential-decision-process",
+            "label": "Formalized as",
+            "data": {
+              "more": "The abstract states that Router-R1 'formulates multi-LLM routing and aggregation as a sequential decision process', which is the core theoretical framing of the problem."
+            }
+          },
+          {
+            "source": "router-r1",
+            "target": "reinforcement-learning",
+            "label": "Applies Method",
+            "data": {
+              "more": "Router-R1 is explicitly described as a 'reinforcement learning (RL)-based framework'. It uses RL with a custom reward function to learn its routing policy (Abstract, Section 3)."
+            }
+          },
+          {
+            "source": "router-r1",
+            "target": "llm-as-router",
+            "label": "Instantiates as",
+            "data": {
+              "more": "The framework's novelty comes from its architecture: 'Router-R1 instantiates the router itself as a capable LLM, leveraging its reasoning ability' (Abstract). This allows for the interleaving of reasoning and routing."
+            }
+          },
+          {
+            "source": "router-r1",
+            "target": "query-based-routers",
+            "label": "Outperforms",
+            "style": { "stroke": "#4ade80" },
+            "data": {
+              "more": "Router-R1 is benchmarked against and 'significantly surpasses all LLM router baselines in overall performance' (Section 5.1). For example, Router-R1-Qwen achieves an average EM of 0.416, while strong router baselines like Prompt LLM and GraphRouter score 0.329 and 0.297, respectively (Table 1)."
+            }
+          }
+        ]
+      },
+      "thumbnail": "/assets/images/papers/routerr1card.png",
+      "figure": "/assets/images/papers/routerr1card.png"
+    },
+
+    {
+      "id": "deep-graph-anomaly-detection-survey",
+      "briefingCard": {
+        "title": "Deep Graph Anomaly Detection: A Survey and New Perspectives",
+        "authors": ["Hezhe Qiao", "Hanghang Tong", "Bo An", "Irwin King", "Charu Aggarwal", "Guansong Pang"],
+        "venueDate": "arXiv [cs.LG], 18 Jun 2025",
+        "keywords": ["Graph Anomaly Detection", "Graph Neural Networks", "Survey", "Deep Learning", "Anomaly Detection", "Graph Representation Learning"],
+        "affiliations": "Singapore Management University; University of Illinois at Urbana-Champaign; Nanyang Technological University; Chinese University of Hong Kong; IBM T. J. Watson Research Center",
+        "resources": {
+          "pdfUrl": "https://arxiv.org/pdf/2409.09957.pdf",
+          "code": {
+            "url": "https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection",
+            "status": "Available"
+          },
+          "projectPage": null
+        },
+        "contributionProfile": [
+          { "type": "Comprehensive Survey", "description": "Presents a systematic and comprehensive review of deep learning approaches for Graph Anomaly Detection (GAD), summarizing current methodologies and findings." },
+          { "type": "Novel Taxonomy", "description": "Introduces a new way to categorize deep GAD methods from three novel perspectives: GNN backbone design, proxy task design for GAD, and graph anomaly measures." },
+          { "type": "Resource Curation", "description": "Summarizes a collection of widely-used GAD datasets, provides empirical performance comparisons, and discusses open research problems to inspire future work." }
+        ],
+        "scientificHook": {
+          "problem": "Existing surveys on Graph Anomaly Detection (GAD) are often focused on task-specific discussions, making it difficult to understand the underlying technical insights, design principles, and limitations of the rapidly growing number of deep learning methods.",
+          "insight": "By systematically reviewing deep GAD methods through three novel technical perspectives—how the GNN backbone is designed, what proxy task is used for learning, and how the anomaly is measured—a clearer and more foundational understanding of the field emerges, revealing the core capabilities and challenges of different approaches."
+        },
+        "reproducibilityClaim": "This is a survey paper; its main goal is to facilitate research and reproducibility for others. It does so by providing a continuously updated public repository containing GAD datasets, links to algorithm codes, and empirical comparisons.",
+        "bottomLine": "If you read this paper, you will gain a structured, in-depth understanding of the entire deep graph anomaly detection field. It moves beyond a simple list of methods to provide a clear taxonomy based on core technical designs, helping you pinpoint effective model architectures and identify open research problems."
+      },
+      "genealogyMap": {
+        "nodes": [
+          {
+            "id": "deep-gad-survey",
+            "type": "root",
+            "data": {
+              "label": "Deep GAD Survey",
+              "more": "A comprehensive review that systematizes deep learning methods for Graph Anomaly Detection (GAD). It aims to fill a gap left by prior surveys by focusing on the technical insights of existing methods and their limitations."
+            }
+          },
+          {
+            "id": "graph-anomaly-detection",
+            "type": "concept",
+            "data": {
+              "label": "Graph Anomaly Detection (GAD)",
+              "description": "The task of identifying unusual graph instances (nodes, edges, subgraphs, or entire graphs) that do not conform to the normal regime.",
+              "more": "GAD is an active research area with wide applications in detecting abnormalities like abusive user behavior, financial fraud, and spam in various network data (Section I)."
+            }
+          },
+          {
+            "id": "gad-challenges",
+            "type": "concept",
+            "data": {
+              "label": "Unique GAD Challenges",
+              "description": "The inherent complexities of graph data that make anomaly detection particularly difficult.",
+              "more": "The survey identifies and discusses major problem complexities (P1-P8) and resulting challenges (C1-C5), including structural dependency, data imbalance, abnormality camouflage, and the need for generalization across diverse anomaly types (Section II)."
+            }
+          },
+          {
+            "id": "gnn-backbone-design",
+            "type": "concept",
+            "data": {
+              "label": "Perspective 1: GNN Backbone Design",
+              "description": "A category of GAD methods focused on designing suitable GNN architectures to handle graph complexities.",
+              "more": "This perspective reviews methods that adapt GNNs for GAD. It is subdivided into 'Discriminative GNNs' (which focus on aggregation mechanisms and feature transformations) and 'Generative GNNs' (which use feature interpolation or noise perturbation to augment data) (Section IV, Figure 1)."
+            }
+          },
+          {
+            "id": "proxy-task-design",
+            "type": "concept",
+            "data": {
+              "label": "Perspective 2: Proxy Task Design",
+              "description": "A category of methods that create self-supervised learning objectives to capture normal/abnormal patterns without labels.",
+              "more": "This perspective reviews methods based on their learning objectives. It is subdivided into five proxy tasks: Graph Reconstruction, Graph Contrastive Learning, Graph Representation Distillation, Adversarial Graph Learning, and Score Prediction (Section V, Figure 1)."
+            }
+          },
+          {
+            "id": "anomaly-measures",
+            "type": "concept",
+            "data": {
+              "label": "Perspective 3: Anomaly Measures",
+              "description": "A category of methods focused on designing specific scoring functions to evaluate the abnormality of graph instances.",
+              "more": "This perspective reviews methods based on how they score anomalies. It is subdivided into four types of measures: One-class Distance, Community Adherence, Local Affinity, and Graph Isolation (Section VI, Figure 1)."
+            }
+          },
+          {
+            "id": "existing-surveys",
+            "type": "paper",
+            "data": {
+              "label": "Existing GAD Surveys",
+              "more": "Previous review papers on GAD. The paper argues they are often limited to a narrow point of view (e.g., task-specific discussions) or focus on non-deep-learning methods, which motivates this new, more comprehensive survey (Section I, Table I)."
+            }
+          }
+        ],
+        "edges": [
+          {
+            "source": "deep-gad-survey",
+            "target": "graph-anomaly-detection",
+            "label": "Surveys Field of",
+            "data": {
+              "more": "The paper's primary purpose is to 'present a comprehensive review of deep learning approaches for GAD' (Abstract)."
+            }
+          },
+          {
+            "source": "deep-gad-survey",
+            "target": "existing-surveys",
+            "label": "Improves upon",
+            "data": {
+              "more": "The paper explicitly states its goal is to 'fill this gap' left by existing surveys that are 'focused on task-specific discussions, making it difficult to understand the technical insights of existing methods' (Abstract)."
+            }
+          },
+          {
+            "source": "deep-gad-survey",
+            "target": "gad-challenges",
+            "label": "Systematizes",
+            "data": {
+              "more": "A key contribution is to first 'discuss the problem complexities and their resulting challenges in GAD' before reviewing solutions, providing a structured foundation for the rest of the survey (Section II)."
+            }
+          },
+          {
+            "source": "deep-gad-survey",
+            "target": "gnn-backbone-design",
+            "label": "Categorizes via",
+            "data": {
+              "more": "This is the first of three novel perspectives the survey uses to provide a 'systematic review of current deep GAD methods' (Abstract)."
+            }
+          },
+          {
+            "source": "deep-gad-survey",
+            "target": "proxy-task-design",
+            "label": "Categorizes via",
+            "data": {
+              "more": "This is the second of the three novel perspectives, focusing on the design of learning objectives that guide GAD models (Abstract)."
+            }
+          },
+          {
+            "source": "deep-gad-survey",
+            "target": "anomaly-measures",
+            "label": "Categorizes via",
+            "data": {
+              "more": "This is the third novel perspective, which reviews methods based on the specific functions they use to score anomalies in graphs (Abstract)."
+            }
+          }
+        ]
+      },
+      "thumbnail": "/assets/images/papers/deep-graph-anomaly-detection-surveycard.png",
+      "figure": "/assets/images/papers/deep-graph-anomaly-detection-surveycard.png"
+    },
+    {
+      "id": "deepconf",
+      "briefingCard": {
+        "title": "Deep Think with Confidence",
+        "authors": ["Yichao Fu", "Xuewei Wang", "Yuandong Tian", "Jiawei Zhao"],
+        "venueDate": "arXiv [cs.LG], 21 Aug 2025",
+        "keywords": ["LLM Reasoning", "Self-Consistency", "Confidence Estimation", "Test-time Scaling", "Majority Voting", "Token Efficiency"],
+        "affiliations": "Meta AI, UCSD",
+        "resources": {
+          "pdfUrl": "https://arxiv.org/pdf/2508.15260.pdf",
+          "code": {
+            "url": "https://jiaweizzhao.github.io/deepconf",
+            "status": "Project Page"
+          },
+          "projectPage": "https://jiaweizzhao.github.io/deepconf"
+        },
+        "contributionProfile": [
+          { "type": "New Method", "description": "Introduces Deep Think with Confidence (DeepConf), a test-time method to enhance reasoning efficiency and performance by filtering low-quality traces." },
+          { "type": "Novel Technique", "description": "Leverages model-internal confidence signals (e.g., token log-probabilities) to dynamically filter traces, requiring no additional model training or hyperparameter tuning." },
+          { "type": "Operational Modes", "description": "Demonstrates both an 'offline' mode for filtering completed traces and an 'online' mode that enables early stopping of unpromising generation paths to save compute." }
+        ],
+        "scientificHook": {
+          "problem": "Test-time scaling methods like self-consistency with majority voting improve LLM reasoning but suffer from diminishing returns and incur substantial computational overhead, as all reasoning traces are treated equally regardless of their quality.",
+          "insight": "The quality of an LLM's reasoning trace can be estimated from its own internal confidence signals. By dynamically filtering out low-confidence traces during or after generation, it's possible to significantly reduce token generation and improve final accuracy by preventing low-quality traces from dominating the vote."
+        },
+        "reproducibilityClaim": "The method is presented as simple and requires no model training. The paper provides detailed descriptions of the confidence metrics and algorithms. Full reproduction depends on access to the specific models (Qwen, GPT-OSS) and challenging benchmarks (AIME 2025) used in the evaluation.",
+        "bottomLine": "If you read this paper, you will learn a simple, training-free technique to make massive-scale parallel thinking (self-consistency) both cheaper and more accurate. It shows how to use the model's own confidence to intelligently discard bad reasoning paths, achieving up to 99.9% accuracy on AIME 2025 while reducing generated tokens by up to 84.7%."
+      },
+      "genealogyMap": {
+        "nodes": [
+          {
+            "id": "deepconf",
+            "type": "root",
+            "data": {
+              "label": "DeepConf",
+              "more": "A simple yet powerful test-time method that enhances reasoning efficiency and performance. It combines parallel thinking with confidence-aware filtering based on local, model-internal confidence measurements to discard low-quality reasoning traces either during (online) or after (offline) generation."
+            }
+          },
+          {
+            "id": "self-consistency",
+            "type": "concept",
+            "data": {
+              "label": "Self-Consistency / Parallel Thinking",
+              "description": "A test-time inference technique that samples multiple reasoning paths and aggregates the final answers through majority voting.",
+              "more": "This is the foundational method that DeepConf builds upon. The paper notes that while it 'significantly improves reasoning accuracy,' it 'incurs substantial computational overhead' and suffers from 'diminishing returns,' which motivates the need for a more efficient approach (Section 1)."
+            }
+          },
+          {
+            "id": "majority-voting-problem",
+            "type": "concept",
+            "data": {
+              "label": "The Majority Voting Problem",
+              "description": "The limitation of standard majority voting where all reasoning traces are treated equally, allowing low-quality traces to dominate the outcome.",
+              "more": "A key limitation identified in Section 1 is that 'standard majority voting treats all reasoning traces equally, ignoring quality variations.' DeepConf addresses this by introducing confidence-weighted majority voting and confidence filtering."
+            }
+          },
+          {
+            "id": "confidence-estimation",
+            "type": "concept",
+            "data": {
+              "label": "Confidence Estimation",
+              "description": "Estimating the quality of a reasoning trace using metrics derived from the model's internal token distributions.",
+              "more": "This is the core mechanism of DeepConf. The paper leverages metrics like Token Confidence, Average Trace Confidence, and introduces more localized measures like Group Confidence and Tail Confidence to get a fine-grained assessment of reasoning quality without external supervision (Section 2 & 3.1)."
+            }
+          },
+          {
+            "id": "offline-thinking",
+            "type": "concept",
+            "data": {
+              "label": "Offline Thinking",
+              "description": "A mode of operation where confidence is used to filter and weight a pre-generated set of complete reasoning traces.",
+              "more": "In this scenario, all reasoning traces are generated first. DeepConf then applies confidence metrics to either filter out the top-N% of traces or to weight each trace's vote, improving the final aggregated answer over standard majority voting (Section 3.2)."
+            }
+          },
+          {
+            "id": "online-thinking",
+            "type": "concept",
+            "data": {
+              "label": "Online Thinking",
+              "description": "A mode of operation where confidence is evaluated in real-time during generation to dynamically terminate unpromising traces.",
+              "more": "This mode enables real-time estimation of trace quality, allowing for the early stopping of low-confidence generations. This is particularly valuable in resource-constrained environments as it 'reduces unnecessary token generation while maintaining or improving final answer accuracy' (Section 3.3, Figure 4)."
+            }
+          }
+        ],
+        "edges": [
+          {
+            "source": "deepconf",
+            "target": "self-consistency",
+            "label": "Improves upon",
+            "data": {
+              "more": "DeepConf is a direct enhancement of the self-consistency/parallel thinking paradigm. It doesn't replace it, but makes it more efficient and performant by adding a confidence-aware filtering layer."
+            }
+          },
+          {
+            "source": "deepconf",
+            "target": "majority-voting-problem",
+            "label": "Addresses Problem of",
+            "data": {
+              "more": "By using confidence scores to weight votes or filter out low-quality traces entirely, DeepConf directly solves the issue of treating all reasoning paths equally, ensuring that more reliable traces have a greater impact on the final answer."
+            }
+          },
+          {
+            "source": "deepconf",
+            "target": "confidence-estimation",
+            "label": "Applies Method",
+            "data": {
+              "more": "The core innovation of DeepConf is the application of various model-internal confidence metrics to assess reasoning quality. The paper introduces several such metrics, including Group, Bottom 10%, and Tail Confidence (Section 3.1)."
+            }
+          },
+          {
+            "source": "deepconf",
+            "target": "offline-thinking",
+            "label": "Operates in mode",
+            "data": {
+              "more": "DeepConf is evaluated in an offline setting where it has access to all reasoning traces and uses confidence to improve the aggregation. For example, 'DeepConf@512 achieves 99.9% accuracy on AIME 2025' in offline mode (Section 1)."
+            }
+          },
+          {
+            "source": "deepconf",
+            "target": "online-thinking",
+            "label": "Operates in mode",
+            "data": {
+              "more": "DeepConf is also designed for online, real-time generation control. In this mode, it 'reduces token generation by up to 84.7% compared to standard parallel thinking while maintaining or exceeding accuracy' (Section 1)."
+            }
+          }
+        ]
+      },
+      "thumbnail": "/assets/images/papers/deepconfcard.png",
+      "figure": "/assets/images/papers/deepconfcard.png"
+    }
   ]
 }
+
