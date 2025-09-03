@@ -1,0 +1,79 @@
+- title: "Efficiently Using LLMs in Your Apps and Securing Them with Guard Rails"
+  date: "2024"
+  thumbnail: /assets/images/video efficiently use llms.png
+  details: |
+    <div style="text-align: center; margin: 20px 0;">
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/GU-vhQFXEVM?si=LUdjSOfHVUiSVPKS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"></iframe>
+    </div>
+    
+    <h4>AI Summit Conference Talk</h4>
+    <p>A comprehensive presentation delivered at the <strong>School of AI Algiers AI Summit</strong> covering efficiency and security in Large Language Model applications. This talk provides practical insights for developers and engineers working with LLM-powered systems.</p>
+    
+    <h4>Key Topics Covered</h4>
+    <p>The presentation is structured in two main parts covering essential aspects of LLM deployment:</p>
+    <ul>
+      <li><strong>Efficiency Techniques:</strong> Six tools and techniques for optimizing LLM usage, including when to avoid LLMs entirely, choosing between open-source and closed-source models, and GPU optimization strategies</li>
+      <li><strong>Security with Guard Rails:</strong> Comprehensive coverage of input and output validation, prompt injection prevention, and automated security measures</li>
+      <li><strong>Practical Implementation:</strong> Real-world examples including database query generation, structured output formatting, and cost optimization strategies</li>
+      <li><strong>Advanced Concepts:</strong> Fine-tuning considerations, RAG implementation, agentic workflows, and hardware optimization techniques</li>
+    </ul>
+    
+    <h4>Technical Insights</h4>
+    <p>The talk demonstrates practical applications including constrained decoding, prompt caching, model quantization, and the implementation of Teacher-Student curriculum learning. Special emphasis is placed on environmental considerations and cost-effective deployment strategies.</p>
+    
+    <h4>Community Impact</h4>
+    <p>Delivered to the AI community as part of ongoing knowledge sharing initiatives, this presentation reflects expertise gained from published research in 5G-LLM fine-tuning and practical experience in MLOps engineering.</p>
+
+- title: "Deep Dive: Transformer Architecture Explained"
+  date: "Oct 2024"
+  thumbnail: /assets/images/story_videos_generator.png
+  details: |
+    <h4>Educational Content</h4>
+    <p>In-depth explanation of <strong>Transformer architecture</strong> with visual animations and code examples.</p>
+    <ul>
+      <li>Mathematical foundations of attention mechanisms</li>
+      <li>Step-by-step implementation walkthrough</li>
+      <li>Comparison with traditional RNN/LSTM approaches</li>
+    </ul>
+    <h4>Reception</h4>
+    <ul>
+      <li>Featured on ML Twitter with 10K+ retweets</li>
+      <li>Used as reference material in 5+ university courses</li>
+      <li>Translated into 3 languages by community</li>
+    </ul>
+
+- title: "Live Coding: RAG System Implementation"
+  date: "Sep 2024"
+  thumbnail: /assets/images/story_videos_generator.png
+  details: |
+    <h4>Live Stream Session</h4>
+    <p>Real-time development of a <strong>Retrieval-Augmented Generation system</strong> using LangChain and vector databases.</p>
+    <ul>
+      <li>2-hour uncut coding session with Q&A</li>
+      <li>Integration with Pinecone and OpenAI APIs</li>
+      <li>Handling of edge cases and error scenarios</li>
+    </ul>
+    <h4>Community Impact</h4>
+    <ul>
+      <li>500+ concurrent viewers during live stream</li>
+      <li>GitHub repository with 200+ stars</li>
+      <li>Follow-up discussion thread with 100+ comments</li>
+    </ul>
+
+- title: "Conference Talk: The Future of MLOps"
+  date: "Aug 2024"
+  thumbnail: /assets/images/story_videos_generator.png
+  details: |
+    <h4>Keynote Presentation</h4>
+    <p>Delivered at <strong>AI/ML Conference 2024</strong> discussing emerging trends and challenges in MLOps.</p>
+    <ul>
+      <li>Audience of 500+ ML engineers and researchers</li>
+      <li>Covered topics: model versioning, A/B testing, monitoring</li>
+      <li>Interactive demo of automated ML pipeline</li>
+    </ul>
+    <h4>Key Insights</h4>
+    <ul>
+      <li>Predictions for MLOps evolution in next 5 years</li>
+      <li>Case studies from real production deployments</li>
+      <li>Panel discussion with industry leaders</li>
+    </ul>

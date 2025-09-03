@@ -43,6 +43,42 @@ title: "Interactive Resume"
   </div>
 </div>
 
+<!-- Research Contributions Section -->
+<div class="resume-section">
+  <h2 class="resume-section__title">Research Contributions</h2>
+  <div class="logo-grid">
+    {% for item in site.data.research %}
+      <div class="logo-card"
+           data-title="{{ item.title }}"
+           data-date="{{ item.date }}">
+        <img src="{{ item.image | relative_url }}" alt="{{ item.title }} image">
+        <div class="modal-hidden-content" style="display:none;">
+          <h3>{{ item.title }}</h3>
+          {{ item.details | markdownify }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Videos Section -->
+<div class="resume-section">
+  <h2 class="resume-section__title">Videos</h2>
+  <div class="logo-grid">
+    {% for item in site.data.videos %}
+      <div class="logo-card"
+           data-title="{{ item.title }}"
+           data-date="{{ item.date }}">
+        <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }} thumbnail">
+        <div class="modal-hidden-content" style="display:none;">
+          <h3>{{ item.title }}</h3>
+          {{ item.details | markdownify }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
 <!-- Hackathons Section -->
 <div class="resume-section">
   <h2 class="resume-section__title">Hackathons & Competitions</h2>

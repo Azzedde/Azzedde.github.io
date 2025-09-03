@@ -1,0 +1,56 @@
+- title: "5G INSTRUCT Forge: An Advanced Data Engineering Pipeline for Making LLMs Learn 5G"
+  date: "2024"
+  image: /assets/images/research.gif
+  details: |
+    <h4>Published in IEEE Transactions on Cognitive Communications and Networking</h4>
+    <p>This paper addresses the critical challenge of adapting Large Language Models to specialized domains, specifically 5G telecommunications technology. The work presents <strong>5G INSTRUCT Forge</strong>, an innovative data engineering pipeline that transforms complex 3GPP Technical Specifications into structured datasets optimized for LLM fine-tuning.</p>
+    
+    <div style="text-align: center; margin: 20px 0;">
+      <a href="https://ieeexplore.ieee.org/document/10794684" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s ease;">
+        📄 Read Paper on IEEE Xplore
+      </a>
+      <a href="https://gitlab.eurecom.fr/netsoft/5g-instruct-forge" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 12px 24px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s ease;">
+        💻 View Source Code
+      </a>
+    </div>
+    
+    <h4>Key Innovation</h4>
+    <p>The pipeline revolutionizes how domain-specific knowledge is extracted and processed from technical documents. By systematically processing unstructured 3GPP specifications, including figures, tables, and complex technical content, the system creates high-quality instruction datasets that enable effective knowledge transfer to language models.</p>
+    
+    <h4>Technical Achievements</h4>
+    <p>The research demonstrates remarkable results through the creation of the <strong>OpenAirInterface (OAI) Instruct dataset</strong>, generated from 22 3GPP Technical Specifications. Fine-tuned models using this dataset achieved superior performance compared to OpenAI's GPT-4 on 5G-specific tasks, with improvements of 5%, 6%, and 4% in BERTScore's F1, precision, and recall metrics respectively.</p>
+    
+    <h4>Methodological Contributions</h4>
+    <p>The pipeline incorporates advanced techniques including vision-text models for figure processing, sophisticated cleaning algorithms for technical documents, and RAG-based data generation using state-of-the-art LLMs. The freeze-tuning methodology preserves general language capabilities while injecting specialized domain knowledge.</p>
+    
+    <h4>Impact and Applications</h4>
+    <p>This work has significant implications for future network technologies, particularly 6G systems that will rely on self-healing and zero-touch management capabilities. The research provides a replicable framework that can be extended to other technical domains beyond telecommunications, democratizing the creation of specialized AI systems.</p>
+
+- title: "Automatic Curriculum Learning: Solving Rubik's Cube Beyond PPO Limitations"
+  date: "2023"
+  image: /assets/images/acl_summer_AI.webp
+  details: |
+    <h4>Advanced Reinforcement Learning Research</h4>
+    <p>This research explores the limitations of Proximal Policy Optimization (PPO) in complex environments and introduces <strong>Teacher-Student Curriculum Learning (TSCL)</strong> as a superior alternative for solving challenging sequential decision problems like the Rubik's Cube.</p>
+    
+    <div style="text-align: center; margin: 20px 0;">
+      <a href="/assets/images/poster_CL_Summer_AI.pdf" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); color: #333; padding: 12px 24px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s ease;">
+        📊 View Research Poster
+      </a>
+      <a href="https://github.com/BrouthenKamel/Auto-CL" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333; padding: 12px 24px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s ease;">
+        💻 GitHub Repository
+      </a>
+    </div>
+    
+    <h4>Research Innovation</h4>
+    <p>The work addresses fundamental limitations of PPO including single-policy convergence issues and suboptimal exploration strategies. The proposed <strong>Automatic Curriculum Learning framework</strong> dynamically adapts task complexity based on agent performance, eliminating the need for manual curriculum design while maintaining learning efficiency.</p>
+    
+    <h4>Technical Framework</h4>
+    <p>The Teacher-Student paradigm employs sophisticated algorithms including Online, Naive, Window, and Sampling approaches. The Teacher monitors Student performance in real-time, selecting optimal tasks through progressive learning strategies while counteracting knowledge forgetting through strategic task reintroduction.</p>
+    
+    <h4>Experimental Results</h4>
+    <p>Comprehensive evaluation on the Rubik's Cube environment using Jumanji framework demonstrated that both Curriculum Learning and Automatic Curriculum Learning significantly outperformed standard PPO. The AutoCL approach achieved comparable performance to manually designed curricula while providing autonomous adaptation capabilities.</p>
+    
+    <h4>Collaborative Research</h4>
+    <p>This work was conducted in collaboration with Kamel Brouthen, Amir Almamma, and Massinissa Aboud under the <strong>School of AI Algiers Research Camp</strong> initiative, promoting research excellence among students and advancing the field of automated curriculum design in reinforcement learning.</p>
+
