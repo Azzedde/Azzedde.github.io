@@ -4,27 +4,31 @@ title: "Random forests"
 date: 2025-08-30 13:31:00 +0200
 categories: technical
 excerpt: >
-  A deep investigation on Random forests
+  A very, very deep research on Random forests and the wisdom behind them!
 author_profile: true
 read_time: true
 classes: [wide, full-bleed]  # <- add this custom class
 header:
-  overlay_image: /assets/images/linkedin post cover.png
+  overlay_image: /assets/images/random-forests-post-cover.png
   overlay_filter: 0.25
   caption: "Photo: …"
 ---
 
-I have read a lot of articles talking about machine learning models and (I feel that) most of them are written for the sake of writing, a quick summary of the scikit-learn documentation peppered with some code to copy-paste and to *try it by yourself*. They talk quickly, they cite the things everyone already knows, and they rarely leave you with a sense of genuine understanding, until everyone of us started prefering videos (like from the amazing [Statquest with Josh Starmer](https://www.youtube.com/@statquest)). However, I don't think this type of videos can make us retain the information on the long run, we need depth and practice !
+I’ve read many articles about machine learning models and most feel rushed, written more for SEO than for depth, often just quick summaries of scikit-learn docs sprinkled with copy-paste code, or AI generated BS written in bullet points and em dashes. They skim the surface, repeat what everyone already knows, and rarely leave you with real understanding, which is why many of us turned to videos like the great [Statquest with Josh Starmer](https://www.youtube.com/@statquest). But even those, while engaging and insightful, don’t always help us retain knowledge in the long run ... **we still need depth and practice**.
 
-This is my attempt to fix that. I'm thinkin about this post as a sort of manual I wish I had when I started. The mission is to create the most comprehensive, deep, intuitive, and practicable guide to Random Forests, deconstructing the subject completely and leaving no stone unturned. We’ll start from the ground up, assuming nothing more than curiosity, no advanced degree required. The approach is to simplify every concept without sacrificing an ounce of depth, covering the theory, the intuition, the practical code, and even the research that pushes the boundaries (yes, all of it).
+This is my attempt to fix that. I'm thinking about this post as a sort of huge manual to Random Forests and all the amazing ideas behind it. I will try to make it as comprehensive, deep, and useful as I can, deconstructing the subject completely and leaving no stone unturned. We’ll start from the ground up, assuming nothing more than curiosity, no advanced degree required. 
 
-Our journey begins with the smallest possible unit of decision, a single leaf. We will learn to grow it into a single, fragile Decision Tree. From there, we will cultivate an entire forest of them, learning how their collective strength overcomes individual weakness. We will learn to be its caretaker, mastering the parameters that shape its growth. We will come to understand its complex ecosystem, interpreting what it has learned from the data. We will explore its more exotic species (the advanced variants for specialized tasks), and finally, we will look towards the horizon to see its future.
+Here is visual summary of how the intuition behind all of this was built: 
+
+
 
 So let's begin where everything starts, with the most fundamental question of all: How do we get a machine to make a decision?
 
 # Decision trees
 
-Let's start with the absolute basics. At its core, most of the machine learning you see in the real world is about one thing: predicting the value of a column in a table, based on the values in the other columns. We are given a dataset of past observations (the "training data"), and our goal is to build a model that can intelligently guess the outcome for new, unseen data.
+At its core, most of the machine learning you see in the real world is about one thing: predicting the value of a column (a feature, it can be anything, we will see an example below) in a table, based on the values in the other columns (features). We are given a dataset of past observations (the "training data"), and our goal is to build a model (we call it 'model' because it’s a simplified representation of reality learned from the data; this isn’t always a pure mathematical equation, but can also be a logical structure, like a flowchart of if-then rules that we will see next) that can intelligently guess the outcome for new, unseen data, based on previous learned wisdom.
+
+
 
 Let's use a realistic example, something you might actually encounter. Imagine you work for a bank, and your task is to predict whether a new loan applicant is likely to default on their loan. Your historical data might look something like this:
 
