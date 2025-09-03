@@ -12,31 +12,31 @@
 
 .logo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5em;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2em;
 }
 
 .logo-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.7em;
-  min-height: 150px; 
+  padding: 2.2em;
+  min-height: 200px;
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .logo-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.18);
 }
 
 /* Force logos to grow (not just cap them) */
 .logo-grid .logo-card img {
-  height: 100px;          /* <-- this actually scales up */
+  height: 140px;          /* <-- increased from 100px to 140px */
   width: auto;
   max-width: 100%;
   object-fit: contain;
@@ -150,25 +150,25 @@ body.modal-open {
 /* Project-specific styling */
 .resume-section:has(.project-grid) .logo-grid,
 .resume-section .logo-grid.project-grid {
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5em;
 }
 
 .resume-section:has(.project-grid) .logo-card,
 .resume-section .logo-grid.project-grid .logo-card {
-  min-height: 200px;
-  padding: 1.5em;
+  min-height: 250px;
+  padding: 2em;
   position: relative;
   overflow: hidden;
 }
 
 .resume-section:has(.project-grid) .logo-card img,
 .resume-section .logo-grid.project-grid .logo-card img {
-  height: 120px;
+  height: 160px;
   width: 100%;
   object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .resume-section:has(.project-grid) .logo-card::after,
