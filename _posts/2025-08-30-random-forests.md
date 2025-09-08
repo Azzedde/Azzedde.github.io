@@ -138,7 +138,7 @@ In **Scenario A**, however, the split on `Age` is less successful. While it does
 
 Intuitively, we know Scenario B is the better choice. But the algorithm needs a final score to compare them directly. It can't just look at the child nodes individually; it needs a single number that represents the overall "goodness" of the entire split. This is where we introduce **Gini Gain**.
 
-The idea is simple: the best split is the one that causes the **biggest drop** in impurity from the parent node to the children. The Gini Gain is just a measure of that drop.
+The idea is simple: the best split is the one that causes the **biggest drop** in impurity from the parent node to the children. 
 
 But how do we calculate the *total* impurity of the children? **We can't just add their Gini scores**, because a split that sends 4 people to a pure node and 1 person to a messy one is much better than a split that sends them to two equally messy nodes. The size of the groups matters. So, we calculate a **weighted average** of the children's impurity, where the weight is simply the proportion of applicants that ended up in each node.
 
@@ -164,4 +164,10 @@ A gain of 0.48! We completely eliminated all the impurity. That makes perfect se
 </figure>
 
 Since `0.48 > 0.276`, the algorithm declares the split on `Credit History` the undisputed winner. This becomes the first, most powerful question in our decision tree. 
+
+In fact, we need to do this for all the features and all the values of the features, make a lot of splits and calculate one by one the Gini Gain until we find the best one and make it the root node, in this example we found it directly, but we need to test all the possible values, we perform a brute-force search, so scnearios like that might be added (notice that we found a Gini gain of 0.016, which make this split the worst split, intuitively we can feel it because it resulted in two mixed splits):
+
+<figure class="align-center" style="width:60%">
+<img src="/assets/images/gini scenario c.png" alt="calculated gini impurity an example of a good split and a bad split">
+</figure>
 
