@@ -8,8 +8,12 @@ main:
   - title: "Blog Posts"
     url: /blog-posts/
 
-  - title: "Paper Cards"
-    url: /paper-cards/
+  # - title: "Paper Cards"
+  #   url: /paper-cards/
+
+  - title: "Papers explorer"
+    url: /papers-explorer/
+
 
   - title: "Reading List"
     url: /reading-list/
