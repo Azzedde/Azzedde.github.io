@@ -158,14 +158,107 @@ permalink: /papers-explorer/
             height: 600px;
         }
     }
+
+    /* Statistics Dashboard Styles */
+    .stats-dashboard {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin-top: 30px;
+        border-left: 5px solid #e74c3c;
+    }
+
+    .stats-dashboard h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .stats-card {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        border-top: 3px solid #3498db;
+    }
+
+    .stats-card h3 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .stats-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .stats-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid #e9ecef;
+        font-size: 14px;
+    }
+
+    .stats-list li:last-child {
+        border-bottom: none;
+    }
+
+    .stats-count {
+        background: #3498db;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .total-papers {
+        text-align: center;
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .total-papers h3 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .total-papers p {
+        margin: 5px 0 0 0;
+        opacity: 0.9;
+    }
 </style>
 
 <div class="intro-section">
-    <h2>🔬 Interactive Research Papers Knowledge Graph</h2>
-    <p>Explore my research paper collection through an interactive knowledge graph. Each node represents a paper, colored by research field and sized by relevance to my goals. Hover over any paper to see its title.</p>
+    <h2>🔬 Papers knowledge graph</h2>
+    <p>Explore this research paper collection took from top conferences in AI. Each node represents a paper. Hover over any paper to see its title and click to see a brief summary + some research questions emerging from that paper.</p>
 </div>
 
 <div id="mynetwork"></div>
+
+<div class="stats-dashboard">
+    <h2>📊 Papers Statistics Dashboard</h2>
+    <div id="stats-content">
+        <!-- Statistics will be populated by JavaScript -->
+    </div>
+</div>
 
 <script type="text/javascript" src="/assets/js/vis-network.min.js"></script>
 <script type="text/javascript" src="/assets/js/knowledge-graph.js"></script>

@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
             };
 
             // Global variables for clustering
-            let currentClusterType = 'semantic';
+            let currentClusterType = 'none';
             let allClusters = {
                 semantic: createSemanticClusters(data),
                 methodology: createMethodologyClusters(data),
@@ -154,8 +154,287 @@ document.addEventListener("DOMContentLoaded", function() {
                 hybrid: createHybridClusters(data)
             };
 
+            // Helper functions to get cluster keys for different clustering types
+            function getSemanticClusterKey(paper) {
+                // Use the same logic as the original createSemanticClusters function
+                const researchGap = paper.research_gap_and_solution?.research_gap || '';
+                const problemSolved = paper.research_gap_and_solution?.problem_solved || '';
+                const searchText = `${researchGap} ${problemSolved}`.toLowerCase();
+                
+                // Data Quality and Preprocessing
+                if (searchText.includes('data quality') || searchText.includes('data preprocessing') ||
+                    searchText.includes('missing data') || searchText.includes('data cleaning') ||
+                    searchText.includes('noisy data') || searchText.includes('data validation')) {
+                    return 'data_quality';
+                }
+                
+                // Scalability and Performance
+                if (searchText.includes('scalability') || searchText.includes('computational efficiency') ||
+                    searchText.includes('large-scale') || searchText.includes('performance') ||
+                    searchText.includes('speed') || searchText.includes('memory')) {
+                    return 'scalability';
+                }
+                
+                // Robustness and Reliability
+                if (searchText.includes('robustness') || searchText.includes('reliability') ||
+                    searchText.includes('stability') || searchText.includes('fault tolerance') ||
+                    searchText.includes('error handling') || searchText.includes('resilience')) {
+                    return 'robustness';
+                }
+                
+                // Generalization and Transfer Learning
+                if (searchText.includes('generalization') || searchText.includes('transfer learning') ||
+                    searchText.includes('domain adaptation') || searchText.includes('cross-domain') ||
+                    searchText.includes('overfitting') || searchText.includes('generalize')) {
+                    return 'generalization';
+                }
+                
+                // Interpretability and Explainability
+                if (searchText.includes('interpretability') || searchText.includes('explainability') ||
+                    searchText.includes('transparency') || searchText.includes('black box') ||
+                    searchText.includes('explain') || searchText.includes('interpretable')) {
+                    return 'interpretability';
+                }
+                
+                // Optimization and Efficiency
+                if (searchText.includes('optimization') || searchText.includes('efficiency') ||
+                    searchText.includes('convergence') || searchText.includes('training time') ||
+                    searchText.includes('resource usage') || searchText.includes('computational cost')) {
+                    return 'optimization';
+                }
+                
+                return 'other_research_gaps';
+            }
+
+            function getMethodologyClusterKey(paper) {
+                return paper.core_contribution?.contribution_type || 'Unknown';
+            }
+
+            function getImpactClusterKey(paper) {
+                const relevance = paper.classification?.relevance_to_user_goal || 'Unknown';
+                const novelty = paper.nature_of_contribution_and_novelty?.contribution_category || 'Unknown';
+                return `${relevance}_${novelty}`;
+            }
+
+            function getHybridClusterKey(paper) {
+                const field = paper.classification?.field || 'Unknown';
+                const contribution = paper.core_contribution?.contribution_type || 'Unknown';
+                return `${field}_${contribution}`;
+            }
+
+            // Function to create nodes without clustering from a subset of papers
+            function createNonClusteredGraphFromPapers(papers) {
+                const newNodes = [];
+                const newEdges = [];
+                let nodeId = 0;
+
+                papers.forEach(({paper, index}) => {
+                    const paperTitle = paper.paper_title_and_link?.title || `Paper ${index + 1}`;
+                    const field = paper.classification?.field || 'Unknown';
+                    const contributionType = paper.core_contribution?.contribution_type || 'Unknown';
+                    const relevance = paper.classification?.relevance_to_user_goal || 'Unknown';
+                    const noveltyCategory = paper.nature_of_contribution_and_novelty?.contribution_category || 'Unknown';
+                    
+                    // Color based on field
+                    const fieldColors = {
+                        'Machine Learning': '#3498db',
+                        'Natural Language Processing': '#e74c3c',
+                        'Computer Vision': '#2ecc71',
+                        'Robotics': '#f39c12',
+                        'Data Science': '#9b59b6',
+                        'Software Engineering': '#1abc9c',
+                        'Unknown': '#95a5a6'
+                    };
+                    
+                    newNodes.push({
+                        id: nodeId,
+                        title: paperTitle,
+                        field: field,
+                        contributionType: contributionType,
+                        relevance: relevance,
+                        noveltyCategory: noveltyCategory,
+                        paperData: paper,
+                        color: {
+                            background: fieldColors[field] || '#95a5a6',
+                            border: '#2c3e50',
+                            highlight: { background: '#f1c40f', border: '#e67e22' }
+                        },
+                        size: relevance === 'Direct Application' ? 25 :
+                              relevance === 'Potential Application' ? 20 : 15,
+                        shape: 'dot',
+                        borderWidth: 2
+                    });
+
+                    nodeId++;
+                });
+                
+                return { nodes: newNodes, edges: newEdges };
+            }
+
+            // Function to create nodes without clustering
+            function createNonClusteredGraph() {
+                const newNodes = [];
+                const newEdges = [];
+                let nodeId = 0;
+
+                data.forEach((paper, index) => {
+                    const paperTitle = paper.paper_title_and_link?.title || `Paper ${index + 1}`;
+                    const field = paper.classification?.field || 'Unknown';
+                    const contributionType = paper.core_contribution?.contribution_type || 'Unknown';
+                    const relevance = paper.classification?.relevance_to_user_goal || 'Unknown';
+                    const noveltyCategory = paper.nature_of_contribution_and_novelty?.contribution_category || 'Unknown';
+                    
+                    // Color based on field
+                    const fieldColors = {
+                        'Machine Learning': '#3498db',
+                        'Natural Language Processing': '#e74c3c',
+                        'Computer Vision': '#2ecc71',
+                        'Robotics': '#f39c12',
+                        'Data Science': '#9b59b6',
+                        'Software Engineering': '#1abc9c',
+                        'Unknown': '#95a5a6'
+                    };
+                    
+                    newNodes.push({
+                        id: nodeId,
+                        title: paperTitle,
+                        field: field,
+                        contributionType: contributionType,
+                        relevance: relevance,
+                        noveltyCategory: noveltyCategory,
+                        paperData: paper,
+                        color: {
+                            background: fieldColors[field] || '#95a5a6',
+                            border: '#2c3e50',
+                            highlight: { background: '#f1c40f', border: '#e67e22' }
+                        },
+                        size: relevance === 'Direct Application' ? 25 :
+                              relevance === 'Potential Application' ? 20 : 15,
+                        shape: 'dot',
+                        borderWidth: 2
+                    });
+
+                    nodeId++;
+                });
+                
+                return { nodes: newNodes, edges: newEdges };
+            }
+
+            // Function to create clustered graph from a subset of papers
+            function createClusteredGraphFromPapers(clusterType, papers) {
+                if (clusterType === 'none') {
+                    return createNonClusteredGraphFromPapers(papers);
+                }
+
+                // Create clusters from the filtered papers
+                const filteredClusters = new Map();
+                const colorScheme = clusterColorSchemes[clusterType];
+
+                // Apply clustering logic to filtered papers
+                papers.forEach(({paper, index}) => {
+                    let clusterKey;
+                    
+                    switch(clusterType) {
+                        case 'semantic':
+                            clusterKey = getSemanticClusterKey(paper);
+                            break;
+                        case 'methodology':
+                            clusterKey = getMethodologyClusterKey(paper);
+                            break;
+                        case 'impact':
+                            clusterKey = getImpactClusterKey(paper);
+                            break;
+                        case 'hybrid':
+                            clusterKey = getHybridClusterKey(paper);
+                            break;
+                        default:
+                            clusterKey = 'unknown';
+                    }
+                    
+                    if (!filteredClusters.has(clusterKey)) {
+                        filteredClusters.set(clusterKey, []);
+                    }
+                    filteredClusters.get(clusterKey).push({paper, index});
+                });
+
+                const newNodes = [];
+                const newEdges = [];
+                let nodeId = 0;
+                let clusterNodeId = 1000;
+
+                filteredClusters.forEach((papers, clusterName) => {
+                    if (papers.length === 0) return;
+                    
+                    // Create cluster center node
+                    const clusterDisplayName = clusterName.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                    newNodes.push({
+                        id: clusterNodeId,
+                        label: clusterDisplayName,
+                        title: `${clusterDisplayName} (${papers.length} papers)`,
+                        color: {
+                            background: colorScheme[clusterName] || '#95a5a6',
+                            border: '#2c3e50'
+                        },
+                        size: Math.max(30, papers.length * 3),
+                        shape: 'box',
+                        font: { size: 14, color: 'white', bold: true },
+                        borderWidth: 3,
+                        isCluster: true,
+                        clusterName: clusterName
+                    });
+                    
+                    // Create paper nodes for this cluster
+                    papers.forEach(({paper, index}) => {
+                        const paperTitle = paper.paper_title_and_link?.title || `Paper ${index + 1}`;
+                        const field = paper.classification?.field || 'Unknown';
+                        const contributionType = paper.core_contribution?.contribution_type || 'Unknown';
+                        const relevance = paper.classification?.relevance_to_user_goal || 'Unknown';
+                        const noveltyCategory = paper.nature_of_contribution_and_novelty?.contribution_category || 'Unknown';
+                        
+                        newNodes.push({
+                            id: nodeId,
+                            title: paperTitle,
+                            field: field,
+                            contributionType: contributionType,
+                            relevance: relevance,
+                            noveltyCategory: noveltyCategory,
+                            paperData: paper,
+                            clusterName: clusterName,
+                            color: {
+                                background: colorScheme[clusterName] || '#95a5a6',
+                                border: '#2c3e50',
+                                highlight: { background: '#f1c40f', border: '#e67e22' }
+                            },
+                            size: relevance === 'Direct Application' ? 25 :
+                                  relevance === 'Potential Application' ? 20 : 15,
+                            shape: 'dot',
+                            borderWidth: 2
+                        });
+
+                        // Create edge from paper to cluster center
+                        newEdges.push({
+                            from: nodeId,
+                            to: clusterNodeId,
+                            color: { color: colorScheme[clusterName] || '#95a5a6', opacity: 0.3 },
+                            width: 1,
+                            length: 100
+                        });
+
+                        nodeId++;
+                    });
+                    
+                    clusterNodeId++;
+                });
+                
+                return { nodes: newNodes, edges: newEdges };
+            }
+
             // Function to create nodes and edges for a specific clustering type
             function createClusteredGraph(clusterType) {
+                if (clusterType === 'none') {
+                    return createNonClusteredGraph();
+                }
+
                 const clusters = allClusters[clusterType];
                 const colorScheme = clusterColorSchemes[clusterType];
                 const newNodes = [];
@@ -230,8 +509,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 return { nodes: newNodes, edges: newEdges };
             }
 
-            // Create initial graph with semantic clustering
-            const initialGraph = createClusteredGraph('semantic');
+            // Create initial graph with no clustering
+            const initialGraph = createClusteredGraph('none');
             nodes.push(...initialGraph.nodes);
             edges.push(...initialGraph.edges);
 
@@ -267,22 +546,26 @@ document.addEventListener("DOMContentLoaded", function() {
                 },
                 physics: {
                     enabled: true,
-                    forceAtlas2Based: {
-                        gravitationalConstant: -50,
-                        centralGravity: 0.01,
-                        springConstant: 0.08,
-                        springLength: 150,
-                        damping: 0.4,
-                        avoidOverlap: 0.5
+                    barnesHut: {
+                        gravitationalConstant: -2000,
+                        centralGravity: 0.3,
+                        springLength: 95,
+                        springConstant: 0.04,
+                        damping: 0.09,
+                        avoidOverlap: 0.1
                     },
-                    maxVelocity: 30,
+                    maxVelocity: 50,
                     minVelocity: 0.1,
-                    solver: 'forceAtlas2Based',
+                    solver: 'barnesHut',
                     stabilization: {
                         enabled: true,
-                        iterations: 2000,
-                        updateInterval: 50
-                    }
+                        iterations: 1000,
+                        updateInterval: 100,
+                        onlyDynamicEdges: false,
+                        fit: true
+                    },
+                    timestep: 0.35,
+                    adaptiveTimestep: true
                 },
                 interaction: {
                     hover: true,
@@ -299,32 +582,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
             var network = new vis.Network(container, networkData, options);
 
-            // Add stabilization logic for initial network
+            // Standard stabilization for initial network
             network.once('stabilizationIterationsDone', () => {
                 console.log('Initial network physics stabilized');
                 network.fit();
-                
-                // Disable physics after initial stabilization to prevent constant movement
-                setTimeout(() => {
-                    network.setOptions({
-                        physics: {
-                            enabled: false
-                        }
-                    });
-                    console.log('Initial network physics disabled after stabilization');
-                }, 500);
             });
 
-            // Fallback timeout for initial network
+            // Standard fallback timeout
             setTimeout(() => {
                 network.fit();
-                network.setOptions({
-                    physics: {
-                        enabled: false
-                    }
-                });
-                console.log('Initial network fitted and physics disabled (fallback)');
-            }, 5000);
+                console.log('Initial network fitted (fallback)');
+            }, 3000);
+
+            // Add Vis.js control buttons
+            createVisControlButtons(network);
 
             // Add click event for paper cards
             network.on("click", function (params) {
@@ -353,16 +624,33 @@ document.addEventListener("DOMContentLoaded", function() {
                 currentClusterType = newClusterType;
                 console.log('Updated currentClusterType to:', currentClusterType);
                 
-                // Check if the cluster type exists
-                if (!allClusters[newClusterType]) {
+                // Check if the cluster type exists (skip for 'none')
+                if (newClusterType !== 'none' && !allClusters[newClusterType]) {
                     console.error('Cluster type not found:', newClusterType);
                     return;
                 }
                 
                 console.log('Creating new graph for:', newClusterType);
-                console.log('Cluster data:', allClusters[newClusterType]);
                 
-                const newGraph = createClusteredGraph(newClusterType);
+                // Get currently visible (filtered) papers
+                const currentNodes = networkData.nodes.get();
+                const visiblePaperNodes = currentNodes.filter(node => !node.isCluster && node.paperData);
+                const visiblePapers = visiblePaperNodes.map(node => ({
+                    paper: node.paperData,
+                    index: node.id
+                }));
+                
+                console.log('Using', visiblePapers.length, 'filtered papers for clustering');
+                
+                let newGraph;
+                // If we have all papers (no filtering), use original clustering
+                if (visiblePapers.length === data.length) {
+                    console.log('No filtering detected, using original pre-computed clusters');
+                    newGraph = createClusteredGraph(newClusterType);
+                } else {
+                    console.log('Filtering detected, creating clusters from filtered papers');
+                    newGraph = createClusteredGraphFromPapers(newClusterType, visiblePapers);
+                }
                 console.log('New graph created with', newGraph.nodes.length, 'nodes and', newGraph.edges.length, 'edges');
                 
                 // Update network data
@@ -381,49 +669,293 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log('Network data updated. Current node count:', networkData.nodes.length);
                 console.log('Network updated, fitting view...');
                 
-                // Stabilize physics and fit network
-                network.setOptions({
-                    physics: {
-                        enabled: true,
-                        stabilization: {
-                            enabled: true,
-                            iterations: 100,
-                            updateInterval: 25
-                        }
-                    }
-                });
-                
-                // Wait for stabilization then fit and disable physics
-                network.once('stabilizationIterationsDone', () => {
-                    console.log('Physics stabilized');
-                    network.fit();
-                    
-                    // Disable physics after stabilization to prevent constant movement
+                // Handle "none" clustering - use standard physics
+                if (newClusterType === 'none') {
+                    console.log('No clustering selected - using standard physics');
+                    // Just fit the network, let standard physics handle the rest
                     setTimeout(() => {
-                        network.setOptions({
-                            physics: {
-                                enabled: false
-                            }
-                        });
-                        console.log('Physics disabled after stabilization');
-                    }, 500);
-                });
+                        network.fit();
+                        console.log('No clustering network fitted');
+                    }, 200);
+                    return;
+                }
                 
-                // Fallback timeout in case stabilization doesn't complete
+                // Standard clustering switch - just fit the network
                 setTimeout(() => {
                     network.fit();
-                    network.setOptions({
-                        physics: {
-                            enabled: false
-                        }
-                    });
-                    console.log('Network fitted and physics disabled (fallback)');
-                }, 3000);
+                    console.log('Network fitted after clustering switch');
+                }, 200);
             };
 
             // Add clustering controls and filters
             createClusteringControls();
             createFilters(network, networkData, data);
+            
+            // Create statistics dashboard
+            createStatsDashboard(data);
+
+        function createVisControlButtons(network) {
+            // Create control buttons container
+            const controlsContainer = document.createElement('div');
+            controlsContainer.id = 'vis-controls';
+            controlsContainer.style.cssText = `
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                background: white;
+                padding: 10px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                border: 1px solid #ddd;
+                z-index: 1000;
+                display: flex;
+                gap: 10px;
+            `;
+
+            // Fit to Screen button
+            const fitButton = document.createElement('button');
+            fitButton.innerHTML = '🔍 Fit to Screen';
+            fitButton.title = 'Fit all nodes to screen';
+            fitButton.style.cssText = `
+                padding: 8px 12px;
+                border: 1px solid #3498db;
+                border-radius: 4px;
+                background: #3498db;
+                color: white;
+                cursor: pointer;
+                font-size: 12px;
+                font-weight: 500;
+                transition: all 0.2s;
+            `;
+
+            fitButton.onmouseover = () => {
+                fitButton.style.background = '#2980b9';
+            };
+
+            fitButton.onmouseout = () => {
+                fitButton.style.background = '#3498db';
+            };
+
+            fitButton.onclick = () => {
+                network.fit({
+                    animation: {
+                        duration: 1000,
+                        easingFunction: 'easeInOutQuad'
+                    }
+                });
+                console.log('Network fitted to screen');
+            };
+
+            // Toggle Physics button
+            const physicsButton = document.createElement('button');
+            let physicsEnabled = true;
+            physicsButton.innerHTML = '⚡ Physics: ON';
+            physicsButton.title = 'Toggle physics simulation on/off';
+            physicsButton.style.cssText = `
+                padding: 8px 12px;
+                border: 1px solid #27ae60;
+                border-radius: 4px;
+                background: #27ae60;
+                color: white;
+                cursor: pointer;
+                font-size: 12px;
+                font-weight: 500;
+                transition: all 0.2s;
+            `;
+
+            physicsButton.onmouseover = () => {
+                physicsButton.style.background = physicsEnabled ? '#229954' : '#c0392b';
+            };
+
+            physicsButton.onmouseout = () => {
+                physicsButton.style.background = physicsEnabled ? '#27ae60' : '#e74c3c';
+            };
+
+            physicsButton.onclick = () => {
+                physicsEnabled = !physicsEnabled;
+                network.setOptions({
+                    physics: { enabled: physicsEnabled }
+                });
+                
+                if (physicsEnabled) {
+                    physicsButton.innerHTML = '⚡ Physics: ON';
+                    physicsButton.style.background = '#27ae60';
+                    physicsButton.style.borderColor = '#27ae60';
+                    console.log('Physics enabled');
+                } else {
+                    physicsButton.innerHTML = '⚡ Physics: OFF';
+                    physicsButton.style.background = '#e74c3c';
+                    physicsButton.style.borderColor = '#e74c3c';
+                    console.log('Physics disabled');
+                }
+            };
+
+            // Add buttons to container
+            controlsContainer.appendChild(fitButton);
+            controlsContainer.appendChild(physicsButton);
+
+            // Add to network container
+            const networkContainer = document.getElementById('mynetwork');
+            networkContainer.appendChild(controlsContainer);
+        }
+
+        function createStatsDashboard(papers) {
+            const statsContainer = document.getElementById('stats-content');
+            
+            // Calculate all statistics
+            const stats = calculatePaperStatistics(papers);
+            
+            // Create total papers section
+            const totalSection = document.createElement('div');
+            totalSection.className = 'total-papers';
+            totalSection.innerHTML = `
+                <h3>${stats.total}</h3>
+                <p>Total Research Papers</p>
+            `;
+            
+            // Create stats grid
+            const statsGrid = document.createElement('div');
+            statsGrid.className = 'stats-grid';
+            
+            // Research Fields
+            const fieldsCard = createStatsCard('🔬 Research Fields', stats.fields);
+            
+            // Contribution Types
+            const contributionsCard = createStatsCard('🛠️ Contribution Types', stats.contributions);
+            
+            // Relevance Levels
+            const relevanceCard = createStatsCard('🎯 Relevance Levels', stats.relevance);
+            
+            // Novelty Categories
+            const noveltyCard = createStatsCard('💡 Novelty Categories', stats.novelty);
+            
+            // Research Gaps
+            const gapsCard = createStatsCard('🔍 Research Gaps', stats.researchGaps);
+            
+            
+            // Add all cards to grid
+            statsGrid.appendChild(fieldsCard);
+            statsGrid.appendChild(contributionsCard);
+            statsGrid.appendChild(relevanceCard);
+            statsGrid.appendChild(noveltyCard);
+            statsGrid.appendChild(gapsCard);
+            
+            // Add to container
+            statsContainer.appendChild(totalSection);
+            statsContainer.appendChild(statsGrid);
+        }
+
+        function calculatePaperStatistics(papers) {
+            const stats = {
+                total: papers.length,
+                fields: {},
+                contributions: {},
+                relevance: {},
+                novelty: {},
+                researchGaps: {}
+            };
+            
+            papers.forEach(paper => {
+                // Research Fields
+                const field = paper.classification?.field || 'Unknown';
+                stats.fields[field] = (stats.fields[field] || 0) + 1;
+                
+                // Contribution Types
+                const contribution = paper.core_contribution?.contribution_type || 'Unknown';
+                stats.contributions[contribution] = (stats.contributions[contribution] || 0) + 1;
+                
+                // Relevance Levels
+                const relevance = paper.classification?.relevance_to_user_goal || 'Unknown';
+                stats.relevance[relevance] = (stats.relevance[relevance] || 0) + 1;
+                
+                // Novelty Categories
+                const novelty = paper.nature_of_contribution_and_novelty?.contribution_category || 'Unknown';
+                stats.novelty[novelty] = (stats.novelty[novelty] || 0) + 1;
+                
+                // Research Gaps (extract key themes from the correct field)
+                const researchGap = paper.research_gap_and_motivation?.explicit_limitation_of_prior_work || '';
+                const gapKeywords = extractResearchGapKeywords(researchGap);
+                gapKeywords.forEach(keyword => {
+                    stats.researchGaps[keyword] = (stats.researchGaps[keyword] || 0) + 1;
+                });
+                
+
+            });
+            
+            return stats;
+        }
+
+        function extractResearchGapKeywords(researchGap) {
+            const keywords = [];
+            const text = researchGap.toLowerCase();
+            
+            // Define comprehensive research themes based on common AI/ML limitations
+            const themes = {
+                'Noise & Data Quality': ['noise', 'noisy', 'data quality', 'missing data', 'corrupted', 'clean data', 'preprocessing'],
+                'Robustness & Reliability': ['robust', 'reliability', 'stable', 'unstable', 'failure', 'error handling', 'fault tolerance'],
+                'Scalability & Performance': ['scalability', 'scale', 'large-scale', 'computational', 'efficiency', 'performance', 'speed', 'memory'],
+                'Generalization': ['generalization', 'generalize', 'overfitting', 'transfer', 'domain adaptation', 'cross-domain'],
+                'Real-time & Latency': ['real-time', 'latency', 'delay', 'immediate', 'online', 'streaming', 'fast'],
+                'Interpretability & Explainability': ['interpretability', 'explainable', 'transparency', 'black box', 'understand', 'explain'],
+                'Accuracy & Precision': ['accuracy', 'precise', 'inaccurate', 'imprecise', 'error rate', 'mistake'],
+                'Limited Evaluation': ['limited', 'narrow', 'specific', 'restricted', 'only evaluated', 'small dataset'],
+                'Computational Complexity': ['complexity', 'expensive', 'cost', 'resource', 'computation', 'overhead'],
+                'Hyperparameter Tuning': ['hyperparameter', 'parameter', 'tuning', 'configuration', 'setting'],
+                'Multi-modal & Integration': ['multimodal', 'multi-modal', 'integration', 'combine', 'fusion'],
+                'Temporal & Sequential': ['temporal', 'sequence', 'time series', 'sequential', 'dynamic'],
+                'Prediction & Forecasting': ['prediction', 'forecasting', 'future', 'predict', 'forecast'],
+                'Anomaly Detection': ['anomaly', 'anomalous', 'outlier', 'abnormal', 'detection'],
+                'Model Architecture': ['architecture', 'model design', 'structure', 'framework limitation']
+            };
+            
+            Object.entries(themes).forEach(([theme, terms]) => {
+                if (terms.some(term => text.includes(term))) {
+                    keywords.push(theme);
+                }
+            });
+            
+            // If no specific themes found, try to extract general problem areas
+            if (keywords.length === 0) {
+                if (text.includes('cannot') || text.includes('unable') || text.includes('fail')) {
+                    keywords.push('Capability Limitations');
+                } else if (text.includes('assume') || text.includes('assumption')) {
+                    keywords.push('Assumption Violations');
+                } else if (text.includes('lack') || text.includes('missing') || text.includes('absent')) {
+                    keywords.push('Missing Components');
+                } else {
+                    keywords.push('Other Limitations');
+                }
+            }
+            
+            return keywords;
+        }
+
+
+        function createStatsCard(title, data) {
+            const card = document.createElement('div');
+            card.className = 'stats-card';
+            
+            // Sort data by count (descending)
+            const sortedData = Object.entries(data)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 10); // Show top 10
+            
+            const list = sortedData.map(([key, count]) =>
+                `<li>
+                    <span>${key}</span>
+                    <span class="stats-count">${count}</span>
+                </li>`
+            ).join('');
+            
+            card.innerHTML = `
+                <h3>${title}</h3>
+                <ul class="stats-list">
+                    ${list}
+                </ul>
+            `;
+            
+            return card;
+        }
         })
         .catch(error => {
             console.error('Error loading papers data:', error);
@@ -465,6 +997,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const clusteringOptions = [
             {
+                type: 'none',
+                label: 'No Clustering',
+                description: 'Show all papers without clustering - just individual nodes'
+            },
+            {
                 type: 'semantic',
                 label: 'Semantic Clustering',
                 description: 'Group papers by similar research gaps and problems they solve'
@@ -494,8 +1031,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 padding: 10px 12px;
                 border: 1px solid #ddd;
                 border-radius: 6px;
-                background: ${option.type === 'semantic' ? '#3498db' : 'white'};
-                color: ${option.type === 'semantic' ? 'white' : '#2c3e50'};
+                background: ${option.type === 'none' ? '#3498db' : 'white'};
+                color: ${option.type === 'none' ? 'white' : '#2c3e50'};
                 cursor: pointer;
                 font-size: 12px;
                 font-weight: 500;
