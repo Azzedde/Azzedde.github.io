@@ -30,16 +30,37 @@ document.addEventListener("DOMContentLoaded", function() {
             function createSemanticClusters(papers) {
                 const clusters = new Map();
                 const problemCategories = {
-                    'data_quality': ['noise', 'quality', 'synthetic', 'data', 'dataset', 'corruption'],
-                    'scalability': ['scale', 'large', 'efficiency', 'computational', 'memory', 'speed'],
-                    'robustness': ['robust', 'stability', 'failure', 'error', 'uncertainty', 'reliable'],
-                    'generalization': ['generalize', 'transfer', 'domain', 'adaptation', 'overfitting'],
-                    'interpretability': ['explain', 'interpret', 'transparent', 'understand', 'black'],
-                    'optimization': ['optimize', 'convergence', 'training', 'learning', 'gradient'],
-                    'real_time': ['real-time', 'online', 'streaming', 'latency', 'inference'],
-                    'multimodal': ['multimodal', 'fusion', 'cross-modal', 'vision', 'text'],
-                    'continual_learning': ['continual', 'lifelong', 'catastrophic', 'forgetting', 'plasticity'],
-                    'anomaly_detection': ['anomaly', 'outlier', 'detection', 'abnormal', 'unusual']
+                    'data_quality': ['noise', 'noisy', 'quality', 'synthetic', 'dataset', 'corruption', 'missing data', 'clean', 'preprocessing'],
+                    'scalability': ['scale', 'large-scale', 'computational cost', 'memory', 'speed', 'performance bottleneck'],
+                    'robustness': ['robust', 'stability', 'failure', 'uncertainty', 'reliable', 'fault tolerance', 'resilience'],
+                    'generalization': ['generalize', 'transfer', 'domain adaptation', 'overfitting', 'cross-domain'],
+                    'interpretability': ['explain', 'interpret', 'transparent', 'understand', 'black box', 'explainable'],
+                    'optimization': ['optimize', 'convergence', 'gradient', 'training time', 'hyperparameter'],
+                    'real_time': ['real-time', 'online', 'streaming', 'latency', 'inference speed', 'immediate'],
+                    'multimodal': ['multimodal', 'fusion', 'cross-modal', 'vision-language', 'multi-modal'],
+                    'continual_learning': ['continual', 'lifelong', 'catastrophic forgetting', 'plasticity', 'incremental'],
+                    'anomaly_detection': ['anomaly', 'outlier', 'detection', 'abnormal', 'unusual', 'anomalous'],
+                    'reinforcement_learning': ['reinforcement', 'reward', 'policy', 'agent', 'environment', 'rl', 'mdp'],
+                    'time_series': ['time series', 'temporal', 'sequence', 'sequential', 'forecasting', 'prediction'],
+                    'neural_architecture': ['architecture', 'network design', 'layer', 'attention', 'transformer', 'cnn', 'rnn'],
+                    'federated_learning': ['federated', 'distributed', 'privacy', 'decentralized', 'client-server'],
+                    'few_shot_learning': ['few-shot', 'meta-learning', 'one-shot', 'zero-shot', 'low-resource'],
+                    'adversarial_robustness': ['adversarial', 'attack', 'defense', 'perturbation', 'security'],
+                    'causal_inference': ['causal', 'causality', 'intervention', 'confounding', 'counterfactual'],
+                    'graph_learning': ['graph', 'node', 'edge', 'network', 'topology', 'gnn', 'graph neural'],
+                    'self_supervised': ['self-supervised', 'contrastive', 'pretext', 'representation learning'],
+                    'fairness_bias': ['fairness', 'bias', 'discrimination', 'equity', 'demographic parity'],
+                    'uncertainty_quantification': ['uncertainty', 'calibration', 'confidence', 'bayesian', 'epistemic'],
+                    'knowledge_distillation': ['distillation', 'teacher', 'student', 'compression', 'knowledge transfer'],
+                    'active_learning': ['active learning', 'query', 'labeling', 'annotation', 'sample selection'],
+                    'domain_shift': ['domain shift', 'covariate shift', 'distribution shift', 'dataset bias'],
+                    'long_tail_distribution': ['long-tail', 'imbalanced', 'rare class', 'class imbalance'],
+                    'computational_biology': ['protein', 'genomic', 'molecular', 'biological', 'bioinformatics'],
+                    'natural_language_processing': ['nlp', 'language model', 'text', 'linguistic', 'semantic'],
+                    'computer_vision': ['vision', 'image', 'visual', 'object detection', 'segmentation'],
+                    'speech_audio': ['speech', 'audio', 'acoustic', 'voice', 'sound', 'asr'],
+                    'recommendation_systems': ['recommendation', 'collaborative filtering', 'personalization', 'ranking'],
+                    'information_retrieval': ['retrieval', 'search', 'ranking', 'relevance', 'indexing']
                 };
 
                 papers.forEach((paper, index) => {
@@ -125,7 +146,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     'data_quality': '#e74c3c', 'scalability': '#3498db', 'robustness': '#2ecc71',
                     'generalization': '#f39c12', 'interpretability': '#9b59b6', 'optimization': '#1abc9c',
                     'real_time': '#e67e22', 'multimodal': '#34495e', 'continual_learning': '#f1c40f',
-                    'anomaly_detection': '#95a5a6', 'other': '#7f8c8d'
+                    'anomaly_detection': '#95a5a6', 'reinforcement_learning': '#8e44ad', 'time_series': '#16a085',
+                    'neural_architecture': '#2c3e50', 'federated_learning': '#d35400', 'few_shot_learning': '#27ae60',
+                    'adversarial_robustness': '#c0392b', 'causal_inference': '#8e44ad', 'graph_learning': '#2980b9',
+                    'self_supervised': '#17a2b8', 'fairness_bias': '#fd7e14', 'uncertainty_quantification': '#6f42c1',
+                    'knowledge_distillation': '#20c997', 'active_learning': '#ffc107', 'domain_shift': '#dc3545',
+                    'long_tail_distribution': '#6610f2', 'computational_biology': '#198754', 'natural_language_processing': '#0d6efd',
+                    'computer_vision': '#fd7e14', 'speech_audio': '#6f42c1', 'recommendation_systems': '#20c997',
+                    'information_retrieval': '#0dcaf0', 'other': '#7f8c8d'
                 },
                 methodology: {
                     'Algorithm': '#e74c3c', 'Framework': '#3498db', 'Dataset': '#2ecc71',
@@ -156,54 +184,60 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Helper functions to get cluster keys for different clustering types
             function getSemanticClusterKey(paper) {
-                // Use the same logic as the original createSemanticClusters function
-                const researchGap = paper.research_gap_and_solution?.research_gap || '';
-                const problemSolved = paper.research_gap_and_solution?.problem_solved || '';
-                const searchText = `${researchGap} ${problemSolved}`.toLowerCase();
+                // Use the correct field names from the actual data structure
+                const researchGap = (paper.research_gap_and_motivation?.explicit_limitation_of_prior_work || '').toLowerCase();
+                const contribution = (paper.core_contribution?.contribution_mechanism || '').toLowerCase();
+                const searchText = `${researchGap} ${contribution}`;
                 
-                // Data Quality and Preprocessing
-                if (searchText.includes('data quality') || searchText.includes('data preprocessing') ||
-                    searchText.includes('missing data') || searchText.includes('data cleaning') ||
-                    searchText.includes('noisy data') || searchText.includes('data validation')) {
-                    return 'data_quality';
-                }
+                const problemCategories = {
+                    'data_quality': ['noise', 'noisy', 'quality', 'synthetic', 'dataset', 'corruption', 'missing data', 'clean', 'preprocessing'],
+                    'scalability': ['scale', 'large-scale', 'computational cost', 'memory', 'speed', 'performance bottleneck'],
+                    'robustness': ['robust', 'stability', 'failure', 'uncertainty', 'reliable', 'fault tolerance', 'resilience'],
+                    'generalization': ['generalize', 'transfer', 'domain adaptation', 'overfitting', 'cross-domain'],
+                    'interpretability': ['explain', 'interpret', 'transparent', 'understand', 'black box', 'explainable'],
+                    'optimization': ['optimize', 'convergence', 'gradient', 'training time', 'hyperparameter'],
+                    'real_time': ['real-time', 'online', 'streaming', 'latency', 'inference speed', 'immediate'],
+                    'multimodal': ['multimodal', 'fusion', 'cross-modal', 'vision-language', 'multi-modal'],
+                    'continual_learning': ['continual', 'lifelong', 'catastrophic forgetting', 'plasticity', 'incremental'],
+                    'anomaly_detection': ['anomaly', 'outlier', 'detection', 'abnormal', 'unusual', 'anomalous'],
+                    'reinforcement_learning': ['reinforcement', 'reward', 'policy', 'agent', 'environment', 'rl', 'mdp'],
+                    'time_series': ['time series', 'temporal', 'sequence', 'sequential', 'forecasting', 'prediction'],
+                    'neural_architecture': ['architecture', 'network design', 'layer', 'attention', 'transformer', 'cnn', 'rnn'],
+                    'federated_learning': ['federated', 'distributed', 'privacy', 'decentralized', 'client-server'],
+                    'few_shot_learning': ['few-shot', 'meta-learning', 'one-shot', 'zero-shot', 'low-resource'],
+                    'adversarial_robustness': ['adversarial', 'attack', 'defense', 'perturbation', 'security'],
+                    'causal_inference': ['causal', 'causality', 'intervention', 'confounding', 'counterfactual'],
+                    'graph_learning': ['graph', 'node', 'edge', 'network', 'topology', 'gnn', 'graph neural'],
+                    'self_supervised': ['self-supervised', 'contrastive', 'pretext', 'representation learning'],
+                    'fairness_bias': ['fairness', 'bias', 'discrimination', 'equity', 'demographic parity'],
+                    'uncertainty_quantification': ['uncertainty', 'calibration', 'confidence', 'bayesian', 'epistemic'],
+                    'knowledge_distillation': ['distillation', 'teacher', 'student', 'compression', 'knowledge transfer'],
+                    'active_learning': ['active learning', 'query', 'labeling', 'annotation', 'sample selection'],
+                    'domain_shift': ['domain shift', 'covariate shift', 'distribution shift', 'dataset bias'],
+                    'long_tail_distribution': ['long-tail', 'imbalanced', 'rare class', 'class imbalance'],
+                    'computational_biology': ['protein', 'genomic', 'molecular', 'biological', 'bioinformatics'],
+                    'natural_language_processing': ['nlp', 'language model', 'text', 'linguistic', 'semantic'],
+                    'computer_vision': ['vision', 'image', 'visual', 'object detection', 'segmentation'],
+                    'speech_audio': ['speech', 'audio', 'acoustic', 'voice', 'sound', 'asr'],
+                    'recommendation_systems': ['recommendation', 'collaborative filtering', 'personalization', 'ranking'],
+                    'information_retrieval': ['retrieval', 'search', 'ranking', 'relevance', 'indexing']
+                };
                 
-                // Scalability and Performance
-                if (searchText.includes('scalability') || searchText.includes('computational efficiency') ||
-                    searchText.includes('large-scale') || searchText.includes('performance') ||
-                    searchText.includes('speed') || searchText.includes('memory')) {
-                    return 'scalability';
-                }
+                let bestCategory = 'other';
+                let maxScore = 0;
                 
-                // Robustness and Reliability
-                if (searchText.includes('robustness') || searchText.includes('reliability') ||
-                    searchText.includes('stability') || searchText.includes('fault tolerance') ||
-                    searchText.includes('error handling') || searchText.includes('resilience')) {
-                    return 'robustness';
-                }
+                Object.entries(problemCategories).forEach(([category, keywords]) => {
+                    const score = keywords.reduce((acc, keyword) => {
+                        return acc + (searchText.includes(keyword) ? 1 : 0);
+                    }, 0);
+                    
+                    if (score > maxScore) {
+                        maxScore = score;
+                        bestCategory = category;
+                    }
+                });
                 
-                // Generalization and Transfer Learning
-                if (searchText.includes('generalization') || searchText.includes('transfer learning') ||
-                    searchText.includes('domain adaptation') || searchText.includes('cross-domain') ||
-                    searchText.includes('overfitting') || searchText.includes('generalize')) {
-                    return 'generalization';
-                }
-                
-                // Interpretability and Explainability
-                if (searchText.includes('interpretability') || searchText.includes('explainability') ||
-                    searchText.includes('transparency') || searchText.includes('black box') ||
-                    searchText.includes('explain') || searchText.includes('interpretable')) {
-                    return 'interpretability';
-                }
-                
-                // Optimization and Efficiency
-                if (searchText.includes('optimization') || searchText.includes('efficiency') ||
-                    searchText.includes('convergence') || searchText.includes('training time') ||
-                    searchText.includes('resource usage') || searchText.includes('computational cost')) {
-                    return 'optimization';
-                }
-                
-                return 'other_research_gaps';
+                return bestCategory;
             }
 
             function getMethodologyClusterKey(paper) {
