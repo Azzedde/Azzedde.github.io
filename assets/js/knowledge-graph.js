@@ -1642,6 +1642,36 @@ document.addEventListener("DOMContentLoaded", function() {
             gap: 8px;
         `;
 
+        // Add conference badge first
+        if (paper.conference) {
+            const conferenceBadge = document.createElement('span');
+            conferenceBadge.textContent = paper.conference;
+            conferenceBadge.style.cssText = `
+                background: #fff3e0;
+                color: #e65100;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 500;
+            `;
+            badgesContainer.appendChild(conferenceBadge);
+        }
+
+        // Add year badge second
+        if (paper.year) {
+            const yearBadge = document.createElement('span');
+            yearBadge.textContent = paper.year;
+            yearBadge.style.cssText = `
+                background: #e8f5e8;
+                color: #2e7d32;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 500;
+            `;
+            badgesContainer.appendChild(yearBadge);
+        }
+
         if (paper.classification?.field) {
             const fieldBadge = document.createElement('span');
             fieldBadge.textContent = paper.classification.field;
