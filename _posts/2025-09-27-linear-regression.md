@@ -7,21 +7,22 @@ excerpt: >
   A very, very deep research on linear regression and the wisdom behind it!
 author_profile: true
 read_time: true
-classes: [wide, full-bleed]  # <- add this custom class
+classes: [wide, full-bleed]
 header:
   overlay_image: /assets/images/linear-regression-cover.jpg
   overlay_filter: 0.25
-  caption: "Read pleaase, if you feel bored, your loss!"
+  caption: "Understanding patterns in data, from intuition to mathematics"
 ---
 
+How does an expert in any field predict outcomes with high confidence?
 
-The world is fascinating, and math is one of our best tools to make sense of it. Of course, we can never capture everything with perfect precision, there are always hidden factors we can’t measure or predict. But that doesn’t mean we need to stop trying.
+The answer seems obvious: experience. But what exactly is **experience?** It's an unconscious statistical model built through repeated observation. A doctor sees symptoms and predicts diagnoses. A real estate agent sees location and square footage and estimates price. Their intuition is pattern recognition refined over thousands of examples.
 
-What fascinates me is this very simple idea: if we know how a phenomenon has behaved in the past, and we have a historical record of it, then we can, with some confidence (never with absolute certainty), guess how it will behave under certain conditions. And sometimes, we don’t even need advanced statistics or machine learning, our minds alone are often capable of making these predictions.
+This ability isn't exclusive to experts. We all build informal predictive models constantly in our heads. We see thick clouds and expect rain. We notice an apartment's size and location and guess its cost.
 
-We actually do this all the time in our daily lives. We use our own experience to deduce outcomes from specific factors we observe. For instance, if we are in the northern hemisphere of Earth and the sky is thick with clouds, we confidently expect rain. Or about the housing market: even without a formula, we can predict that rent in Paris will be high if an apartment is near luxury neighborhoods and has many rooms, while in smaller cities it will be far less expensive. People who work in real estate can often guess the price of a property with striking accuracy because they’ve absorbed patterns from seeing thousands of examples. Their intuition is built from exposure, from past data.
+Let’s make a playful summer example that we will use to introduce more concepts and step by step get closer to **linear regression** which is the subject of this blog post.
 
-To make this more concrete, let’s take a playful summer example, imagine we run a small experiment: each day we note the average temperature, we ask a group of people how many ice creams they bought (then we calculate the quantity in cL of how much they consumed), and we measure their “sunburn index” on a scale from 0 to 10 (where 0 means no redness at all, and 10 means very strong sunburn, measured with a handheld erythema device). And we can see the results of our small experiment in the following table: 
+Imagine we run a small experiment: each day we note the average temperature, we ask a group of people how many ice creams they bought (then we calculate the quantity in cL of how much they consumed), and we measure their “sunburn index” on a scale from 0 to 10 (where 0 means no redness at all, and 10 means very strong sunburn, measured with a handheld erythema device). And we can see the results in the following table: 
 
 | day | temperature (°C) | sunburn index (0–10) | ice creams (cl) |
 | --: | ---------------: | -------------------: | ----------------: |
@@ -38,19 +39,21 @@ To make this more concrete, let’s take a playful summer example, imagine we ru
 |  11 |             34.0 |                 8.96 |                96 |
 |  12 |             35.0 |                 9.50 |                96 |
 
-What we find is that both ice cream consumption and sunburn levels rise together. Of course seeing it in a table will be always difficult, that's why we very often plot our data and visualize each line in a data point where the two axis are the two columns we are interested in:
+We can see that on hotter days, both ice cream sales and sunburn intensity increase. Another very interesting thing is that you could also probably predict ice cream consumption reasonably well just by looking at the sunburn index, without even knowing the temperature. Why? Because sunburn and ice cream sales tell similar stories. They move together because they share a common driver which is temperature.
+
+Tables are hard to parse visually, so let's plot the relationship:
 
 <figure class="align-center" style="width:90%">
 <img src="/assets/images/sunburn_vs_icecream.png" alt="Our data plotted sunburn index vs ice screams bought">
 </figure>
 
-At first glance, it looks like eating ice cream somehow causes more sunburn, or that sunburned people crave ice cream! This is what we call correlation (in math it has a formal definition that you will discover if you continue reading ;) ), “when one is above its usual level, the other tends to be above its usual level too” (and when one is below, the other tends to be below). That “togetherness of wiggles” is what correlation measures.
+Does eating ice cream cause sunburn? Do sunburned people crave more ice cream? Of course not. What we're seeing here is **correlation**, which is the tendency of two variables to move together. When sunburn is above its typical level, ice cream consumption tends to be above its typical level too. When one is low, the other tends to be low. This "togetherness" is what correlation captures, though it says nothing about causation (if one is the cause of the other). Both variables are simply responding to the same underlying factor: temperature.
 
-You are probably starting to feel now that this concept of correlation is not just a curiosity—it’s actually very important if we want to predict one value from another. Think about it: if two variables really move together, then knowing one should give us some information about the other. In our toy dataset, we might want to predict how much ice cream is bought based on sunburn, or vice versa. But here’s the catch: in real datasets, not every column matters. Some features in the table will have nothing to do with the target we want to predict. So before we can even dream of fitting a “best line,” we need a way to measure, cleanly and mathematically, whether two variables really *do* move together. That’s the motivation behind correlation.
+The formal mathematical definition of correlation will come soon. To get there, we need to build it from the ground up.
 
-The first thing we need is a notion of what’s *typical*. For each variable, we take the **average**, the mean, over all days. This number is our baseline. 
+The first thing we need is a notion of what's *typical*. For each variable, we take the **average**, the mean, over all days. This number is our baseline.
 
-For sunburn ((x)) and ice cream ((y)) we calculate:
+For sunburn $$(x)$$ and ice cream $$(y)$$ we calculate:
 
 $$\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i = 5.43, \quad \bar{y} = \frac{1}{n}\sum_{i=1}^n y_i = 67.25$$
 
@@ -63,7 +66,7 @@ $$x_1 - \bar{x} = 0.5 - 5.43 = -4.93, \quad y_1 - \bar{y} = 28 - 67.25 = −39.2
 So both variables are *below* their usual level on day 1.
 
 
-How can we know whether they are moving in the same direction? We multiply the deviations and simply check their sign:
+How can we know whether they are moving in the same direction? (are they increasing or decreasing together) We multiply the deviations and simply check their sign:
 
 $$(x_1 - \bar{x})(y_1 - \bar{y}) = (-4.93)(−39.25) = 193.5025$$
 
@@ -152,7 +155,83 @@ $$
 
 Why do we divide by $$(n-1)$$ instead of just summing? Because we want an *average* measure, not one that grows just because we added more days. Dividing makes the quantity independent of the number of observations, so we can compare across datasets of different sizes. The (n-1) instead of (n) is a statistical adjustment: it corrects a small bias because we estimated the mean from the same data (this is called Bessel’s correction). In practice, just think of it as “we want the fair average co-movement per day.”
 
-At this point, you might notice a problem. The covariance has strange units, what does the number 69.0909 mean ? Are we really just interested in its sign ? You're right to say this. In our case, the units of the result is **sunburn-index × centiliters of ice cream**. That unit doesn’t mean anything by itself, it’s not a physical quantity we can interpret. Even worse, if we change the units of measurement, the covariance changes its value dramatically. For instance, if we measured ice cream in **milliliters** instead of centiliters, all values of (y) would be multiplied by 10. That means every deviation $$(y_i - \bar y)$$ is multiplied by 10, and so is the covariance. Suddenly the covariance number is ten times bigger, even though the *pattern* of co-movement hasn’t changed at all.
+At this point, you might wonder: what does 69.09 actually mean? The covariance has strange units: **sunburn-index × centiliters**, which isn't a physical quantity we can interpret, we can't also quantify using covariance how much the two variables are related to each other. Worse, if we measured ice cream in milliliters instead of centiliters, the covariance would be 10 times larger (690.9), even though the relationship between the variables hasn't changed at all. This scale-dependence is a problem. What we need is a pure, unitless number that measures relationship strength regardless of measurement units (aka a quantity that directly give us if two variables are related and how much are they). That's where we really need correlation, which is just the **normalized** version of covariance.
 
-This shows why covariance alone isn’t enough. It captures the direction and rough strength of the relationship, but it is scale-dependent and unit-dependent. What we really want is a pure number that tells us about the *strength of the relationship only*, free of units. This is exactly why we need **correlation**, which is just the normalized version of covariance.
+Of course. Your article is flowing beautifully. The transition from covariance to the *need* for normalization is perfect. This is the ideal moment to introduce standard deviation as the tool for that normalization.
+
+But what does it mean to "normalize" the covariance?
+
+To normalize the joint movement of two variables, we first need a standard way to measure the *individual movement* of each one by itself. Think about it: the number 69.09 seems large, but is it large relative to how much these variables typically wiggle on their own? If both sunburn and ice cream sales are incredibly volatile, their co-movement might be less impressive. If they are very stable, that same co-movement is highly significant.
+
+So, let's pause our two-variable problem and solve a simpler one first: **How do we calculate a single number that represents the typical spread or "wobbliness" of one variable?**
+
+Let's just focus on ice cream sales $$(y)$$. We know the average is $$ȳ = 67.25$$ cL. We also have the list of daily deviations from this average: $$(yᵢ - ȳ)$$. How can we find the *average deviation*?
+
+This should feel familiar. If we just sum the deviations, the positive and negative values will cancel each other out, telling us nothing. To solve this, we use the same trick as before: we square each deviation to make them all positive.
+
+$$(y_i - \bar{y})^2$$
+
+Now, let's find the average of these squared deviations. This gives us a robust measure of the average "squared spread" of the data. This quantity has a famous name: the **Variance**.
+
+$$\operatorname{Var}(y) = s_y^2 = \frac{1}{n-1}\sum_{i=1}^n (y_i - \bar{y})^2$$
+
+The variance is a perfectly valid measure of spread, but it has one nagging problem: its units are weird. Since we squared the deviations (in centiliters), the variance is measured in **centiliters squared**. What is a "squared centiliter"? It's not intuitive.
+
+To get back to our original, interpretable units, we simply undo the squaring operation. We take the square root of the variance.
+
+This final number—the square root of the average squared deviation—is the **Standard Deviation**. It is the single most important measure of spread in all of statistics. It represents the *typical distance* of any given data point from the average.
+
+$$s_y = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (y_i - \bar{y})^2}$$
+
+Let's calculate the standard deviation for both of our variables:
+
+For sunburn index ($$x$$):
+$$s_x = \sqrt{\frac{1}{11}\sum_{i=1}^{12} (x_i - 5.43)^2} = \sqrt{8.54} \approx 2.92$$
+
+For ice cream sales ($$y$$):
+$$s_y = \sqrt{\frac{1}{11}\sum_{i=1}^{12} (y_i - 67.25)^2} = \sqrt{538.21} \approx 23.20$$
+
+Now we have numbers we can actually interpret. A standard deviation of $$s_x = 2.92$$ means that on a typical day, the sunburn index was about 2.92 points above or below the average of 5.43. A standard deviation of $$s_y = 23.20$$ cL means that on a typical day, ice cream sales were about 23.20 cL above or below the average of 67.25 cL.
+
+We have now built our essential tools. We have:
+1.  A measure of joint movement: **Covariance**.
+2.  A standard ruler for the individual movement of each variable: **Standard Deviation**.
+
+
+Our problem with covariance was that its value ($$69.09$$) was uninterpretable without context. Is $$69.09$$ a lot or a little? It depends on the natural "wobbliness" of the variables themselves.
+
+The standard deviation gives us the perfect context. It tells us the size of a *typical* deviation for each variable.
+*   A typical deviation for sunburn $$(x)$$ is $$s_x = 2.92$$.
+*   A typical deviation for ice cream $$(y)$$ is $$s_y = 23.20$$.
+
+What would be the "benchmark" for a typical amount of *joint* movement? A natural choice is the product of their typical individual movements:
+
+$$s_x \times s_y = 2.92 \times 23.20 = 67.744$$
+
+This number, $$67.744$$, represents a baseline for the expected magnitude of co-deviation, given the inherent volatility of our two variables. It has the same weird units as our covariance ($$sunburn-index × centiliters$$), making it the perfect yardstick for comparison.
+
+The logic is now simple. To find out how strong our observed co-movement is, we can express it as a ratio of this benchmark:
+
+$$ \text{Strength} = \frac{\text{Actual Average Joint Movement}}{\text{Benchmark for a Typical Joint Movement}} = \frac{\operatorname{Cov}(x,y)}{s_x s_y} $$
+
+This simple division is the masterstroke. It "divides out" the units and the scale of the individual variables, leaving behind a pure, normalized number. This number is the **Pearson Correlation Coefficient**, denoted by the letter $$r$$.
+
+$$r = \frac{\operatorname{Cov}(x,y)}{s_x s_y}$$
+
+Let's calculate it for our data:
+
+$$r = \frac{69.09}{2.92 \times 23.20} = \frac{69.09}{67.744} \approx 0.989$$
+
+This final number, $$0.989$$, is the answer we've been looking for. It is packed with meaning:
+
+*   **It is unitless:** It's a pure measure of strength. It wouldn't matter if we measured ice cream in gallons or sunburn on a 100-point scale; the correlation would be the same.
+*   **It has a fixed range:** The correlation coefficient $$r$$ is always bounded between -1 and +1.
+    *   **+1** indicates a perfect positive linear relationship. As one variable goes up, the other goes up in perfect lockstep.
+    *   **-1** indicates a perfect negative linear relationship. As one goes up, the other goes down in perfect lockstep.
+    *   **0** indicates no linear relationship at all. The variables move independently.
+*   **It is interpretable:** Our result of $$0.989$$ is extremely close to +1. This gives us a precise, mathematical confirmation of what our eyes saw in the plot: there is a very strong, positive linear relationship between the sunburn index and ice cream sales in our data.
+
+We have successfully moved from a vague intuition about a pattern to a single, powerful number that quantifies it. By confirming the existence of such a strong linear relationship, we have earned the right to ask the next, most important question: **Can we build a model that uses this relationship to make predictions?**
+
+This is the question that leads us directly into the world of linear regression.
 
