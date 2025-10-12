@@ -67,3 +67,24 @@ This leads directly to the idea of **authenticity**. The goal isn't to live some
 All the shit I'm talking about is about **self-creation**, intentionally building a life that feels good on the inside, not just one that looks good on paper, good for others, good for flexing, good for Instagram stories. It means accepting that a personally meaningful purpose is a far better predictor of mental health and resilience than a stable job you hate. It's about reframing this entire post-graduation crisis. It's not anymore a sign that you're lost; but an opportunity for "post-crisis growth", for the biggest comeback of your history as a human, a necessary catalyst for becoming who you're supposed to be, and who you really are.
 
 We always meet ourselves by chance in the middle of hard times. Strive toward the difficult, pursue failure, love it, and embrace the tempest fully ... for it is in the very center of the storm that our truest selves reside.
+
+## 🌱 Sources and further reading
+
+
+* [Why Recent College Graduates Can Feel Let Down](https://www.psychologytoday.com/us/blog/cutting-edge-leadership/202405/why-recent-college-graduates-can-feel-let-down) — *Psychology Today*
+* [Post-College Depression: Signs and Recovery](https://www.newportinstitute.com/resources/mental-health/post-college-depression/) — *Newport Institute*
+* [Maintaining Mental Balance Through Major Life Transitions](https://tandempsychology.com/maintaining-mental-balance-through-major-life-transitions/) — *Tandem Psychology*
+* [How to Find Inner Peace and Life Balance in Times of Crisis](http://www.drpaulwong.com/the-concluding-chapter-how-to-find-inner-peace-life-balance-in-times-of-crisis/) — *Dr. Paul Wong*
+* [Navigating Life Transitions: Embracing the Messy Middle of Life](https://www.brighterlife.nz/post/navigating-life-transitions-embracing-the-messy-middle-of-life) — *Brighter Life NZ*
+* [Post-Graduation Grief: Why It’s Okay to Feel Lost](https://www.youngminds.org.uk/young-person/blog/post-graduation-grief-why-it-s-okay-to-feel-lost-and-how-to-embrace-change/) — *Young Minds*
+* [A Philosophical Identity Crisis](https://philosophynow.org/issues/97/A_Philosophical_Identity_Crisis) — *Philosophy Now*
+* [The Identity Crisis of the Modern University](https://cpp.web.amu.edu.pl/kwiek/pdf/Kwiek_Identity_Crisis.pdf) — *Marek Kwiek*
+* [Education and the Collapse of the Metanarrative](https://journals.uclpress.co.uk/lre/article/2965/galley/17732/view/) — *UCL Press*
+* [Solving Higher Education’s Identity Crisis](https://www.forbes.com/sites/glennllopis/2020/10/24/solving-higher-educations-identity-crisis/) — *Forbes*
+* [The Social Functions of Imitation in Humans](https://pmc.ncbi.nlm.nih.gov/articles/PMC2865082/) — *National Center for Biotechnology Information (NCBI)*
+* [Over-Imitation Across Cultures](https://pmc.ncbi.nlm.nih.gov/articles/PMC8445421/) — *NCBI*
+* [Children Overimitate Adults Regardless of Culture](https://www.science.org/content/article/kids-overimitate-adults-regardless-culture) — *Science.org*
+* [Cultural Transmission and Contextual Imitation](https://www.sciencedirect.com/science/article/pii/S002209652300173X) — *Journal of Experimental Child Psychology*
+* [Life Balance During Transitions](https://drdesireehowell.com/life-balance-transitions) — *Dr. Desiree Howell*
+* [Embracing Life Transitions with Ilene Schaffer](https://sonyalooney.com/embracing-life-transitions-with-ilene-schaffer/) — *Sonya Looney Podcast*
+* [The Twenties Detox: Post-Graduation Confusion](https://www.thetwentiesdetox.com/journal/post-graduation) — *The Twenties Detox*
