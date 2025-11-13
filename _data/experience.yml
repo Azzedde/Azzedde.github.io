@@ -28,17 +28,3 @@
       <li>Created <strong>5G-specific INSTRUCT datasets</strong> from 22+ 3GPP specifications using custom text-processing pipelines and Python automation.</li>
       <li>Authored and released an <strong><a href="https://gitlab.eurecom.fr/netsoft/5g-instruct-forge" target="_blank">open-source pipeline</a></strong> capable of producing large-scale, instruction-tuned datasets for <strong>fine-tuning open-source LLMs</strong> to efficiently learn knowledge about 5G.</li>
     </ul>
-    
-- company: EDF R&D Labs
-  title: LLM Engineer
-  period: Oct '24 – Present
-  logo: /assets/images/icon-edf.svg
-  details: |
-    <h4>LLM & RAG-based Conversational Agents</h4>
-    <ul>
-      <li>Developed <strong>domain-specific chatbots</strong> using <strong>Retrieval-Augmented Generation (RAG)</strong> and <strong>Large Language Models (LLMs)</strong> to assist internal teams with natural language queries over complex technical documents.</li>
-    </ul>
-    <h4>Evaluation of Multimodal Generative AI Systems</h4>
-    <ul>
-      <li>Benchmarked <strong>state-of-the-art multimodal AI systems</strong> for tasks such as document information extraction and summarization.</li>
-    </ul>

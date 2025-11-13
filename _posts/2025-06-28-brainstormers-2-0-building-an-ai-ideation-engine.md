@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: shit
 title: "Brainstormers 2.0 – Building an AI Ideation Engine That Thinks *with* You"
 date: 2025-06-28 15:56:59 +0200
 categories: technical
@@ -14,6 +14,10 @@ header:
   caption: "Thinking is the best thing ever !"
 ---
 
+post will be re-written too much generative AI used unfrotunately :'( 
+
+  
+<!-- 
 > **"When two or more brains clash, sparks fly.  
 > But what if the other brains aren't in the room—and charge by the hour?"**
 
@@ -141,4 +145,4 @@ Planned roadmap:
 * **Code:** [https://github.com/Azzedde/brainstormers](https://github.com/Azzedde/brainstormers)
 
 *If you improve it, send a PR; if you fund it, we can wrap a house LLM and turn
-Brainstormers into a full SaaS platform.*
+Brainstormers into a full SaaS platform.* -->

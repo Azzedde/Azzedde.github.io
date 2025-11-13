@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: shit
 title: "Read first, build after !"
 date: 2025-06-08 12:00:00 +0200
 categories: general
@@ -7,8 +7,9 @@ excerpt: >
   A critique of the “build to learn” mindset on LinkedIn and tips for learning without paying for bootcamps.
 ---
 
+This post will be re-written, I don't like it
 
-The first half of 2025 was intense. I dedicated six months to building various LLM-based projects because I believed in the mantra: "build to learn." Influencers on LinkedIn kept pushing this narrative: "You can't become an ML engineer without building a full RAG pipeline," or, "If you've never built X, you're not ready." Each post would inevitably lead to a pitch for their courses, books, or bootcamps. Honestly, I think this needs to stop.
+<!-- The first half of 2025 was intense. I dedicated six months to building various LLM-based projects because I believed in the mantra: "build to learn." Influencers on LinkedIn kept pushing this narrative: "You can't become an ML engineer without building a full RAG pipeline," or, "If you've never built X, you're not ready." Each post would inevitably lead to a pitch for their courses, books, or bootcamps. Honestly, I think this needs to stop.
 
 Still, I learned a lot by building:
 
@@ -42,4 +43,4 @@ Reflecting again on those LinkedIn influencers, I noticed a troubling pattern: t
 
 I will start reading papers thoroughly, acquiring NLP knowledge daily, and documenting my learning in posts on this website. After gaining confidence—perhaps after 1000 papers, though I don't think that's enough—I might begin critically reviewing papers. Until then, I’ll simply learn, read, share, and grow. Building blindly without theory isn't enough; true innovation requires genuine understanding.
 
-As my father always emphasized, documentation and reading are essential. The more data and knowledge you acquire, the clearer your understanding becomes, dissolving the fog of ignorance, confusion, and dissonance. Reading is indeed the key.
+As my father always emphasized, documentation and reading are essential. The more data and knowledge you acquire, the clearer your understanding becomes, dissolving the fog of ignorance, confusion, and dissonance. Reading is indeed the key. -->
