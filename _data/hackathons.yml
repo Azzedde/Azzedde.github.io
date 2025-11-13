@@ -1,9 +1,9 @@
 - name: "Hardcore AI Hackathon Berlin"
-  period: "24 Hours"
+  period: "1 Day"
   logo: /assets/images/hackathon-hardcore-ai.avif # <-- Create and place your logo here
   project_name: "🏆 1st Place: Neural Network Compression"
-  ranking: "🏆" # <-- CHANGED        # <-- ADDED
-  ranking_class: "gold"  # <-- ADDED
+  ranking: "🏆" 
+  ranking_class: "gold"  
   details: |
     <p>At The Delta Campus, my team tackled SEMRON’s Software Challenge to optimize neural networks under binary hashing constraints, achieving top scores for both compression ratio and retained accuracy.</p>
     <img src="/assets/images/hackathon4-1.jpg" alt="Celebrating our victory at the Hardcore AI Hackathon" style="width:100%; border-radius: 5px; margin-top: 1em;">
@@ -16,10 +16,10 @@
 
 - name: "Generative AI Challenge"
   period: "4 Days"
-  logo: /assets/images/hackathon-gac.png # <-- Create and place your logo here
+  logo: /assets/images/hackathon-gac.png 
   project_name: "Runner-Up: COBOL Documentation Generator"
-  ranking: "🥈"          # <-- ADDED
-  ranking_class: "silver" # <-- ADDED
+  ranking: "🥈"          
+  ranking_class: "silver" 
   details: |
     <p>A hackathon uniting Université Paris-Saclay, Paris 8, and UQAC. My team tackled the real-world need for automated COBOL documentation by fine-tuning a 3B-parameter LLM and shipping a VS Code extension.</p>
     <img src="/assets/images/hackathon1-2.jpg" alt="VS Code extension demo for COBOL documentation" style="width:100%; border-radius: 5px; margin-top: 1em;">
@@ -30,12 +30,12 @@
     <p><a href="https://github.com/Azzedde/cobol-doc-extension" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
 
 - name: "AI Action Summit Hackathon"
-  period: "24 Hours"
+  period: "1 Day"
   logo: /assets/images/hackathon-ai-action.jpeg # <-- Create and place your logo here
   project_name: "Medical Co-pilot"
 
   details: |
-    <p>In 24 hours, Team AN2I built an agentic assistant for clinicians that captures consultation dialogue, suggests follow-up questions, fetches authoritative medical data, and auto-generates structured reports.</p>
+    <p>In 1 Day, Team AN2I built an agentic assistant for clinicians that captures consultation dialogue, suggests follow-up questions, fetches authoritative medical data, and auto-generates structured reports.</p>
     <img src="/assets/images/hackathon2-1.jpg" alt="Live demo of Medical Co-pilot" style="width:100%; border-radius: 5px; margin-top: 1em;">
     <ul>
       <li><strong>Tech Stack:</strong> Docker, Celery, UV, OpenAI SDK, Mistral API.</li>
@@ -44,8 +44,8 @@
     <p><a href="https://github.com/mlengineershub/ai_action_summit_hackathon_an2i" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
 
 - name: "UTOPIA × Kryptosphere Agentathon"
-  period: "1 Day"
-  logo: /assets/images/hackathon-utopia.png # <-- Create and place your logo here
+  period: "2 Days"
+  logo: /assets/images/hackathon-utopia.png 
   project_name: "Sherlock: Security Investigation Agent"
   details: |
     <p>At ESSEC Cergy, we built “Sherlock,” a security-breach investigation agent using a React frontend, FastAPI backend, and AWS Bedrock (Claude models). Sherlock visualizes hypotheses in an interactive tree and generates detailed investigation reports.</p>
@@ -58,28 +58,51 @@
 
 - name: "RAISE Summit Hackathon"
   period: "1 Day"
-  logo: /assets/images/hackathon-raise.avif # <-- Create and place your logo here
-  project_name: "Sherlock: Security Investigation Agent"
-  ranking: "🥈"          # <-- ADDED
-  ranking_class: "silver" # <-- ADDED
+  logo: /assets/images/hackathon-raise.avif
+  project_name: "An LLM agent that help you find insights from your busy email inbox"
+  ranking: "🥈"
+  ranking_class: "silver"
   details: |
-    <p>At ESSEC Cergy, we built “Sherlock,” a security-breach investigation agent using a React frontend, FastAPI backend, and AWS Bedrock (Claude models). Sherlock visualizes hypotheses in an interactive tree and generates detailed investigation reports.</p>
-    <img src="/assets/images/hackathon3-2.jpg" alt="Interactive investigation tree in Sherlock" style="width:100%; border-radius: 5px; margin-top: 1em;">
-    <ul>
-      <li><strong>Features:</strong> AI-powered hypothesis generation, node expansion, and plausibility marking.</li>
-      <li><strong>Impact:</strong> Demonstrated the power of agentic frameworks for cybersecurity.</li>
-    </ul>
-    <p><a href="https://github.com/mlengineershub/sherlock" target="_blank" rel="noopener noreferrer">Explore the Code</a></p>
+    <p>Read the recap of our the event here:</p>
+    <p>
+      <a href="https://www.linkedin.com/posts/azzedine-idir-aitsaid-7bab84229_raisesummit-hackathon-ai-activity-7349183938071773185-ossr"
+         target="_blank" rel="noopener noreferrer">
+        <img src="/assets/images/raise-linkedin-thumbnail.png"
+             alt="LinkedIn recap of RAISE Summit Hackathon"
+             style="width:100%; border-radius: 5px; margin-bottom: 0.5em;">
+        <br>
+        Open the LinkedIn post in a new tab
+      </a>
+    </p>
 
 - name: "Agents Hack Unaite x Hugging Face"
   period: "1 Day"
-  logo: /assets/images/hackathon-huggingface.jpg # <-- Create and place your logo here
-  project_name: "Sherlock: Security Investigation Agent"
+  logo: /assets/images/hackathon-huggingface.jpg 
+  project_name: "Helping investors and VCs making informed decisions"
   details: |
-    <p>At ESSEC Cergy, we built “Sherlock,” a security-breach investigation agent using a React frontend, FastAPI backend, and AWS Bedrock (Claude models). Sherlock visualizes hypotheses in an interactive tree and generates detailed investigation reports.</p>
-    <img src="/assets/images/hackathon3-2.jpg" alt="Interactive investigation tree in Sherlock" style="width:100%; border-radius: 5px; margin-top: 1em;">
-    <ul>
-      <li><strong>Features:</strong> AI-powered hypothesis generation, node expansion, and plausibility marking.</li>
-      <li><strong>Impact:</strong> Demonstrated the power of agentic frameworks for cybersecurity.</li>
-    </ul>
-    <p><a href="https://github.com/mlengineershub/sherlock" target="_blank" rel="noopener noreferrer">Explore the Code</a></p>
+    <img src="/assets/images/huggingface_hackathon_picture.png" alt="Interactive investigation tree in Sherlock" style="width:100%; border-radius: 5px; margin-top: 1em;">
+    <p>
+      At Hugging Face’s Paris headquarters 
+      I took part in the Agents Hack organized by Unaite and Anthropic, together with 
+      Ahmed Sidi Ahmed, Ferhat Addour, and Abdoulaye Doucouré.
+    </p>
+
+    <p>
+      We built a multi-agent system designed to support VCs in their decision-making: 
+      quickly understanding a market, brainstorming ideas, evaluating technical feasibility, 
+      analyzing financial insights, and more.
+    </p>
+
+    <p>
+      For the frontend, we let users drag and drop the agents they want to activate, 
+      and the orchestrator dynamically planned the interactions between the selected agents.
+    </p>
+
+    <p>
+      We didn’t win.
+    </p>
+
+    <p>
+      It was short — from 10:00 to 18:30 — but it was a really good experience!
+    </p>
+

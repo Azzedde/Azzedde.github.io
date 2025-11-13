@@ -88,14 +88,14 @@ title: "Interactive Resume"
            data-title="{{ item.name }}"
            data-date="{{ item.period }}">
 
-        {% if item.ranking %}  <!-- CHECK IF RANKING EXISTS -->
+        {% if item.ranking %}
           <span class="logo-card__ranking {{ item.ranking_class }}">{{ item.ranking }}</span>
         {% endif %}
 
         <img src="{{ item.logo | relative_url }}" alt="{{ item.name }} logo">
         <div class="modal-hidden-content" style="display:none;">
           <h3>{{ item.project_name }}</h3>
-          {{ item.details | markdownify }}
+          {{ item.details }}   <!-- NO markdownify HERE -->
         </div>
       </div>
     {% endfor %}
