@@ -1,0 +1,27 @@
+contact:
+  email: "aitsaid.azzedineidir@gmail.com"
+  github: "https://github.com/Azzedde"
+  linkedin: "https://www.linkedin.com/in/azzedine-idir-aitsaid-7bab84229/"
+  twitter: "https://x.com/azzedde"
+
+education:
+  - period: "2025 – present"
+    degree: "PhD (CIFRE)"
+    institution: "Télécom Paris & BNP Paribas"
+
+  - period: "2024 – 2025"
+    degree: "M2 Data Science"
+    institution: "Université Paris-Saclay, Orsay"
+
+  - period: "2019 – 2024"
+    degree: "Computer Engineering"
+    institution: "École Nationale Supérieure d'Informatique (ESI), Algiers"
+
+experience:
+  - period: "Jan – Jun 2024"
+    title: "LLM Research Engineer"
+    institution: "EURECOM"
+    description: "Designed and implemented 5G INSTRUCT Forge: an open-source pipeline converting 3GPP Technical Specifications into instruction-tuning datasets for domain-adapted LLMs. Published in IEEE Transactions on Cognitive Communications and Networking."
+
+awards:
+  - "Mediterranean Mathematical Olympiad — 2017, 2018"

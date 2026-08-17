@@ -1,7 +1,6 @@
 ---
-layout: resume-interactive
+layout: resume-simple
 title: "Resume"
 permalink: /resume/
+author_profile: false
 ---
-
-This is my interactive resume. Click on the logos to see more details about my education and work experience.

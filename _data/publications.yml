@@ -1,0 +1,17 @@
+- date: "2024"
+  title: "5G INSTRUCT Forge: An Advanced Data Engineering Pipeline for Making LLMs Learn 5G"
+  venue: "IEEE Transactions on Cognitive Communications and Networking"
+  links:
+    - label: "paper"
+      url: "https://ieeexplore.ieee.org/document/10794684"
+    - label: "code"
+      url: "https://gitlab.eurecom.fr/netsoft/5g-instruct-forge"
+
+- date: "2023"
+  title: "Automatic Curriculum Learning: Solving Rubik's Cube Beyond PPO Limitations"
+  venue: "School of AI Algiers Research Camp"
+  links:
+    - label: "poster"
+      url: "/assets/images/poster_CL_Summer_AI.pdf"
+    - label: "code"
+      url: "https://github.com/BrouthenKamel/Auto-CL"

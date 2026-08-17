@@ -1,0 +1,21 @@
+- date: "2025 – present"
+  title: "PhD Research"
+  description: "CIFRE doctoral research at Télécom Paris and BNP Paribas."
+
+- date: "Jan – Jun 2024"
+  title: "LLM Research Engineer, EURECOM"
+  description: "Built 5G INSTRUCT Forge, a data engineering pipeline for fine-tuning LLMs on 3GPP specifications. Led to a publication in IEEE TCCN."
+  links:
+    - label: "paper"
+      url: "https://ieeexplore.ieee.org/document/10794684"
+    - label: "code"
+      url: "https://gitlab.eurecom.fr/netsoft/5g-instruct-forge"
+
+- date: "2023"
+  title: "Automatic Curriculum Learning"
+  description: "Reinforcement learning research on teacher–student curriculum learning for sequential decision problems, in collaboration with Kamel Brouthen, Amir Almamma, and Massinissa Aboud."
+  links:
+    - label: "poster"
+      url: "/assets/images/poster_CL_Summer_AI.pdf"
+    - label: "code"
+      url: "https://github.com/BrouthenKamel/Auto-CL"

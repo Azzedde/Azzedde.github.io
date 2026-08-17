@@ -1,0 +1,73 @@
+---
+layout: academic
+---
+
+<div class="cv-header">
+  <h1>Azzedine Idir</h1>
+  <p class="cv-subtitle">PhD student, Télécom Paris & BNP Paribas</p>
+  <p class="cv-contact">
+    <a href="mailto:{{ site.data.cv.contact.email }}">{{ site.data.cv.contact.email }}</a>
+    &nbsp;·&nbsp;
+    <a href="{{ site.data.cv.contact.github }}">GitHub</a>
+    &nbsp;·&nbsp;
+    <a href="{{ site.data.cv.contact.linkedin }}">LinkedIn</a>
+  </p>
+</div>
+
+<div class="cv-section">
+  <h2>Education</h2>
+  {% for entry in site.data.cv.education %}
+  <div class="cv-entry">
+    <div class="cv-entry-header">
+      <div>
+        <span class="cv-entry-title">{{ entry.degree }}</span>
+        <span class="cv-entry-institution"> — {{ entry.institution }}</span>
+      </div>
+      <span class="cv-entry-period">{{ entry.period }}</span>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="cv-section">
+  <h2>Experience</h2>
+  {% for entry in site.data.cv.experience %}
+  <div class="cv-entry">
+    <div class="cv-entry-header">
+      <div>
+        <span class="cv-entry-title">{{ entry.title }}</span>
+        <span class="cv-entry-institution"> — {{ entry.institution }}</span>
+      </div>
+      <span class="cv-entry-period">{{ entry.period }}</span>
+    </div>
+    {% if entry.description %}
+    <p class="cv-entry-desc">{{ entry.description }}</p>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="cv-section">
+  <h2>Publications</h2>
+  {% for pub in site.data.publications %}
+  <div class="cv-pub">
+    {{ pub.title }}. <em>{{ pub.venue }}</em>, {{ pub.date }}.
+    {% if pub.links %}
+    <span class="cv-pub-links">
+      {% for link in pub.links %}
+      [<a href="{{ link.url }}">{{ link.label }}</a>]{% unless forloop.last %} {% endunless %}
+      {% endfor %}
+    </span>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="cv-section">
+  <h2>Awards</h2>
+  <ul class="cv-list">
+    {% for award in site.data.cv.awards %}
+    <li>{{ award }}</li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+<div id="main" role="main">
+  <article class="academic"{% if page.layout == "academic" %} itemscope itemtype="https://schema.org/Person"{% endif %}>
+    <div class="academic__content">
+      {{ content }}
+    </div>
+  </article>
+</div>

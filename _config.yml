@@ -17,17 +17,17 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 # Site Settings
 locale                   : "en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "Azzedine Idir's Personal Website" # site title that appears in the masthead
+title                    : "Azzedine Idir"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "AIT SAID Azzedine Idir"
-description              : "My personal website, where I share my projects, code contributions, and blog posts."
+name                     : "Azzedine Idir"
+description              : "PhD student at Télécom Paris and BNP Paribas."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
+masthead_title           : "Azzedine Idir"
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
 enable_copy_code_button  : # true, false (default)
@@ -67,7 +67,7 @@ reCaptcha:
   secret                 :
 atom_feed:
   path                   : # blank (default) uses feed.xml
-  hide                   : # true, false (default)
+  hide                   : true
 search                   : # true, false (default)
 search_full_content      : # true, false (default)
 search_provider          : # lunr (default), algolia, google
@@ -113,11 +113,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "AIT SAID Azzedine Idir"
+  name             : "Azzedine Idir"
   avatar           : "/assets/images/avatar.jpg"
-  bio              : "Just another believer that sky is not the limit."
-  location         : "Ile-de-France, France"
-  email            :
+  bio              : "PhD student at Télécom Paris and BNP Paribas."
+  location         : "Paris, France"
+  email            : "aitsaid.azzedineidir@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -163,10 +163,15 @@ footer:
 include:
   - .htaccess
   - _pages
-  - assets/apps/paper-cards/dist
 exclude:
-  - assets/apps/paper-cards/src
-  - assets/apps/paper-cards/node_modules
+  - _posts
+  - categories
+  - _pages/blog_posts.md
+  - _pages/papers_explorer.md
+  - _pages/reading-list.md
+  - _pages/paper_cards.md
+  - _pages/reasoning-explorer.md
+  - assets/apps
   - "*.sublime-project"
   - "*.sublime-workspace"
   - vendor
@@ -232,9 +237,9 @@ permalink: /:categories/:title/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
-# Pagination with jekyll-paginate
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
+# Pagination — disabled (no blog)
+# paginate: 5
+# paginate_path: /page:num/
 
 # Pagination with jekyll-paginate-v2
 # See https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
@@ -260,7 +265,6 @@ pagination:
 
 # Plugins (previously gems:)
 plugins:
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
@@ -268,7 +272,6 @@ plugins:
 
 # mimic GitHub Pages with --safe
 whitelist:
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
@@ -314,21 +317,9 @@ compress_html:
 
 # Defaults
 defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: # true
-      share: true
-  # _pages
   - scope:
       path: ""
       type: pages
     values:
-      layout: single
-      author_profile: true
-      related: true
+      layout: academic
+      author_profile: false

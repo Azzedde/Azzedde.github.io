@@ -1,25 +1,6 @@
 # main links
 main:
-  # - title: "Quick-Start Guide"
-  #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "Home"
+    url: /
   - title: "Resume"
     url: /resume/
-
-  - title: "Blog Posts"
-    url: /blog-posts/
-
-  # - title: "Paper Cards"
-  #   url: /paper-cards/
-
-  - title: "Papers explorer"
-    url: /papers-explorer/
-
-
-  - title: "Reading List"
-    url: /reading-list/
-
-  - title: "Reasoning Explorer"
-    url: /reasoning-explorer/
-
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
